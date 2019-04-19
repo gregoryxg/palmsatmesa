@@ -1,3 +1,5 @@
-Hello Greg!!@!
+@extends('layout')
 
-<a href="/contact">Contact us</a>
+@section('content')
+    <h1>My first webpage</h1>
+@endsection
