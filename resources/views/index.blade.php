@@ -1,3 +1,3 @@
 Hello Greg!!@!
 
-<a href="contact.blade.php">Contact us</a>
+<a href="/contact">Contact us</a>
