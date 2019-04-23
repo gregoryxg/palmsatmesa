@@ -9,5 +9,6 @@
 <a href="/">Home</a>
 <a href="/contact">Contact us</a>
 <a href="/about">About</a>
+<a href="/projects">Projects</a>
 </body>
 </html>
