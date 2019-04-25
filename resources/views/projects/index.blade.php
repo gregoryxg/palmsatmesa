@@ -9,5 +9,4 @@
         <br>
     @endforeach
     <a href="/projects/create">Create a new Project</a>
-    <br/>
 @endsection

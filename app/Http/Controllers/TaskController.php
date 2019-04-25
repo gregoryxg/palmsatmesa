@@ -24,7 +24,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        return view('tasks.create');
+        return view('projects.index');
     }
 
     /**
@@ -42,7 +42,7 @@ class TaskController extends Controller
             ])
         );
 
-        return redirect('/projects/'.request(['project_id']));
+        return back();
     }
 
     /**
