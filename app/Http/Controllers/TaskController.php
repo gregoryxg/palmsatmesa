@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Project;
+use App\Task;
 use Illuminate\Http\Request;
 
-class ProjectsController extends Controller
+class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
-
-        return view('projects.index', ['projects' => $projects]);
+        return view('tasks.index');
     }
 
     /**
@@ -26,7 +24,7 @@ class ProjectsController extends Controller
      */
     public function create()
     {
-        return view('projects.create');
+        return view('tasks.create');
     }
 
     /**
@@ -37,62 +35,58 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        Project::create(
+        Task::create(
             request()->validate([
-                'title'=>['required', 'min:3', 'max:45'],
+                'project_id'=>['required'],
                 'description'=>['required', 'min:3', 'max:255']
             ])
         );
 
-        return redirect('/projects');
+        return redirect('/projects/'.request(['project_id']));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Project  $project
+     * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project)
+    public function show(Task $task)
     {
-        return view('projects.show', ['project'=>$project]);
+        return view('tasks.show', ['task'=>$task]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Project  $project
+     * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function edit(Project $project)
+    public function edit(Task $task)
     {
-        return view('projects.edit', ['project'=>$project]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Project  $project
+     * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Project $project)
+    public function update(Request $request, Task $task)
     {
-        $project->update(request(['title', 'description']));
-
-        return redirect('/projects');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Project  $project
+     * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Project $project)
+    public function destroy(Task $task)
     {
-        $project->delete();
-
-        return redirect('projects');
+        //
     }
 }
