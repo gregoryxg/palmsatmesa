@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>@yield('title')</title>
-</head>
-<body>
-@yield('content')
+    <head>
+        <title>@yield('title')</title>
+    </head>
+    <body>
+        <a href="/">Home</a>
+        <a href="/contact">Contact us</a>
+        <a href="/about">About</a>
+        <a href="/projects">Projects</a>
 
-<a href="/">Home</a>
-<a href="/contact">Contact us</a>
-<a href="/about">About</a>
-<a href="/projects">Projects</a>
-</body>
+        @yield('content')
+
+    </body>
 </html>
