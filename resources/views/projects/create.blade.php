@@ -1,4 +1,4 @@
-@extends('layouts.header')
+@extends('layouts._header')
 
 @section('title', 'Create Project')
 
@@ -16,15 +16,7 @@
             <button type="submit">Create Project</button>
         </div>
 
-        @if ($errors->any())
-        <div>
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{$error}}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
+        @include('layouts._errors')
 
     </form>
 @endsection

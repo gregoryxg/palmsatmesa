@@ -1,4 +1,4 @@
-@extends('layouts.header')
+@extends('layouts._header')
 
 @section('content')
     <h1>Edit Project</h1>
@@ -27,6 +27,8 @@
                 <button type="submit">Update Project</button>
             </div>
         </div>
+
+        @include('layouts._errors')
     </form>
     <br/>
     <form method="post" action="/projects/{{ $project->id }}">

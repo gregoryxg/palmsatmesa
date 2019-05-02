@@ -1,4 +1,4 @@
-@extends('layouts.header')
+@extends('layouts._header')
 
 @section('title', 'Contact Us')
 

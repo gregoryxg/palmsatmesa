@@ -1,17 +1,17 @@
-@extends('layouts.header')
+@extends('layouts._header')
 
 @section('content')
-    <h1>Edit Project</h1>
-    <form method="post" action="/projects/{{ $project->id }}">
+    <h1>Edit Task</h1>
+    <form method="post" action="/tasks/{{ $task->id }}">
 
         @method('PATCH')
         @csrf
 
         <div>
-            <label>Title</label>
+            <label>Complete</label>
 
             <div>
-                <input type="text" name="title" placeholder="Title" value="{{ $project->title }}" required/>
+                <input type="checkbox" name="complete" {{ $task->complete ? "checked" : "" }}/>
             </div>
 
         </div>
@@ -19,24 +19,24 @@
             <label>Description</label>
 
             <div>
-                <textarea name="description" required>{{ $project->description }}</textarea>
+                <textarea name="description" required>{{ $task->description }}</textarea>
             </div>
         </div>
         <div>
             <div>
-                <button type="submit">Update Project</button>
+                <button type="submit">Update Task</button>
             </div>
         </div>
     </form>
     <br/>
-    <form method="post" action="/projects/{{ $project->id }}">
+    <form method="post" action="/tasks/{{ $task->id }}">
 
         @method('DELETE')
         @csrf
 
         <div>
             <div>
-                <button type="submit">Delete Project</button>
+                <button type="submit">Delete Task</button>
             </div>
         </div>
     </form>

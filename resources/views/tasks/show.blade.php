@@ -1,4 +1,4 @@
-@extends('layouts.header')
+@extends('layouts._header')
 
 @section('content')
     <h3>{{$project->title}}</h3>

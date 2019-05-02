@@ -64,7 +64,7 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        //
+        return view('tasks.edit', ['task'=>$task]);
     }
 
     /**
@@ -76,7 +76,12 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        //
+        $task->update([
+            'complete'=>request()->has('complete'),
+            'description'=>request('description')
+        ]);
+
+        return redirect('/projects/'.$task->project_id);
     }
 
     /**

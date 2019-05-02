@@ -1,4 +1,4 @@
-@extends('layouts.header')
+@extends('layouts._header')
 
 @section('content')
     <h3>{{$project->title}}</h3>
@@ -8,7 +8,7 @@
     @if($project->tasks->count())
     <div>
         @foreach($project->tasks as $task)
-            <li>{{$task->description}}</li>
+            <li><input type="checkbox" disabled {{ $task->complete ? "checked" : "" }}/><a href="/tasks/{{$task->id}}/edit">{{$task->description}}</a></li>
         @endforeach
     </div>
     @endif
