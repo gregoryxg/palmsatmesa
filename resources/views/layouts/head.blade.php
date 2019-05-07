@@ -31,5 +31,5 @@
         }
     </style>
     <!-- Custom styles for this template -->
-    <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
+    <link href="{{ asset('carousel.css') }}" rel="stylesheet">
 </head>
