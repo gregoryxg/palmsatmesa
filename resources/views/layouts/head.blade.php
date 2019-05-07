@@ -6,13 +6,18 @@
     <meta name="generator" content="Jekyll v3.8.5">
     <title>@yield('title')</title>
 
+{{--
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/carousel/">
+--}}
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
 
     <!-- Font Awesome Icons -->
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
 
     <style>
         .bd-placeholder-img {
@@ -30,6 +35,5 @@
             }
         }
     </style>
-    <!-- Custom styles for this template -->
-    <link href="{{ asset('carousel.css') }}" rel="stylesheet">
+
 </head>
