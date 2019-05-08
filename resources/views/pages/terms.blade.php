@@ -1,6 +1,8 @@
-@extends('layouts.master')
+@extends('layouts.guest_master')
 
 @section('title', 'Terms of Service')
+
+@section('active_terms', 'nav-item active')
 
 @section('content')
 

@@ -1,6 +1,8 @@
-@extends('layouts.master')
+@extends('layouts.guest_master')
 
 @section('title', 'Privacy')
+
+@section('active_privacy', 'nav-item active')
 
 @section('content')
 

@@ -4,7 +4,7 @@
 
     <body style="">
 
-    @include('layouts.navbar')
+    @include('layouts.guest_navbar')
 
         <main role="main">
 

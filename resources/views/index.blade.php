@@ -1,6 +1,8 @@
-@extends('layouts.master')
+@extends('layouts.guest_master')
 
 @section('title', 'Home')
+
+@section('active_home', 'nav-item active')
 
 @section('content')
 
