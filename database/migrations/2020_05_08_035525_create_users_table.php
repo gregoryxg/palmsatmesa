@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('unit_id');
             $table->unsignedInteger('resident_status');
             $table->boolean('account_approved');
+            $table->boolean('administrator')->default(false);
             $table->unsignedInteger('gate_code');
             $table->string('mobile_phone');
             $table->string('home_phone');
@@ -31,6 +32,8 @@ class CreateUsersTable extends Migration
             $table->timestamp('last_login_at')->nullable();
             $table->timestamp('password_expires_at')->nullable();
             $table->timestamp('email_verified_at')->nullable();
+
+            $table->foreign('unit_id')->references('id')->on('units');
         });
     }
 

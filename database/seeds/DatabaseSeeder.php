@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class atabaseSeeder extends Seeder
+class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -12,5 +12,6 @@ class atabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
+        $this->call(UnitsTableSeeder::class);
     }
 }
