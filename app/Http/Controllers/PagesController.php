@@ -11,13 +11,18 @@ class PagesController extends Controller
         return view('index');
     }
 
-    public function about()
+    public function new_residents()
     {
-        return view('pages.about');
+        return view('pages.new_residents');
     }
 
-    public function contact()
+    public function privacy()
     {
-        return view('pages.contact');
+        return view('pages.privacy');
+    }
+
+    public function terms()
+    {
+        return view('pages.terms');
     }
 }
