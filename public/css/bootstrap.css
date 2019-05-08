@@ -1998,6 +1998,11 @@ textarea.form-control {
   margin-bottom: 1rem;
 }
 
+.form-group.required .control-label:after {
+  content:" *";
+  color:red;
+}
+
 .form-text {
   display: block;
   margin-top: 0.25rem;
