@@ -15,10 +15,8 @@ Route::get('/', 'PagesController@home');
 Route::get('/new_residents', 'PagesController@new_residents');
 Route::get('/privacy', 'PagesController@privacy');
 Route::get('/terms', 'PagesController@terms');
-Route::get('/register', 'PagesController@register');
-Route::get('/login', 'PagesController@login');
 
 Route::resource('/users', 'UserController');
+Auth::routes();
 
-/*Route::resource('projects', 'ProjectsController');
-Route::resource('tasks', 'TaskController');*/
+Route::get('/home', 'HomeController@index')->name('home');

@@ -24,7 +24,7 @@
                     <a class="nav-link" href="/register"><i class="fas fa-user"></i> Register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    <a class="nav-link" href="/login/"><i class="fas fa-sign-in-alt"></i> Login</a>
                 </li>
             </ul>
         </div>
