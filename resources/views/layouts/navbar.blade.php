@@ -7,18 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             @guest
             <ul class="navbar-nav mr-auto">
-                <li class="@yield('active_home')">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="@yield('active_new_residents')">
-                    <a class="nav-link" href="/new_residents">New Residents</a>
-                </li>
-                <li class="@yield('active_privacy')">
-                    <a class="nav-link" href="/privacy">Privacy</a>
-                </li>
-                <li class="@yield('active_terms')">
-                    <a class="nav-link" href="/terms">Terms of Service</a>
-                </li>
+                @include('layouts.guest_navlinks');
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="nav-item">
@@ -29,23 +18,28 @@
                 </li>
             </ul>
             @else
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-link text-light">
+                        Welcome {{ Auth::user()->first_name }}
+                    </li>
+                    <li class="nav-link text-light">
+                        |
+                    </li>
+                    @include('layouts.guest_navlinks');
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                                                         document.getElementById('logout-form').submit();">
+                            <i class="fas fa-sign-out-alt"></i> Logout
                         </a>
-
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                    </div>
-                </li>
+                    </li>
+                </ul>
+                </ul>
             @endguest
         </div>
     </nav>
