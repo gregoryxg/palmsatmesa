@@ -14,7 +14,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="nav-item">
-                    <a class="nav-link" href="/register"><i class="fas fa-user"></i> Register</a>
+                    <a class="nav-link" href="/register"><i class="fas fa-user-plus"></i> Register</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/login/"><i class="fas fa-sign-in-alt"></i> Login</a>
@@ -28,6 +28,9 @@
                     @include('layouts.guest_navlinks');
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user/{{ Auth::user()->id }}"><i class="fas fa-user-cog"></i> Profile</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('logout') }}"
                            onclick="event.preventDefault();

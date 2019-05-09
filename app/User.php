@@ -28,4 +28,29 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password'
     ];
+
+    function approve_account()
+    {
+
+    }
+
+    function deactivate_account()
+    {
+
+    }
+
+    function make_admin()
+    {
+
+    }
+
+    function remove_admin()
+    {
+
+    }
+
+    function update_unit_id()
+    {
+
+    }
 }

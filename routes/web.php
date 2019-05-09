@@ -16,7 +16,8 @@ Route::get('/new_residents', 'PagesController@new_residents');
 Route::get('/privacy', 'PagesController@privacy');
 Route::get('/terms', 'PagesController@terms');
 
-//Route::resource('/users', 'UserController');
+Route::resource('/user', 'UserController')->middleware('verified');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes(['verify' => true]);
