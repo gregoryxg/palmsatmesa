@@ -35,7 +35,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
 
             $table->foreign('unit_id')->references('id')->on('units');
-            $table->foreign('resident_status_id')->references('id')->on('resident_status');
+            $table->foreign('resident_status_id')->references('id')->on('resident_statuses');
         });
     }
 

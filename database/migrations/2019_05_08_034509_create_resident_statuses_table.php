@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateResidentStatusTable extends Migration
+class CreateResidentStatusesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateResidentStatusTable extends Migration
      */
     public function up()
     {
-        Schema::create('resident_status', function (Blueprint $table) {
+        Schema::create('resident_statuses', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('resident_status')->unique();
+            $table->string('status')->unique();
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateResidentStatusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resident_status');
+        Schema::dropIfExists('resident_statuses');
     }
 }
