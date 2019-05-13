@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -69,7 +70,36 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'first_name' => ['max:255'],
+            'last_name' => ['max:255'],
+            'profile_picture' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:10240'],
+            'mobile_phone' => ['max:255'],
+            'home_phone' => ['max:255'],
+            'work_phone' => ['max:255']
+        ]);
+
+        $user = User::findOrFail($id);
+
+        if (isset($request->email))
+        {
+            if ($user->email !== $request->email)
+                $validated['email'] = $request->validate(['email' => ['max:255', 'unique:users']])['email'];
+        }
+
+        if (isset($validated['profile_picture']))
+        {
+            User::createThumbnail($validated['profile_picture'], $id);
+            unset($validated['profile_picture']);
+        }
+
+
+
+        $user->fill($validated);
+
+        $user->save();
+
+        return redirect("/user/" . $id);
     }
 
     /**

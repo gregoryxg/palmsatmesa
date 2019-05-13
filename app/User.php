@@ -61,7 +61,7 @@ class User extends Authenticatable implements MustVerifyEmail
         //return ResidentStatus::where('id', '=', $this->resident_status_id)->first();
     }
 
-    public static function createThumbnail(UploadedFile $profile_picture, Integer $UserID = null)
+    public static function createThumbnail(UploadedFile $profile_picture, $UserID = null)
     {
         if (is_null($UserID))
         {
