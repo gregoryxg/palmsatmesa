@@ -89,8 +89,8 @@
                             <label for="profile_picture" class="col-md-4 col-form-label text-md-right control-label">{{ __('Profile Picture') }}</label>
 
                             <div class="col-md-6">
-                                <input id="profile_picture" type="file" class="form-control{{ $errors->has('profile_picture') ? ' is-invalid' : '' }}" name="profile_picture" value="{{ old('profile_picture') }}" required autofocus>
-
+                                <input id="profile_picture" type="file" onchange="readURL(this);" class="form-control{{ $errors->has('profile_picture') ? ' is-invalid' : '' }}" name="profile_picture" value="{{ old('profile_picture') }}" required autofocus>
+                                <img id="profile_preview" src="http://placehold.it/150x200.png" height="200px" alt="Profile Picture" class="img-rounded img-responsive"/>
                                 @if ($errors->has('profile_picture'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('profile_picture') }}</strong>
