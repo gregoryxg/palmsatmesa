@@ -54,7 +54,7 @@ class RegisterController extends Controller
             'unit_id' => ['required', 'integer', 'max:1400'],
             'gate_code' => ['required', 'integer'],
             'resident_status_id' => ['required', 'integer'],
-            'profile_picture' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'profile_picture' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:10240'],
             'mobile_phone' => ['required', 'string', 'max:255'],
             'home_phone' => ['max:255'],
             'work_phone' => ['max:255'],

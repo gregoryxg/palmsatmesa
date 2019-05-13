@@ -69,13 +69,12 @@ class User extends Authenticatable implements MustVerifyEmail
 
         $image = Image::make($profile_picture);
 
-        $ratio = $image->width() / $image->height();
+        $image->orientate();
 
-        $width = 200*$ratio;
-
-        $height = 200;
-
-        $image->resize($width, $height);
+        $image->fit(150, 200, function ($constraint) {
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        });
 
         $image->save($profile_path);
 

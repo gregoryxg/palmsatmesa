@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             @guest
             <ul class="navbar-nav mr-auto">
-                @include('layouts.guest_navlinks');
+                @include('layouts.guest_navlinks')
                 <li class="@yield('active_new_residents')">
                     <a class="nav-link" href="/new_residents">New Residents</a>
                 </li>
@@ -25,7 +25,7 @@
                     <li class="nav-link text-light">
                         Welcome {{ Auth::user()->first_name }}
                     </li>
-                    @include('layouts.guest_navlinks');
+                    @include('layouts.guest_navlinks')
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item">

@@ -71,10 +71,10 @@
                             <label for="resident_status_id" class="col-md-4 col-form-label text-md-right control-label">{{ __('Resident Type') }}</label>
 
                             <div class="col-md-6">
-                                <select id="resident_status_id" class="form-control{{ $errors->has('resident_status_id') ? ' is-invalid' : '' }}" name="resident_status_id" value="{{ old('resident_status_id') }}" required autofocus>
+                                <select id="resident_status_id" class="form-control{{ $errors->has('resident_status_id') ? ' is-invalid' : '' }}" name="resident_status_id" required autofocus>
                                     <option/>
-                                    <option value="1">Resident</option>
-                                    <option value="2">Lessee</option>
+                                    <option value="1" {{ old('resident_status_id') == 1 ? 'selected' : '' }}>Resident</option>
+                                    <option value="2" {{ old('resident_status_id') == 2 ? 'selected' : '' }}>Lessee</option>
                                 </select>
 
                                 @if ($errors->has('resident_status_id'))
@@ -85,17 +85,29 @@
                             </div>
                         </div>
 
-                        <div class="form-group required row">
+                        <div class="form-group required row{{ $errors->has('profile_picture') ? ' pb-5' : '' }}">
                             <label for="profile_picture" class="col-md-4 col-form-label text-md-right control-label">{{ __('Profile Picture') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="profile_picture" type="file" onchange="readURL(this);" class="form-control{{ $errors->has('profile_picture') ? ' is-invalid' : '' }}" name="profile_picture" value="{{ old('profile_picture') }}" required autofocus>
-                                <img id="profile_preview" src="http://placehold.it/150x200.png" height="200px" alt="Profile Picture" class="img-rounded img-responsive"/>
+                            <div class="col-md-5 custom-file ml-3">
+                                <input id="profile_picture" type="file" onchange="readURL(this);" class="custom-file-input{{ $errors->has('profile_picture') ? ' is-invalid' : '' }}" name="profile_picture" value="{{ old('profile_picture') }}" required autofocus>
+
+                                <label id="file_name" class="custom-file-label overflow-hidden" for="profile_picture">
+                                    Select file...
+                                </label>
+
                                 @if ($errors->has('profile_picture'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('profile_picture') }}</strong>
                                     </span>
                                 @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group required row">
+                            <label for="profile_preview" class="col-md-4 col-form-label text-md-right">{{ __('File must be less than 10MB, and a .GIF, .JPG, .JPEG, .PNG, or .SVG type.') }}</label>
+
+                            <div class="col-md-3">
+                                <img id="profile_preview" src="http://placehold.it/150x200.png" height="200px" alt="Profile Picture" class="img-rounded img-responsive"/>
                             </div>
                         </div>
 
