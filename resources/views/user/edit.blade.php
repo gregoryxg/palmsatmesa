@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('title', 'Edit Profile')
+
 @section('content')
     <div class="container pt-5">
         <div class="row justify-content-center">

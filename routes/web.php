@@ -18,7 +18,13 @@ Route::get('/terms', 'PagesController@terms');
 
 Route::resource('/user', 'UserController')->middleware('verified');
 
+Route::resource('/reservation', 'ReservationController')->middleware('verified');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes(['verify' => true]);
+
+Route::get('event/add','EventController@createEvent');
+Route::post('event/add','EventController@store');
+Route::get('event','EventController@calender');
 

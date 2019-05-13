@@ -26,6 +26,7 @@
                         Welcome {{ Auth::user()->first_name }}
                     </li>
                     @include('layouts.guest_navlinks')
+                    @include('layouts.lessee_navlinks')
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item">
