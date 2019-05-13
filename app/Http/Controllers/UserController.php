@@ -36,7 +36,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Users are created via the registration controller
     }
 
     /**
@@ -84,7 +84,7 @@ class UserController extends Controller
         if (isset($request->email))
         {
             if ($user->email !== $request->email)
-                $validated['email'] = $request->validate(['email' => ['max:255', 'unique:users']])['email'];
+                $validated['email'] = $request->validate(['email' => ['required', 'string', 'email', 'max:255', 'unique:users']])['email'];
         }
 
         if (isset($validated['profile_picture']))
@@ -92,8 +92,6 @@ class UserController extends Controller
             User::createThumbnail($validated['profile_picture'], $id);
             unset($validated['profile_picture']);
         }
-
-
 
         $user->fill($validated);
 
