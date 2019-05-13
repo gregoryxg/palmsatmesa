@@ -5,9 +5,9 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-/*use Illuminate\Database\Eloquent\Model;
-use Illuminate\Auth\Authenticatable;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;*/
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\UploadedFile;
+use Image;
 
 //class User extends Model implements AuthenticatableContract {
 class User extends Authenticatable implements MustVerifyEmail
@@ -26,7 +26,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'home_phone',
         'work_phone',
         'email',
-        'password'
+        'password',
+        'profile_picture'
     ];
 
     function approve_account()
@@ -58,5 +59,26 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsTo(ResidentStatus::class);
         //return ResidentStatus::where('id', '=', $this->resident_status_id)->first();
+    }
+
+    public static function createThumbnail(UploadedFile $profile_picture)
+    {
+        $nextID = DB::select("SHOW TABLE STATUS LIKE 'users'")[0]->Auto_increment;
+
+        $profile_path = "img/headshot_uploads/" . $nextID . "." . $profile_picture->getClientOriginalExtension();
+
+        $image = Image::make($profile_picture);
+
+        $ratio = $image->width() / $image->height();
+
+        $width = 200*$ratio;
+
+        $height = 200;
+
+        $image->resize($width, $height);
+
+        $image->save($profile_path);
+
+        return $profile_path;
     }
 }

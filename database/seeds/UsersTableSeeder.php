@@ -22,6 +22,7 @@ class UsersTableSeeder extends Seeder
                'administrator'=>true,
                'active'=>true,
                'gate_code'=>6956,
+               'profile_picture'=>'img/headshot_uploads/headshot.jpg',
                'mobile_phone'=>'602-245-6956',
                'email'=>'gregory_gonzalez@sbcglobal.net',
                'password'=>bcrypt('tella100'),

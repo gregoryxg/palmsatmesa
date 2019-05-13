@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group required row">
@@ -80,6 +80,20 @@
                                 @if ($errors->has('resident_status_id'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('resident_status_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group required row">
+                            <label for="profile_picture" class="col-md-4 col-form-label text-md-right control-label">{{ __('Profile Picture') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="profile_picture" type="file" class="form-control{{ $errors->has('profile_picture') ? ' is-invalid' : '' }}" name="profile_picture" value="{{ old('profile_picture') }}" required autofocus>
+
+                                @if ($errors->has('profile_picture'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('profile_picture') }}</strong>
                                     </span>
                                 @endif
                             </div>

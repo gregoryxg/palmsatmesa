@@ -54,6 +54,7 @@ class RegisterController extends Controller
             'unit_id' => ['required', 'integer', 'max:1400'],
             'gate_code' => ['required', 'integer'],
             'resident_status_id' => ['required', 'integer'],
+            'profile_picture' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
             'mobile_phone' => ['required', 'string', 'max:255'],
             'home_phone' => ['max:255'],
             'work_phone' => ['max:255'],
@@ -70,6 +71,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $data['profile_picture'] = User::createThumbnail($data['profile_picture']);
+
         $data['password'] = bcrypt($data['password']);
 
         return User::create($data);

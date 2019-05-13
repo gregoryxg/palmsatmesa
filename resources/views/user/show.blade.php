@@ -7,7 +7,7 @@
     <div class="container pt-5">
         <div class="row w-50 mx-auto">
             <div class="mx-auto">
-                <img src="{{ asset("img/headshot.jpg") }}" height="200px" alt="http://placehold.it/150x200" class="img-rounded img-responsive">
+                <img src="{{ asset($user->profile_picture) }}" height="200px" alt="http://placehold.it/150x200" class="img-rounded img-responsive">
             </div>
             <div class="mx-auto">
                 <h4>{{$user->first_name . " " . $user->last_name}}</h4>
