@@ -67,6 +67,11 @@ class EventController extends Controller
             return back()->withErrors(['Your unit (' . $user->unit_id . ') is not permitted to add events to the calendar.']);
         }
 
+        if (!$user->account_approved)
+        {
+            return back()->withErrors(['Your account has not been approved yet.']);
+        }
+
         return view('events.create');
     }
 
