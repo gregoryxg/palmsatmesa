@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('unit_id');
             $table->unsignedInteger('resident_status_id');
             $table->boolean('account_approved')->default(false);
+            $table->unsignedInteger('approved_by_user_id');
             $table->boolean('administrator')->default(false);
             $table->boolean('active')->default(true);
             $table->unsignedInteger('gate_code');

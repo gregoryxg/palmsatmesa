@@ -75,7 +75,7 @@
                                 <div class="col-md-6">
                                     <select disabled id="resident_status_id" class="form-control{{ $errors->has('resident_status_id') ? ' is-invalid' : '' }}" name="resident_status_id" autofocus>
                                         <option/>
-                                        <option value="1" {{ $user->resident_status_id == 1 ? 'selected' : '' }}>Resident</option>
+                                        <option value="1" {{ $user->resident_status_id == 1 ? 'selected' : '' }}>Homeowner</option>
                                         <option value="2" {{ $user->resident_status_id == 2 ? 'selected' : '' }}>Lessee</option>
                                     </select>
 
