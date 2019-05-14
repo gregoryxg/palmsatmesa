@@ -5,9 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use App\Event;
+use App\User;
 
 class EventController extends Controller
 {
+    public function index(User $user)
+    {
+        if ($user->id == 2)
+        {
+            return view('reservations.events_only');
+        }
+        else
+        {
+            return view('reservations.events_only');
+        }
+    }
+
     public function createEvent()
     {
         return view('events.createevent');
