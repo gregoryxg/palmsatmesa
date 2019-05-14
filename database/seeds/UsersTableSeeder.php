@@ -20,6 +20,7 @@ class UsersTableSeeder extends Seeder
                'resident_status_id'=>1,
                'account_approved'=>true,
                'approved_by_user_id'=>1,
+               'board_member'=>false,
                'administrator'=>true,
                'active'=>true,
                'gate_code'=>6956,

@@ -11,14 +11,39 @@ class EventController extends Controller
 {
     public function index(User $user)
     {
+        $events = [];
+
         if ($user->id == 2)
         {
-            return view('reservations.events_only');
+            $data = Event::all();
         }
         else
         {
-            return view('reservations.events_only');
+            $data = Event::all();
         }
+
+        if($data->count())
+        {
+            foreach ($data as $key => $value)
+            {
+                $events[] = Calendar::event(
+                    $value->title,
+                    true,
+                    new \DateTime($value->start_date),
+                    new \DateTime($value->end_date.'+1 day'),
+                    null,
+                    // Add color
+                    [
+                        'color' => '#000000',
+                        'textColor' => '#008000',
+                    ]
+                );
+            }
+        }
+        $calendar = Calendar::addEvents($events);
+        return view('events.calendar', compact('calendar'));
+
+
     }
 
     public function createEvent()
@@ -36,7 +61,7 @@ class EventController extends Controller
         return redirect('event')->with('success', 'Event has been added');
     }
 
-    public function calender()
+    /*public function calender()
     {
         $events = [];
         $data = Event::all();
@@ -60,5 +85,5 @@ class EventController extends Controller
         }
         $calendar = Calendar::addEvents($events);
         return view('events.calendar', compact('calendar'));
-    }
+    }*/
 }
