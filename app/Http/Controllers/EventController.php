@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use App\Event;
 use App\User;
+use App\Reservable;
 use Auth;
 
 class EventController extends Controller
@@ -72,7 +73,18 @@ class EventController extends Controller
             return back()->withErrors(['Your account has not been approved yet.']);
         }
 
-        return view('events.create');
+        $locations = Reservable::all(['id', 'description']);
+
+        $timeslots = [];
+
+        foreach ($locations as $location)
+        {
+            $timeslots[$location->id] = $location->timeslots;
+        }
+
+        //dd($timeslots[1][0]->start_time);
+
+        return view('events.create', ['locations'=>$locations, 'timeslots'=>$timeslots]);
     }
 
     public function store(Request $request)

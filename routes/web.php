@@ -22,5 +22,7 @@ Route::resource('/event', 'EventController')->middleware('verified');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/reservables/{id}/timeslots', 'ReservableController@timeslots')->middleware('verified');
+
 Auth::routes(['verify' => true]);
 

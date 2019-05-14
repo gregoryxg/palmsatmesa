@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReservableTable extends Migration
+class CreateReservablesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateReservableTable extends Migration
      */
     public function up()
     {
-        Schema::create('reservable', function (Blueprint $table) {
+        Schema::create('reservables', function (Blueprint $table) {
             $table->increments('id');
             $table->string('description');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateReservableTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reservable');
+        Schema::dropIfExists('reservables');
     }
 }

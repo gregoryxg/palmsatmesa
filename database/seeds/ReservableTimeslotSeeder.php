@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ReservableTimeslotsSeeder extends Seeder
+class ReservableTimeslotSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,9 +11,9 @@ class ReservableTimeslotsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('reservable_timeslots')->delete();
+        DB::table('reservable_timeslot')->delete();
 
-        $reservable_timeslots = [
+        $reservable_timeslot = [
             ['reservable_id'=>'2', 'timeslot_id'=>'1'],
             ['reservable_id'=>'2', 'timeslot_id'=>'2'],
             ['reservable_id'=>'2', 'timeslot_id'=>'3'],
@@ -40,6 +40,6 @@ class ReservableTimeslotsSeeder extends Seeder
             ['reservable_id'=>'3', 'timeslot_id'=>'20'],
         ];
 
-        DB::table('reservable_timeslots')->insert($reservable_timeslots);
+        DB::table('reservable_timeslot')->insert($reservable_timeslot);
     }
 }

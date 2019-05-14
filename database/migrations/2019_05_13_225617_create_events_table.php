@@ -16,8 +16,12 @@ class CreateEventsTable extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->datetime('start_date');
-            $table->datetime('end_date');
+            $table->unsignedInteger('reservable_id');
+            $table->unsignedInteger('size');
+            $table->date('date');
+            $table->unsignedInteger('timeslot_id');
+            $table->boolean('event_approved')->default(false);
+            $table->unsignedInteger('approved_by');
             $table->timestamps();
         });
     }

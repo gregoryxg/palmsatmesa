@@ -1,18 +1,3 @@
-<!-- create.blade.php -->
-
-{{--<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Laravel Full Calendar Example</title>
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
-</head>
-<body>--}}
 @extends('layouts.master')
 
 @section('title', 'Create New Event')
@@ -26,25 +11,58 @@
         @csrf
         <div class="row">
             <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-                <label for="Title">Title:</label>
-                <input type="text" class="form-control" name="title">
+            <div class="form-group required col-md-4">
+                <label for="title" class="control-label">Title:</label>
+                <input type="text" class="form-control" name="title" required>
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-                <strong> Start Date : </strong>
-                <input class="date form-control"  type="text" id="startdate" name="startdate">
+            <div class="form-group required col-md-4">
+                <label for="size" class="control-label">Party size including host:</label>
+                <input type="number" min='1' max='30' class="form-control" required/>
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-                <strong> End Date : </strong>
-                <input class="date form-control"  type="text" id="enddate" name="enddate">
+            <div class="form-group required col-md-4">
+                <label for="date" class="control-label">Date:</label>
+                <input type="date" class="form-control" value="" required/>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group required col-md-4">
+                <label for="location" class="control-label">Location:</label>
+                <select id='location' class='form-control' name="location" required><option/>
+                    @foreach($locations as $location)
+                        <option value="{{ $location->id }}">{{ $location->description }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group required col-md-4">
+                <label for="timeslot" class="control-label">Time Slot:</label>
+                <select id='timeslot' class='form-control' name="timeslot">{{--<option/>--}}
+                    {{--@foreach($timeslots[1] as $timeslot)
+                        <option value="{{ $timeslot->id }}">
+                            {{
+                                date('g:i A', strtotime($timeslot->start_time))
+                                . " - "
+                                . date('g:i A', strtotime($timeslot->end_time))
+                            }}
+                        </option>
+                    @endforeach--}}
+                </select>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
@@ -53,17 +71,36 @@
         </div>
     </form>
 </div>
+
+@section('page_js')
+
+    <script>
+        $('#location').on('change', function() {
+            alert( this.value );
+            $('#timeslot').empty()
+            $.ajax({
+                url: `/reservables/${this.value}/timeslots`,
+                success: data => {
+                    data.timeslots.forEach(timeslot =>
+                        $('#timeslot').append(`<option value="${timeslot.id}">${timeslot.start_time}</option>`)
+                    )
+                }
+            })
+        })
+
+        /*$('#location').on('change', e => {
+            $('#timeslot').empty()
+            $.ajax({
+                url: `/reservables/${e.value}/timeslots`,
+                success: data => {
+                    data.timeslots.forEach(timeslot =>
+                        $('#timeslot').append(`<option value="${timeslot.id}">${timeslot.start_time}</option>`)
+                    )
+                }
+            })
+        })*/
+    </script>
+
 @endsection
-{{--
-<script type="text/javascript">
-    $('#startdate').datepicker({
-        autoclose: true,
-        format: 'yyyy-mm-dd'
-    });
-    $('#enddate').datepicker({
-        autoclose: true,
-        format: 'yyyy-mm-dd'
-    });
-</script>
-</body>
-</html>--}}
+
+@endsection

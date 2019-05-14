@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ReservableSeeder extends Seeder
+class ReservablesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,7 @@ class ReservableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('reservable')->delete();
+        DB::table('reservables')->delete();
 
         $reservable = [
             ['description'=>'Clubhouse Kitchen'],
@@ -19,6 +19,6 @@ class ReservableSeeder extends Seeder
             ['description'=>'Clubhouse Theater Room']
         ];
 
-        DB::table('reservable')->insert($reservable);
+        DB::table('reservables')->insert($reservable);
     }
 }
