@@ -6,11 +6,14 @@ use Illuminate\Http\Request;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use App\Event;
 use App\User;
+use Auth;
 
 class EventController extends Controller
 {
-    public function index(User $user)
+    public function index()
     {
+        $user = User::findOrFail(Auth::user()->id);
+
         $events = [];
 
         if ($user->board_member === true || $user->administrator === true) //Board member / Administrator events
@@ -52,7 +55,19 @@ class EventController extends Controller
 
     public function create()
     {
-        return view('events.createevent');
+        $user = User::findOrFail(Auth::user()->id);
+
+        if ($user->resident_status_id == 2)
+        {
+            return back()->withErrors(['Lessees are not authorized to add events to the calendar.']);
+        }
+
+        if (!$user->unit->reservations_allowed)
+        {
+            return back()->withErrors(['Your unit (' . $user->unit_id . ') is not permitted to add events to the calendar.']);
+        }
+
+        return view('events.create');
     }
 
     public function store(Request $request)

@@ -13,8 +13,13 @@
             </div><br />
         @endif
         <div class="panel panel-default">
-            <div class="panel-heading">
-                <h2>Laravel Full Calendar Tutorial</h2>
+            <div class="panel-heading pb-2">
+                <a href="/event/create"><button class="btn btn-outline-primary"><h2><i class="fas fa-plus-square"></i> Add to Calendar</h2></button></a>
+            </div>
+            <div class="alert-danger">
+                @if ($errors->any())
+                    <span role="alert"><strong>{{ $errors->first() }}</strong></span>
+                @endif
             </div>
             <div class="panel-body" >
                 {!! $calendar->calendar() !!}

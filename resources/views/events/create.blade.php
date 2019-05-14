@@ -1,6 +1,6 @@
-<!-- createevent.blade.php -->
+<!-- create.blade.php -->
 
-<!DOCTYPE html>
+{{--<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -12,10 +12,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 </head>
-<body>
-<div class="container">
+<body>--}}
+@extends('layouts.master')
+
+@section('title', 'Create New Event')
+
+@section('active_events', 'nav-item active')
+
+@section('content')
+<div class="container pt-5">
     <br/>
-    <form method="post" action="{{url('event/add')}}">
+    <form method="post" action="/event">
         @csrf
         <div class="row">
             <div class="col-md-4"></div>
@@ -41,11 +48,13 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-                <button type="submit" class="btn btn-success">Add Event</button>
+                <button type="submit" class="btn btn-secondary">Add Event</button>
             </div>
         </div>
     </form>
 </div>
+@endsection
+{{--
 <script type="text/javascript">
     $('#startdate').datepicker({
         autoclose: true,
@@ -57,4 +66,4 @@
     });
 </script>
 </body>
-</html>
+</html>--}}

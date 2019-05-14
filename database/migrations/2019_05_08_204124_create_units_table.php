@@ -15,6 +15,7 @@ class CreateUnitsTable extends Migration
     {
         Schema::create('units', function (Blueprint $table) {
             $table->increments('id')->unique();
+            $table->boolean('reservations_allowed')->default(true);
             $table->timestamps();
         });
     }
