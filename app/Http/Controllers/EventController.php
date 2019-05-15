@@ -82,8 +82,6 @@ class EventController extends Controller
             $timeslots[$location->id] = $location->timeslots;
         }
 
-        //dd($timeslots[1][0]->start_time);
-
         return view('events.create', ['locations'=>$locations, 'timeslots'=>$timeslots]);
     }
 

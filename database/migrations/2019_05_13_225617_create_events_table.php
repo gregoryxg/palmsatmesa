@@ -22,6 +22,7 @@ class CreateEventsTable extends Migration
             $table->unsignedInteger('timeslot_id');
             $table->boolean('event_approved')->default(false);
             $table->unsignedInteger('approved_by');
+            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }

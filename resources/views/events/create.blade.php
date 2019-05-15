@@ -13,7 +13,12 @@
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
                 <label for="title" class="control-label">Title:</label>
-                <input type="text" class="form-control" name="title" required>
+                <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" required>
+                @if ($errors->has('title'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('title') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
 
@@ -21,7 +26,12 @@
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
                 <label for="size" class="control-label">Party size including host:</label>
-                <input type="number" min='1' max='30' class="form-control" required/>
+                <input type="number" min='1' max='30' class="form-control{{ $errors->has('size') ? ' is-invalid' : '' }}" name="size" required/>
+                @if ($errors->has('size'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('size') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
 
@@ -29,7 +39,12 @@
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
                 <label for="date" class="control-label">Date:</label>
-                <input type="date" class="form-control" value="" required/>
+                <input type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name='date' required/>
+                @if ($errors->has('date'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('date') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
 
@@ -37,11 +52,16 @@
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
                 <label for="location" class="control-label">Location:</label>
-                <select id='location' class='form-control' name="location" required><option/>
+                <select id='location' class='form-control{{ $errors->has('location') ? ' is-invalid' : '' }}' name="location" required><option/>
                     @foreach($locations as $location)
                         <option value="{{ $location->id }}">{{ $location->description }}</option>
                     @endforeach
                 </select>
+                @if ($errors->has('location'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('location') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
 
@@ -49,17 +69,13 @@
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
                 <label for="timeslot" class="control-label">Time Slot:</label>
-                <select id='timeslot' class='form-control' name="timeslot">{{--<option/>--}}
-                    {{--@foreach($timeslots[1] as $timeslot)
-                        <option value="{{ $timeslot->id }}">
-                            {{
-                                date('g:i A', strtotime($timeslot->start_time))
-                                . " - "
-                                . date('g:i A', strtotime($timeslot->end_time))
-                            }}
-                        </option>
-                    @endforeach--}}
+                <select disabled id='timeslot' class='form-control{{ $errors->has('timeslot') ? ' is-invalid' : '' }}' name="timeslot">
                 </select>
+                @if ($errors->has('timeslot'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('timeslot') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
 
@@ -75,30 +91,31 @@
 @section('page_js')
 
     <script>
-        $('#location').on('change', function() {
-            alert( this.value );
+        $("select[name='location']").change(function() {
+            var reservable_id =  this.value;
+            var token = $("input[name='_token']").val();
             $('#timeslot').empty()
-            $.ajax({
-                url: `/reservables/${this.value}/timeslots`,
-                success: data => {
-                    data.timeslots.forEach(timeslot =>
-                        $('#timeslot').append(`<option value="${timeslot.id}">${timeslot.start_time}</option>`)
-                    )
-                }
-            })
-        })
+            if (reservable_id == "")
+            {
+                document.getElementById("timeslot").disabled=true;
+            }
+            else
+            {
+                $.ajax({
+                    url: "/reservables/" + reservable_id + "/timeslots",
+                    method: 'POST',
+                    data: {reservable_id: reservable_id, _token: token},
+                    success: function (data) {
+                        document.getElementById("timeslot").disabled = false;
+                        $("#timeslot").append(new Option())
+                        data.timeslots.forEach(timeslot => {
+                            $("#timeslot").append(new Option(moment(timeslot.start_time, "HH:mm:ss").format("h:mm A") + " - " + moment(timeslot.end_time, "HH:mm:ss").format("h:mm A"), timeslot.id));
+                        });
 
-        /*$('#location').on('change', e => {
-            $('#timeslot').empty()
-            $.ajax({
-                url: `/reservables/${e.value}/timeslots`,
-                success: data => {
-                    data.timeslots.forEach(timeslot =>
-                        $('#timeslot').append(`<option value="${timeslot.id}">${timeslot.start_time}</option>`)
-                    )
-                }
-            })
-        })*/
+                    }
+                })
+            }
+        });
     </script>
 
 @endsection

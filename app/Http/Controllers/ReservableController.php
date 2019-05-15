@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Reservable;
 
 class ReservableController extends Controller
 {
     public function timeslots(Request $request, $id)
     {
-        if ($request->ajax()) {
-            return response()->json([
-                'timeslots' => Timeslot::where(1/*'reservable_id', $id*/)->get()
-            ]);
+        if($request->ajax()) {
+            $timeslots = Reservable::findOrFail($id)->timeslots;
+            return response()->json(['timeslots'=>$timeslots]);
         }
     }
 }
