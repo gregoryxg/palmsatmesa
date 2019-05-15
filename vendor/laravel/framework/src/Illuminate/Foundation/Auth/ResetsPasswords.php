@@ -104,6 +104,7 @@ trait ResetsPasswords
     {
         $user->password = Hash::make($password);
 
+        //User must update their password every 3 months
         $user->password_expires_at = date('Y-m-d H:i:s', strtotime('+3 months'));
 
         $user->setRememberToken(Str::random(60));
