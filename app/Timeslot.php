@@ -10,4 +10,9 @@ class Timeslot extends Model
     {
         return $this->belongsToMany(Reservable::class);
     }
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
 }

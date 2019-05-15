@@ -92,6 +92,7 @@
 
     <script>
         $("select[name='location']").change(function() {
+            var date = $("input[name='date']").val();
             var reservable_id =  this.value;
             var token = $("input[name='_token']").val();
             $('#timeslot').empty()
@@ -104,7 +105,9 @@
                 $.ajax({
                     url: "/reservables/" + reservable_id + "/timeslots",
                     method: 'POST',
-                    data: {reservable_id: reservable_id, _token: token},
+                    data: {date: date,
+                            reservable_id: reservable_id,
+                            _token: token},
                     success: function (data) {
                         document.getElementById("timeslot").disabled = false;
                         $("#timeslot").append(new Option())

@@ -24,5 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/reservables/{id}/timeslots', 'ReservableController@timeslots')->middleware('verified');
 
+Route::get('/test', 'ReservableController@test');
+
 Auth::routes(['verify' => true]);
 

@@ -16,14 +16,19 @@ class CreateEventsTable extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->unsignedInteger('reservable_id');
             $table->unsignedInteger('size');
             $table->date('date');
-            $table->unsignedInteger('timeslot_id');
             $table->boolean('event_approved')->default(false);
             $table->unsignedInteger('approved_by');
             $table->unsignedInteger('user_id');
+            $table->unsignedInteger('reservable_id');
+            $table->unsignedInteger('timeslot_id');
             $table->timestamps();
+
+            $table->foreign('approved_by')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('reservable_id')->references('id')->on('reservables');
+            $table->foreign('timeslot_id')->references('id')->on('timeslots');
         });
     }
 

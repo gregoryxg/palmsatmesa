@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ReservablesSeeder extends Seeder
+class ReservablesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

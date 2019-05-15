@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class TimeslotsSeeder extends Seeder
+class TimeslotsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
