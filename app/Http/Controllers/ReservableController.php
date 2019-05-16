@@ -12,24 +12,42 @@ class ReservableController extends Controller
     public function timeslots(Request $request, $id)
     {
         if($request->ajax()) {
-            $timeslots = Reservable::findOrFail($id)->timeslots;
+
+            $existing_events =  Event::select('timeslot_id')->where(['date'=>'2019-05-30','reservable_id'=>$id])->get()->toArray();
+
+            $existing_events = array_map(function($timeslot) {return $timeslot['timeslot_id'];}, $existing_events);
+
+            $timeslots = Reservable::findOrFail($id)->timeslots->whereNotIn('id', $existing_events)->toArray();
+
+            /*$available_timeslots = [];
+
+            foreach ($timeslots as $timeslot)
+            {
+                array_push($available_timeslots, $timeslot);
+            }*/
+
             return response()->json(['timeslots'=>$timeslots]);
         }
     }
 
     public function test()
     {
-        $existing_events =  Event::select('timeslot_id')->where(['date'=>'2019-05-30','reservable_id'=>1])->get()->toArray();
+        $existing_events =  Event::select('timeslot_id')->where(['date'=>'2019-05-30','reservable_id'=>3])->get()->toArray();
 
         $existing_events = array_map(function($timeslot) {return $timeslot['timeslot_id'];}, $existing_events);
 
         $timeslots = Reservable::findOrFail(1)->timeslots->whereNotIn('id', $existing_events)->toArray();
 
-        dd($timeslots);
+        var_dump($timeslots);
 
+        $available_timeslots = [];
 
-        $timeslots = Reservable::findOrFail(1)->timeslots;
+        foreach ($timeslots as $timeslot)
+        {
+            array_push($available_timeslots, $timeslot);
+        }
 
-        dd(Event::findOrFail(1)->timeslot('2019-05-30')->id);
+        dd($available_timeslots);
+
     }
 }

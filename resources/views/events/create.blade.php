@@ -52,7 +52,7 @@
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
                 <label for="location" class="control-label">Location:</label>
-                <select id='location' class='form-control{{ $errors->has('location') ? ' is-invalid' : '' }}' name="location" required><option/>
+                <select disabled id='location' class='form-control{{ $errors->has('location') ? ' is-invalid' : '' }}' name="location" required><option/>
                     @foreach($locations as $location)
                         <option value="{{ $location->id }}">{{ $location->description }}</option>
                     @endforeach
@@ -91,6 +91,23 @@
 @section('page_js')
 
     <script>
+        $("input[name='date']").change(function() {
+            var date = $("input[name='date']").val();
+            $('#timeslot').empty()
+            document.getElementById("timeslot").disabled=true;
+            if (date == "")
+            {
+                $('#location').val(null);
+                document.getElementById("location").disabled=true;
+            }
+            else
+            {
+                document.getElementById("location").disabled=false;
+            }
+        })
+    </script>
+
+    <script>
         $("select[name='location']").change(function() {
             var date = $("input[name='date']").val();
             var reservable_id =  this.value;
@@ -109,12 +126,14 @@
                             reservable_id: reservable_id,
                             _token: token},
                     success: function (data) {
-                        document.getElementById("timeslot").disabled = false;
-                        $("#timeslot").append(new Option())
-                        data.timeslots.forEach(timeslot => {
-                            $("#timeslot").append(new Option(moment(timeslot.start_time, "HH:mm:ss").format("h:mm A") + " - " + moment(timeslot.end_time, "HH:mm:ss").format("h:mm A"), timeslot.id));
-                        });
 
+                        document.getElementById("timeslot").disabled = false;
+
+                        $("#timeslot").append(new Option())
+
+                        for (var i in data.timeslots) {
+                            $("#timeslot").append(new Option(moment(data.timeslots[i].start_time, "HH:mm:ss").format("h:mm A") + " - " + moment(data.timeslots[i].end_time, "HH:mm:ss").format("h:mm A"), data.timeslots[i].id));
+                        }
                     }
                 })
             }
