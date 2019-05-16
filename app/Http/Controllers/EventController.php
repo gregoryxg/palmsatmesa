@@ -8,12 +8,15 @@ use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use App\Event;
 use App\User;
 use App\Reservable;
+use App\Timeslot;
 use Auth;
 
 class EventController extends Controller
 {
     public function index()
     {
+
+
         $user = User::findOrFail(Auth::user()->id);
 
         $events = [];
@@ -35,12 +38,18 @@ class EventController extends Controller
         {
             foreach ($data as $key => $value)
             {
+                $timeslot = Timeslot::findOrFail($value->timeslot_id);
+
+                $start_date = date('Y-m-d H:i:s', strtotime($value->date . " " . $timeslot->start_time));
+
+                $end_date = date('Y-m-d H:i:s', strtotime($value->date . " " . $timeslot->end_time));
+
                 $events[] = Calendar::event(
-                    $value->title,
-                    true,
-                    new \DateTime($value->start_date),
-                    new \DateTime($value->end_date.'+1 day'),
-                    null,
+                    date('g:i A', strtotime($timeslot->start_time)) . "-" . date('g:i A', strtotime($timeslot->end_time)) . " " . Reservable::findOrFail($value->reservable_id)->description,
+                    false,
+                    new \DateTime($start_date),
+                    new \DateTime($end_date),
+                    $value->id,
                     // Add color
                     [
                         'color' => '#000000',
