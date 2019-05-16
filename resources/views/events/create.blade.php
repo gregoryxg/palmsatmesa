@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Create New Event')
+@section('title', 'Create Reservation')
 
 @section('active_events', 'nav-item active')
 
@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
-                <label for="title" class="control-label">Title:</label>
+                <label for="title" class="control-label">Reservation Title:</label>
                 <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" required>
                 @if ($errors->has('title'))
                     <span class="invalid-feedback" role="alert">
@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
-                <label for="size" class="control-label">Party size including host:</label>
+                <label for="size" class="control-label">Party size including host (max 30):</label>
                 <input type="number" min='1' max='30' class="form-control{{ $errors->has('size') ? ' is-invalid' : '' }}" name="size" required/>
                 @if ($errors->has('size'))
                     <span class="invalid-feedback" role="alert">
@@ -38,8 +38,8 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
-                <label for="date" class="control-label">Date:</label>
-                <input type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name='date' required/>
+                <label for="date" class="control-label">Date (Must be within the next 60 days):</label>
+                <input type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name='date' min="{{ date('Y-m-d') }}" max="{{ date('Y-m-d', strtotime("+60 days")) }}" required/>
                 @if ($errors->has('date'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('date') }}</strong>
@@ -84,9 +84,29 @@
             <div class="form-group required col-md-4 ml-4">
                 <input disabled type="checkbox" id="agree_to_terms" name="agree_to_terms" class="form-check-input" required/>
                 <label for="agree_to_terms" class="form-check-label control-label">
-                    You must open and read the terms and conditions before continuing.
-                    <br/><a href="{{ asset('docs/reservation_terms_and_conditions.pdf') }}" onClick="terms_opened()" target="_newtab">Terms and Conditions</a>
+                    I agree to the reservation <a href="{{ asset('docs/reservation_terms_and_conditions.pdf') }}" onClick="terms_opened()" target="_newtab">Terms and Conditions</a>
+                    <br/><small>(You must read the terms and conditions before continuing)</small>
                 </label>
+                @if ($errors->has('agree_to_terms'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('agree_to_terms') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group required col-md-4 ml-4">
+                <input disabled type="checkbox" id="esign_consent" name="esign_consent" class="form-check-input" required/>
+                <label for="esign_consent" class="form-check-label control-label">
+                    I understand that checking the box above constitutes an electronic signature to the terms and conditions.
+                </label>
+                @if ($errors->has('esign_consent'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('esign_consent') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
 
@@ -100,6 +120,21 @@
 </div>
 
 @section('page_js')
+
+    <script>
+        $("input[name='agree_to_terms']").change(function() {
+            var terms = $("input[name='agree_to_terms']").prop('checked');
+            if (!terms)
+            {
+                $("#esign_consent").prop('checked', false);
+                document.getElementById("esign_consent").disabled=true;
+            }
+            else
+            {
+                document.getElementById("esign_consent").disabled=false;
+            }
+        })
+    </script>
 
     <script>
         function terms_opened()

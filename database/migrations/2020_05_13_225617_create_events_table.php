@@ -18,14 +18,14 @@ class CreateEventsTable extends Migration
             $table->string('title');
             $table->unsignedInteger('size');
             $table->date('date');
-            $table->boolean('event_approved')->default(false);
-            $table->unsignedInteger('approved_by');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('reservable_id');
             $table->unsignedInteger('timeslot_id');
+            $table->boolean('agree_to_terms');
+            $table->boolean('esign_consent');
+            $table->string('reserved_from_ip_address');
             $table->timestamps();
 
-            $table->foreign('approved_by')->references('id')->on('users');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('reservable_id')->references('id')->on('reservables');
             $table->foreign('timeslot_id')->references('id')->on('timeslots');

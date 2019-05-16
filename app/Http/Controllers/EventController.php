@@ -87,6 +87,14 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
+        $event = $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'size' => ['required', 'integer', 'min:1', 'max:30'],
+            'date' => ['required', 'date', 'date_format:Y-m-d', 'after_or_equal:today']
+        ]);
+
+        dd($request->all());
+
         $client_ip = Request()->ip();
 
         dd($client_ip);
