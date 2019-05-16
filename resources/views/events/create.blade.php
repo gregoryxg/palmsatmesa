@@ -147,10 +147,10 @@
         $("input[name='date']").change(function() {
             var date = $("input[name='date']").val();
             $('#timeslot').empty()
+            $('#location').val(null);
             document.getElementById("timeslot").disabled=true;
             if (date == "")
             {
-                $('#location').val(null);
                 document.getElementById("location").disabled=true;
             }
             else
