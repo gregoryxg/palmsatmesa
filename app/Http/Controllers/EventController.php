@@ -87,6 +87,10 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
+        $client_ip = Request()->ip();
+
+        dd($client_ip);
+
         $event= new Event();
         $event->title=$request->get('title');
         $event->start_date=$request->get('startdate');

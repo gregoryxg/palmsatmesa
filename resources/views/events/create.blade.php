@@ -81,6 +81,17 @@
 
         <div class="row">
             <div class="col-md-4"></div>
+            <div class="form-group required col-md-4 ml-4">
+                <input disabled type="checkbox" id="agree_to_terms" name="agree_to_terms" class="form-check-input" required/>
+                <label for="agree_to_terms" class="form-check-label control-label">
+                    You must open and read the terms and conditions before continuing.
+                    <br/><a href="{{ asset('docs/reservation_terms_and_conditions.pdf') }}" onClick="terms_opened()" target="_newtab">Terms and Conditions</a>
+                </label>
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-md-4"></div>
             <div class="form-group col-md-4">
                 <button type="submit" class="btn btn-secondary">Add Event</button>
             </div>
@@ -89,6 +100,13 @@
 </div>
 
 @section('page_js')
+
+    <script>
+        function terms_opened()
+        {
+            document.getElementById("agree_to_terms").disabled=false;
+        }
+    </script>
 
     <script>
         $("input[name='date']").change(function() {
