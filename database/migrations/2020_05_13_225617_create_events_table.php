@@ -29,6 +29,8 @@ class CreateEventsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('reservable_id')->references('id')->on('reservables');
             $table->foreign('timeslot_id')->references('id')->on('timeslots');
+
+            $table->unique(['date', 'reservable_id', 'timeslot_id']);
         });
     }
 

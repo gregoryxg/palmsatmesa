@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use App\Event;
 use App\User;
@@ -90,20 +91,31 @@ class EventController extends Controller
         $event = $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'size' => ['required', 'integer', 'min:1', 'max:30'],
-            'date' => ['required', 'date', 'date_format:Y-m-d', 'after_or_equal:today', 'before_or_equal:+60 days']
+            'date' => ['required', 'date', 'date_format:Y-m-d', 'after_or_equal:today', 'before_or_equal:+60 days'],
+            'reservable_id' => ['required', 'integer', 'exists:reservables,id'],
+            'timeslot_id' => ['required', 'integer', 'exists:timeslots,id'],
+            'agree_to_terms' => ['accepted'],
+            'esign_consent' => ['accepted']
         ]);
 
-        dd($request->all());
+        $event['user_id'] = Auth::id();
 
-        $client_ip = Request()->ip();
+        $event['reserved_from_ip_address'] = Request()->ip();
 
-        dd($client_ip);
+        $event = new Event($event);
 
-        $event= new Event();
-        $event->title=$request->get('title');
-        $event->start_date=$request->get('startdate');
-        $event->end_date=$request->get('enddate');
-        $event->save();
-        return redirect('event')->with('success', 'Event has been added');
+        $checkExisting = Event::where(['date'=>$event->date, 'reservable_id'=>$event->reservable_id, 'timeslot_id'=>$event->timeslot_id])->get();
+//dd($event);
+        if(count($checkExisting) > 0)
+        {
+            return back()->withInput(['title'=>$event->title, 'size'=>$event->size])->withErrors(['exists'=>'A reservation for that location at that date and time already exists.']);
+        }
+        else
+        {
+            $event->save();
+
+            return redirect('event')->with('success', 'Reservation has been added successfully');
+        }
+
     }
 }
