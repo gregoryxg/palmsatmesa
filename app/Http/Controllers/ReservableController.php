@@ -13,7 +13,7 @@ class ReservableController extends Controller
     {
         if($request->ajax()) {
 
-            $existing_events =  Event::select('timeslot_id')->where(['date'=>'2019-05-30','reservable_id'=>$id])->get()->toArray();
+            $existing_events =  Event::select('timeslot_id')->where(['date'=>$request->date,'reservable_id'=>$id])->get()->toArray();
 
             $existing_events = array_map(function($timeslot) {return $timeslot['timeslot_id'];}, $existing_events);
 
