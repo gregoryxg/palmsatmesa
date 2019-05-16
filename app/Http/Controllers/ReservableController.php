@@ -19,18 +19,11 @@ class ReservableController extends Controller
 
             $timeslots = Reservable::findOrFail($id)->timeslots->whereNotIn('id', $existing_events)->toArray();
 
-            /*$available_timeslots = [];
-
-            foreach ($timeslots as $timeslot)
-            {
-                array_push($available_timeslots, $timeslot);
-            }*/
-
             return response()->json(['timeslots'=>$timeslots]);
         }
     }
 
-    public function test()
+    /*public function test()
     {
         $existing_events =  Event::select('timeslot_id')->where(['date'=>'2019-05-30','reservable_id'=>3])->get()->toArray();
 
@@ -49,5 +42,5 @@ class ReservableController extends Controller
 
         dd($available_timeslots);
 
-    }
+    }*/
 }
