@@ -16,11 +16,11 @@ class EventController extends Controller
 {
     public function index()
     {
-
-
         $user = User::findOrFail(Auth::user()->id);
 
         $events = [];
+
+        $reservable_colors = Reservable::all()->keyBy('id')->toArray();
 
         if ($user->board_member === true || $user->administrator === true) //Board member / Administrator events
         {
@@ -53,8 +53,8 @@ class EventController extends Controller
                     $value->id,
                     // Add color
                     [
-                        'backgroundColor' => '505050',
-                        'textColor' => '#FFFFFF'
+                        'backgroundColor' => $reservable_colors[$value->reservable_id]['backgroundColor'],
+                        'textColor' => $reservable_colors[$value->reservable_id]['textColor']
                     ]
                 );
             }
@@ -71,6 +71,7 @@ class EventController extends Controller
                 'eventRender' => 'function(event, element) {
                     element.popover({
                       animation: true,
+                      delay: {show:0, hide:1000},
                       html: true,
                       content: $(element).html(),
                       trigger: "hover"

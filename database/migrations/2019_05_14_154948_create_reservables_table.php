@@ -16,6 +16,8 @@ class CreateReservablesTable extends Migration
         Schema::create('reservables', function (Blueprint $table) {
             $table->increments('id');
             $table->string('description');
+            $table->string('backgroundColor');
+            $table->string('textColor');
             $table->timestamps();
         });
     }

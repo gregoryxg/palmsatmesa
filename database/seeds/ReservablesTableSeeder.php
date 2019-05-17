@@ -14,9 +14,9 @@ class ReservablesTableSeeder extends Seeder
         DB::table('reservables')->delete();
 
         $reservable = [
-            ['description'=>'Clubhouse Kitchen'],
-            ['description'=>'Clubhouse Pool Room'],
-            ['description'=>'Clubhouse Theater Room']
+            ['description'=>'Clubhouse Kitchen', 'backgroundColor'=>'##010D56', 'textColor'=>'#FFFFFF'],
+            ['description'=>'Clubhouse Pool Room', 'backgroundColor'=>'#561801', 'textColor'=>'#FFFFFF'],
+            ['description'=>'Clubhouse Theater Room', 'backgroundColor'=>'#015613', 'textColor'=>'#FFFFFF']
         ];
 
         DB::table('reservables')->insert($reservable);

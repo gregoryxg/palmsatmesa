@@ -91,7 +91,7 @@
             <div class="form-group required col-md-4 ml-4">
                 <input disabled type="checkbox" id="agree_to_terms" name="agree_to_terms" value='1' class="form-check-input{{ $errors->has('agree_to_terms') ? ' is-invalid' : '' }}" required/>
                 <label for="agree_to_terms" class="form-check-label control-label">
-                    I agree to the reservation <a href="{{ asset('docs/reservation_terms_and_conditions.pdf') }}" onClick="terms_opened()" target="_newtab">Terms and Conditions</a>
+                    I agree to the reservation <a href="{{ asset('docs/reservation_terms_and_conditions.pdf') }}" onClick="terms_opened()" target="_newtab_{{ date('YmdHis') }}">Terms and Conditions</a>
                     <br/><small>(You must read the terms and conditions before continuing)</small>
                 </label>
                 @if ($errors->has('agree_to_terms'))
@@ -127,21 +127,6 @@
 </div>
 
 @section('page_js')
-
-    {{--<script>
-        $("input[name='esign_consent']").change(function() {
-            var timeslot = $("select[name='timeslot_id").val();
-
-            if (timeslot == "null")
-            {
-                document.getElementById("submit_button").disabled=true;
-            }
-            else
-            {
-                document.getElementById("submit_button").disabled=false;
-            }
-        })
-    </script>--}}
 
     <script>
         $("input[name='agree_to_terms']").change(function() {

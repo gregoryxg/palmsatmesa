@@ -89,8 +89,7 @@ class UserController extends Controller
 
         if (isset($validated['profile_picture']))
         {
-            User::createThumbnail($validated['profile_picture'], $id);
-            unset($validated['profile_picture']);
+            $validated['profile_picture'] = User::createThumbnail($validated['profile_picture'], $id);
         }
 
         $user->fill($validated);
