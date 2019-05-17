@@ -15,6 +15,7 @@ class Event extends Model
         'agree_to_terms',
         'esign_consent',
         'user_id',
+        'event_type_id',
         'reserved_from_ip_address'
         ];
 

@@ -9,6 +9,7 @@ use App\Event;
 use App\User;
 use App\Reservable;
 use App\Timeslot;
+use App\EventType;
 use Auth;
 
 class EventController extends Controller
@@ -45,21 +46,37 @@ class EventController extends Controller
                 $end_date = date('Y-m-d H:i:s', strtotime($value->date . " " . $timeslot->end_time));
 
                 $events[] = Calendar::event(
-                    date('g:i A', strtotime($timeslot->start_time)) . "-" . date('g:i A', strtotime($timeslot->end_time)) . " " . Reservable::findOrFail($value->reservable_id)->description,
+                    Reservable::findOrFail($value->reservable_id)->description,
                     false,
-                    new \DateTime($start_date),
-                    new \DateTime($end_date),
+                    $start_date,
+                    $end_date,
                     $value->id,
                     // Add color
                     [
-                        'color' => '#000000',
-                        'textColor' => '#008000',
+                        'backgroundColor' => '505050',
+                        'textColor' => '#FFFFFF'
                     ]
                 );
             }
         }
 
-        $calendar = Calendar::addEvents($events);
+        $calendar = Calendar::addEvents($events)
+            ->setOptions([ //set fullcalendar options
+                'timeFormat' => 'h:mm A',
+                'minTime' => '06:00:00',
+                'maxTime' => '22:00:00',
+                'displayEventEnd' => true
+            ])
+            ->setCallbacks([
+                'eventRender' => 'function(event, element) {
+                    element.popover({
+                      animation: true,
+                      html: true,
+                      content: $(element).html(),
+                      trigger: "hover"
+                      });
+                    }'
+            ]);
 
         return view('events.calendar', compact('calendar'));
     }
@@ -110,6 +127,8 @@ class EventController extends Controller
         $event['user_id'] = Auth::id();
 
         $event['reserved_from_ip_address'] = Request()->ip();
+
+        $event['event_type_id'] = EventType::where(['type' => 'Reservation'])->first()->id;
 
         $event = new Event($event);
 
