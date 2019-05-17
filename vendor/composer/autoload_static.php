@@ -691,6 +691,7 @@ class ComposerStaticInit1bac787456196c94f27bb77cea642a2e
         'Egulias\\EmailValidator\\Warning\\QuotedString' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/QuotedString.php',
         'Egulias\\EmailValidator\\Warning\\TLD' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/TLD.php',
         'Egulias\\EmailValidator\\Warning\\Warning' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/Warning.php',
+        'EventTypesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/EventTypesTableSeeder.php',
         'EventsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/EventsTableSeeder.php',
         'Faker\\Calculator\\Iban' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Iban.php',
         'Faker\\Calculator\\Inn' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Inn.php',

@@ -21,6 +21,7 @@ class CreateEventsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('reservable_id');
             $table->unsignedInteger('timeslot_id');
+            $table->unsignedInteger('event_type_id');
             $table->boolean('agree_to_terms');
             $table->boolean('esign_consent');
             $table->string('reserved_from_ip_address');
@@ -28,6 +29,7 @@ class CreateEventsTable extends Migration
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('reservable_id')->references('id')->on('reservables');
+            $table->foreign('event_type_id')->references('id')->on('event_types');
             $table->foreign('timeslot_id')->references('id')->on('timeslots');
 
             $table->unique(['date', 'reservable_id', 'timeslot_id']);

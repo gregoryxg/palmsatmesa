@@ -19,6 +19,7 @@ class EventsTableSeeder extends Seeder
                 'size'=> 10,
                 'date'=> '2019-05-30',
                 'timeslot_id'=>17,
+                'event_type_id'=>2,
                 'user_id'=>1,
                 'agree_to_terms'=>true,
                 'esign_consent'=>true,

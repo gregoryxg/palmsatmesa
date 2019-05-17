@@ -105,7 +105,7 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4 ml-4">
-                <input disabled type="checkbox" id="esign_consent" name="esign_consent" value='1' class="form-check-input{{ $errors->has('esign_consent') ? ' is-invalid' : '' }}" required/>
+                <input disabled onchange="document.getElementById('submit_button').disabled = !this.checked;" type="checkbox" id="esign_consent" name="esign_consent" value='1' class="form-check-input{{ $errors->has('esign_consent') ? ' is-invalid' : '' }}" required/>
                 <label for="esign_consent" class="form-check-label control-label">
                     I understand that checking the box above constitutes an electronic signature to the terms and conditions.
                 </label>
@@ -120,7 +120,7 @@
         <div class="row pt-2">
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-                <button disabled id='submit' type="submit" class="btn btn-secondary">Add Event</button>
+                <button disabled id='submit_button' type="submit" class="btn btn-secondary">Add Event</button>
             </div>
         </div>
     </form>
@@ -128,20 +128,20 @@
 
 @section('page_js')
 
-    <script>
+    {{--<script>
         $("input[name='esign_consent']").change(function() {
             var timeslot = $("select[name='timeslot_id").val();
 
             if (timeslot == "null")
             {
-                document.getElementById("submit").disabled=true;
+                document.getElementById("submit_button").disabled=true;
             }
             else
             {
-                document.getElementById("submit").disabled=false;
+                document.getElementById("submit_button").disabled=false;
             }
         })
-    </script>
+    </script>--}}
 
     <script>
         $("input[name='agree_to_terms']").change(function() {
@@ -202,19 +202,20 @@
                             reservable_id: reservable_id,
                             _token: token},
                     success: function (data) {
+
                         document.getElementById("timeslot_id").disabled = false;
 
-                        if (data.timeslots.length > 0)
+                        if (data.timeslots.length == 0)
+                        {
+                            $("#timeslot_id").append(new Option("No timeslots available for that date", null));
+                        }
+                        else
                         {
                             $("#timeslot_id").append(new Option())
 
                             for (var i in data.timeslots) {
                                 $("#timeslot_id").append(new Option(moment(data.timeslots[i].start_time, "HH:mm:ss").format("h:mm A") + " - " + moment(data.timeslots[i].end_time, "HH:mm:ss").format("h:mm A"), data.timeslots[i].id));
                             }
-                        }
-                        else
-                        {
-                            $("#timeslot_id").append(new Option("No timeslots available for that date", null));
                         }
                     }
                 })

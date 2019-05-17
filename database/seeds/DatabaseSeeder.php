@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UnitsTableSeeder::class);
         $this->call(ResidentStatusesTableSeeder::class);
+        $this->call(EventTypesTableSeeder::class);
         $this->call(ReservablesTableSeeder::class);
         $this->call(TimeslotsTableSeeder::class);
         $this->call(ReservableTimeslotTableSeeder::class);
