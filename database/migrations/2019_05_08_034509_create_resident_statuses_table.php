@@ -16,6 +16,7 @@ class CreateResidentStatusesTable extends Migration
         Schema::create('resident_statuses', function (Blueprint $table) {
             $table->increments('id');
             $table->string('status')->unique();
+            $table->boolean('add_to_calendar');
             $table->timestamps();
         });
     }

@@ -13,7 +13,10 @@ class ResidentStatusesTableSeeder extends Seeder
     {
         DB::table('resident_statuses')->delete();
 
-        $resident_status = [['status'=>'Homeowner'],['status'=>'Lessee']];
+        $resident_status = [
+            ['status'=>'Homeowner', 'add_to_calendar'=>true],
+            ['status'=>'Lessee', 'add_to_calendar'=>false]
+        ];
 
         DB::table('resident_statuses')->insert($resident_status);
     }

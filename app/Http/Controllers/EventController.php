@@ -65,7 +65,8 @@ class EventController extends Controller
                 'timeFormat' => 'h:mm A',
                 'minTime' => '06:00:00',
                 'maxTime' => '22:00:00',
-                'displayEventEnd' => true
+                'displayEventEnd' => true,
+                'eventLimitClick' => 'day'
             ])
             ->setCallbacks([
                 'eventRender' => 'function(event, element) {
