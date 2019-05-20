@@ -117,9 +117,23 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($id);
 
-        $event->delete();
+        $diff = (new \DateTime($event->date . " " . $event->timeslot->start_time))->diff(new \DateTime(date('Y-m-d H:i:s')));
 
-        return redirect('reservations')->with('success', 'Reservation has been deleted successfully');
+        $hours_diff = ($diff->d * 24) + ($diff->h) + ($diff->i/60) + ($diff->s/60/60);
+
+        //Reservations cannot be cancelled within 48 hours
+        if ($hours_diff < 48)
+        {
+
+            return back()->withErrors(['errors'=>'Reservations cannot be deleted within 48 hours of the reservation date']);
+        }
+        else
+        {
+            $event->delete();
+
+            return redirect('reservations')->with('success', 'Reservation has been deleted successfully');
+        }
+
     }
 
     public function create()

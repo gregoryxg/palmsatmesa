@@ -11,7 +11,7 @@
     @include('events.new_reservation_button')
 
     @if (\Session::has('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success text-center">
             <span><strong>{{ \Session::get('success') }}</strong></span>
         </div>
     @endif

@@ -13,11 +13,12 @@
         @method('patch')
 
         @if (\Session::has('success'))
-            <div class="alert alert-success">
-                <span><strong>{{ \Session::get('success') }}</strong></span>
+            <div class="form-group pt-2 row">
+                <span class='form-control alert-success text-center' role="alert">
+                    <strong>{{ \Session::get('success') }}</strong>
+                </span>
             </div>
         @endif
-
         @if ($errors->has('errors'))
             <div class="form-group pt-2 row">
                 <span class='form-control alert-danger text-center' role="alert">
