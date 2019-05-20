@@ -2,7 +2,9 @@
 
 @section('title', 'Create Reservation')
 
-@section('active_events', 'nav-item active')
+@section('active_events', 'active')
+
+@section('active_new_reservation', 'active')
 
 @section('content')
 <div class="container pt-5">

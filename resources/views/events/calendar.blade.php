@@ -2,7 +2,9 @@
 
 @section('title', 'Calendar')
 
-@section('active_events', 'nav-item active')
+@section('active_events', 'active')
+
+@section('active_calendar', 'active')
 
 @section('content')
 
