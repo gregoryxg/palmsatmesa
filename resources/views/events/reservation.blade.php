@@ -1,0 +1,52 @@
+@extends('layouts.master')
+
+@section('title', $event->id)
+
+@section('active_events', 'active')
+
+@section('active_my_reservations', 'active')
+
+@section('content')
+<div class="container pt-5">
+    @include('events.new_reservation_button')
+    <div class="table-responsive table-sm table-hover">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Party Size</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Timeslot</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach ($events as $i=>$event)
+                <tr class='table-row' data-href="/event/{{ $event->id }}">
+                    <th scope="row">{{  ($i+1) }}</th>
+                    <th scope="row">{{ $event->title }}</th>
+                    <th scope="row">{{ $event->size }}</th>
+                    <th scope="row">{{ $event->reservable->description }}</th>
+                    <th scope="row">{{ date('m/d/Y', strtotime($event->date)) }}</th>
+                    <th scope="row">{{ date('g:i A', strtotime($event->timeslot->start_time)) . " - " . date('h:i A', strtotime($event->timeslot->end_time)) }}</th>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section('page_js')
+
+    <script>
+        $(document).ready(function($) {
+            $(".table-row").click(function() {
+                window.document.location = $(this).data("href");
+            });
+        });
+    </script>
+
+@endsection
+
+@endsection
