@@ -2,7 +2,9 @@
 
 @section('title', 'Privacy')
 
-@section('active_privacy', 'nav-item active')
+@section('active_about', 'active')
+
+@section('active_privacy', 'active')
 
 @section('content')
 

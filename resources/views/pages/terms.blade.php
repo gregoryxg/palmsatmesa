@@ -2,7 +2,9 @@
 
 @section('title', 'Terms of Service')
 
-@section('active_terms', 'nav-item active')
+@section('active_about', 'active')
+
+@section('active_terms', 'active')
 
 @section('content')
 
