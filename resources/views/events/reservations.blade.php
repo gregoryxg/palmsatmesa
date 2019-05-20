@@ -9,6 +9,12 @@
 @section('content')
 <div class="container pt-5">
     @include('events.new_reservation_button')
+
+    @if (\Session::has('success'))
+        <div class="alert alert-success">
+            <span><strong>{{ \Session::get('success') }}</strong></span>
+        </div>
+    @endif
     <div class="table-responsive table-sm table-hover">
         <table class="table">
             <thead>

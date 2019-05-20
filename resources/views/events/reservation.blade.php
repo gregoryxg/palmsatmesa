@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', $event->id)
+@section('title', "Reservation")
 
 @section('active_events', 'active')
 
@@ -8,45 +8,113 @@
 
 @section('content')
 <div class="container pt-5">
-    @include('events.new_reservation_button')
-    <div class="table-responsive table-sm table-hover">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Party Size</th>
-                    <th scope="col">Location</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Timeslot</th>
-                </tr>
-            </thead>
-            <tbody>
-            @foreach ($events as $i=>$event)
-                <tr class='table-row' data-href="/event/{{ $event->id }}">
-                    <th scope="row">{{  ($i+1) }}</th>
-                    <th scope="row">{{ $event->title }}</th>
-                    <th scope="row">{{ $event->size }}</th>
-                    <th scope="row">{{ $event->reservable->description }}</th>
-                    <th scope="row">{{ date('m/d/Y', strtotime($event->date)) }}</th>
-                    <th scope="row">{{ date('g:i A', strtotime($event->timeslot->start_time)) . " - " . date('h:i A', strtotime($event->timeslot->end_time)) }}</th>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-    </div>
+    <form method="post" action="/event/{{ $event->id }}">
+        @csrf
+        @method('patch')
+
+        @if (\Session::has('success'))
+            <div class="alert alert-success">
+                <span><strong>{{ \Session::get('success') }}</strong></span>
+            </div>
+        @endif
+
+        @if ($errors->has('errors'))
+            <div class="form-group pt-2 row">
+                <span class='form-control alert-danger text-center' role="alert">
+                    <strong>{{ $errors->first('errors') }}</strong>
+                </span>
+            </div>
+        @endif
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group required col-md-4">
+                <label for="title" class="control-label">Reservation Title:</label>
+                <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ $event->title }}" required>
+                @if ($errors->has('title'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('title') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group required col-md-4">
+                <label for="size" class="control-label">Party size including host (max 30):</label>
+                <input type="number" min='1' max='30' class="form-control{{ $errors->has('size') ? ' is-invalid' : '' }}" name="size" value="{{ $event->size }}" required/>
+                @if ($errors->has('size'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('size') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group required col-md-4">
+                <label for="date" class="control-label">Date (Must be within the next 60 days):</label>
+                <input disabled type="date" class="form-control" name='date' value="{{ $event->date }}" required/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group required col-md-4">
+                <label for="reservable_id" class="control-label">Location:</label>
+                <select disabled id='reservable_id' class='form-control' name="reservable_id" required>
+                        <option value="{{ $event->reservable_id }}">{{ $event->reservable->description }}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group required col-md-4">
+                <label for="timeslot_id" class="control-label">Time Slot:</label>
+                <select disabled id='timeslot_id' class='form-control{{ $errors->has('timeslot_id') ? ' is-invalid' : '' }}' name="timeslot_id">
+                    <option value="{{ $event->timeslot_id }}" selected>{{ date('g:i A', strtotime($event->timeslot->start_time)) . " - " . date('h:i A', strtotime($event->timeslot->end_time)) }}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group required col-md-4 ml-4">
+                <input disabled type="checkbox" id="agree_to_terms" name="agree_to_terms" value='1' class="form-check-input" checked required/>
+                <label for="agree_to_terms" class="form-check-label control-label">
+                    I agree to the reservation <a href="{{ asset('docs/reservation_terms_and_conditions.pdf') }}" onClick="terms_opened()" target="_newtab_{{ date('YmdHis') }}">Terms and Conditions</a>
+                    <br/><small>(You must agree to the terms and conditions before continuing)</small>
+                </label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group required col-md-4 ml-4">
+                <input disabled type="checkbox" id="esign_consent" name="esign_consent" value='1' class="form-check-input" checked required/>
+                <label for="esign_consent" class="form-check-label control-label">
+                    I understand that checking the box above constitutes an electronic signature to the terms and conditions.
+                </label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group">
+                <button id='submit_button' type="submit" class="btn btn-secondary">Update Event</button>
+            </div>
+        </form>
+
+        <form method="post" action="/event/{{ $event->id }}">
+            @csrf
+            @method('delete')
+            <div class="form-group pl-5">
+                <button onclick="return confirm('Are you sure you want to delete this event?')" id='submit_button' type="submit" class="btn btn-danger">Delete Event</button>
+            </div>
+        </form>
 </div>
-
-@section('page_js')
-
-    <script>
-        $(document).ready(function($) {
-            $(".table-row").click(function() {
-                window.document.location = $(this).data("href");
-            });
-        });
-    </script>
-
-@endsection
+</div>
 
 @endsection

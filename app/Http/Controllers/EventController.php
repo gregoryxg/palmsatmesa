@@ -94,9 +94,32 @@ class EventController extends Controller
 
     public function show($id)
     {
+        $event = Event::where(['id' => $id, ['date', '>=' , date('Y-m-d')]])->get();
+
+        return view('events.reservation', ['event'=>$event[0]]);
+    }
+
+    public function update(Request $request, $id)
+    {
         $event = Event::findOrFail($id);
 
-        return view('events.reservation', ['event'=>$event]);
+        $event->fill($request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'size' => ['required', 'integer', 'min:1', 'max:30']
+        ]));
+
+        $event->save();
+
+        return redirect('event/'.$id)->with('success', 'Reservation has been updated successfully');
+    }
+
+    public function destroy($id)
+    {
+        $event = Event::findOrFail($id);
+
+        $event->delete();
+
+        return redirect('reservations')->with('success', 'Reservation has been deleted successfully');
     }
 
     public function create()
