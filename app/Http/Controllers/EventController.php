@@ -84,6 +84,21 @@ class EventController extends Controller
         return view('events.calendar', compact('calendar'));
     }
 
+    public function reservations()
+    {
+        //Lists user's reservations
+        $events = Event::where(['user_id' => Auth::user()->id, ['date', '>=' , date('Y-m-d')]])->orderBy('date')->orderBy('id')->get();
+
+        return view('events.reservations', ['events'=>$events]);
+    }
+
+    public function show($id)
+    {
+        $event = Event::findOrFail($id);
+
+        return view('events.reservation', ['event'=>$event]);
+    }
+
     public function create()
     {
         $user = User::findOrFail(Auth::user()->id);

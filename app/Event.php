@@ -22,9 +22,14 @@ class Event extends Model
         'reserved_from_ip_address'
         ];
 
-    public function timeslot($date)
+    public function timeslot()
     {
         return $this->belongsTo(Timeslot::class);
+    }
+
+    public function reservable()
+    {
+        return $this->belongsTo(Reservable::class);
     }
 
     public function verify($event_type)

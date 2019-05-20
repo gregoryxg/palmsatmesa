@@ -10,11 +10,7 @@
 
     <div class="container pt-5">
         <div class="panel panel-default">
-            @if (Auth::user()->resident_status->add_to_calendar)
-                <div class="panel-heading pb-2">
-                    <a href="/event/create"><button class="btn btn-outline-primary"><h2><i class="fas fa-plus-square"></i> New Reservation</h2></button></a>
-                </div>
-            @endif
+            @include('events.new_reservation_button')
             @if (\Session::has('success'))
                 <div class="alert alert-success">
                     <span><strong>{{ \Session::get('success') }}</strong></span>

@@ -19,6 +19,7 @@ Route::get('/terms', 'PagesController@terms');
 Route::resource('/user', 'UserController')->middleware('verified');
 
 Route::resource('/event', 'EventController')->middleware('verified');
+Route::get('/reservations', 'EventController@reservations')->middleware('verified');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
