@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use App\Event;
 use App\User;
@@ -126,19 +127,15 @@ class EventController extends Controller
             'esign_consent' => ['accepted']
         ]);
 
-        $event['user_id'] = Auth::id();
-
-        $event['reserved_from_ip_address'] = Request()->ip();
-
-        $event['event_type_id'] = EventType::where(['type' => 'Reservation'])->first()->id;
-
         $event = new Event($event);
 
-        $checkExisting = Event::where(['date'=>$event->date, 'reservable_id'=>$event->reservable_id, 'timeslot_id'=>$event->timeslot_id])->get();
-//dd($event);
-        if(count($checkExisting) > 0)
+        $response = $event->verify('Reservation');
+
+        if ($response['status'] == 'errors')
         {
-            return back()->withInput(['title'=>$event->title, 'size'=>$event->size])->withErrors(['exists'=>'A reservation for that location at that date and time already exists.']);
+            return back()
+                ->withInput(['title'=>$event->title, 'size'=>$event->size])
+                ->withErrors(['errors'=>$response['response_msg']]);
         }
         else
         {
@@ -146,6 +143,7 @@ class EventController extends Controller
 
             return redirect('event')->with('success', 'Reservation has been added successfully');
         }
+
 
     }
 }

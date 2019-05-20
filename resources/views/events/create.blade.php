@@ -9,10 +9,10 @@
     <br/>
     <form method="post" action="/event">
         @csrf
-        @if ($errors->has("exists"))
+        @if ($errors->has('errors'))
             <div class="form-group pt-2 row">
                 <span class='form-control alert-danger text-center' role="alert">
-                    <strong>{{ $errors->first("exists") }}</strong>
+                    <strong>{{ $errors->first('errors') }}</strong>
                 </span>
             </div>
         @endif
