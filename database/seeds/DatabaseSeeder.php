@@ -19,8 +19,10 @@ class DatabaseSeeder extends Seeder
         $this->call(ReservableTimeslotTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(CommitteesTableSeeder::class);
+        $this->call(CommitteeUserTableSeeder::class);
         $this->call(TicketTypesTableSeeder::class);
         $this->call(TicketsTableSeeder::class);
+        $this->call(TicketCommentsTableSeeder::class);
         $this->call(EventsTableSeeder::class);
     }
 }
