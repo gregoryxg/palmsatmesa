@@ -20,4 +20,9 @@ class Ticket extends Model
     {
         return $this->belongsTo(TicketType::class);
     }
+
+    public function add_comment()
+    {
+
+    }
 }

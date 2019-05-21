@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'My Tickets')
+@section('title', 'Ticket')
 
 @section('active_support', 'active')
 
@@ -19,7 +19,6 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col" nowrap>#</th>
                     <th scope="col" nowrap>Subject</th>
                     <th scope="col" nowrap>Description</th>
                     <th scope="col" nowrap>Ticket Type</th>
@@ -29,9 +28,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($tickets as $i=>$ticket)
-                    <tr class='table-row' data-href="/ticket/{{ $ticket->id }}">
-                        <th scope="row">{{  ($i+1) }}</th>
+                    <tr class='table-row' data-href="">
                         <th scope="row">{{ $ticket->subject }}</th>
                         <th scope="row">{{ $ticket->body }}</th>
                         <th scope="row">{{ $ticket->ticket_type->description }}</th>
@@ -39,10 +36,32 @@
                         <th scope="row">{{ $ticket->created_at ?? "N/A" }}</th>
                         <th scope="row">{{ $ticket->updated_at ?? "N/A" }}</th>
                     </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-responsive table-striped table-hover">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col" nowrap>Comment</th>
+                    <th scope="col" nowrap>By</th>
+                    <th scope="col" nowrap>Posted</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach ($comments as $comment)
+                    <tr class='table-row' data-href="">
+                        <th scope="row">{{ $comment->comment }}</th>
+                        <th scope="row">{{ $comment->user->first_name . " " . $comment->user->last_name }}</th>
+                        <th scope="row">{{ $comment->created_at }}</th>
+                    </tr>
                 @endforeach
                 </tbody>
             </table>
         </div>
+
+        
     </div>
 
 @endsection

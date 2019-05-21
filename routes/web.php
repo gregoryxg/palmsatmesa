@@ -27,3 +27,5 @@ Route::get('/reservations', 'EventController@reservations')->middleware('verifie
 Route::post('/reservables/{id}/timeslots', 'ReservableController@timeslots')->middleware('verified');
 
 Route::resource('/ticket', 'TicketController')->middleware('verified');
+
+Route::post('/ticket/comment', 'TicketCommentController@create')->middleware('verified');

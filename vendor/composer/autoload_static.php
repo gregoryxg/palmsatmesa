@@ -455,7 +455,6 @@ class ComposerStaticInit1bac787456196c94f27bb77cea642a2e
     );
 
     public static $classMap = array (
-        'App\\Comment' => __DIR__ . '/../..' . '/app/Comment.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Event' => __DIR__ . '/../..' . '/app/Event.php',
         'App\\EventType' => __DIR__ . '/../..' . '/app/EventType.php',
@@ -470,6 +469,7 @@ class ComposerStaticInit1bac787456196c94f27bb77cea642a2e
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\PagesController' => __DIR__ . '/../..' . '/app/Http/Controllers/PagesController.php',
         'App\\Http\\Controllers\\ReservableController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReservableController.php',
+        'App\\Http\\Controllers\\TicketCommentController' => __DIR__ . '/../..' . '/app/Http/Controllers/TicketCommentController.php',
         'App\\Http\\Controllers\\TicketController' => __DIR__ . '/../..' . '/app/Http/Controllers/TicketController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -490,6 +490,8 @@ class ComposerStaticInit1bac787456196c94f27bb77cea642a2e
         'App\\ResidentStatus' => __DIR__ . '/../..' . '/app/ResidentStatus.php',
         'App\\Task' => __DIR__ . '/../..' . '/app/Task.php',
         'App\\Ticket' => __DIR__ . '/../..' . '/app/Ticket.php',
+        'App\\TicketComment' => __DIR__ . '/../..' . '/app/TicketComment.php',
+        'App\\TicketType' => __DIR__ . '/../..' . '/app/TicketType.php',
         'App\\Timeslot' => __DIR__ . '/../..' . '/app/Timeslot.php',
         'App\\Unit' => __DIR__ . '/../..' . '/app/Unit.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',

@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Ticket;
-use App\TicketComment;
-use Auth;
 
-class TicketController extends Controller
+class TicketCommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +13,7 @@ class TicketController extends Controller
      */
     public function index()
     {
-        $tickets = Auth::user()->tickets;
-
-        return view('tickets.tickets', ['tickets'=>$tickets]);
+        //
     }
 
     /**
@@ -50,11 +45,7 @@ class TicketController extends Controller
      */
     public function show($id)
     {
-        $ticket = Ticket::findOrFail($id);
-
-        $comments = TicketComment::where(['ticket_id'=>$ticket->id])->get();
-
-        return view('tickets.ticket', ['ticket'=>$ticket, 'comments'=>$comments]);
+        //
     }
 
     /**
