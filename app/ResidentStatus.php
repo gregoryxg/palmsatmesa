@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ResidentStatus extends Model
 {
-    public function User()
+    public function user()
     {
         return $this->hasMany(User::class);
     }

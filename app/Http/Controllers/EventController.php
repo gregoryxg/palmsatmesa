@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\DB;
+/*use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;*/
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use App\Event;
 use App\User;
 use App\Reservable;
 use App\Timeslot;
-use App\EventType;
+/*use App\EventType;*/
 use Auth;
 
 class EventController extends Controller

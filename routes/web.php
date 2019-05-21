@@ -11,6 +11,10 @@
 |
 */
 
+
+Auth::routes(['verify' => true]);
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/', 'PagesController@home');
 Route::get('/new_residents', 'PagesController@new_residents');
 Route::get('/privacy', 'PagesController@privacy');
@@ -20,10 +24,6 @@ Route::resource('/user', 'UserController')->middleware('verified');
 
 Route::resource('/event', 'EventController')->middleware('verified');
 Route::get('/reservations', 'EventController@reservations')->middleware('verified');
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::post('/reservables/{id}/timeslots', 'ReservableController@timeslots')->middleware('verified');
 
-Auth::routes(['verify' => true]);
-
+Route::resource('/ticket', 'TicketController')->middleware('verified');

@@ -8,3 +8,10 @@
     @endif
     </div>
 </li>
+<li class="nav-item dropdown @yield('active_support')">
+    <a href="#" id="supportDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Support/Maintenance</a>
+    <div class="dropdown-menu bg-dark" aria-labelledby="supportDropdown">
+        <a class="dropdown-item @yield('active_tickets')" href="/ticket">My Tickets</a>
+        <a class="dropdown-item @yield('active_new_ticket')" href="/ticket/create">New Ticket</a>
+    </div>
+</li>

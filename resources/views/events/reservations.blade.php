@@ -43,16 +43,4 @@
     </div>
 </div>
 
-@section('page_js')
-
-    <script>
-        $(document).ready(function($) {
-            $(".table-row").click(function() {
-                window.document.location = $(this).data("href");
-            });
-        });
-    </script>
-
-@endsection
-
 @endsection

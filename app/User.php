@@ -65,6 +65,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsTo(Unit::class);
     }
 
+    public function tickets()
+    {
+        return $this->belongsToMany(Ticket::class);
+    }
+
     public static function createThumbnail(UploadedFile $profile_picture, $UserID = null)
     {
         if (is_null($UserID))
