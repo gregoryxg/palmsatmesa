@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\TicketComment;
+use Auth;
 
 class TicketCommentController extends Controller
 {
@@ -23,7 +25,7 @@ class TicketCommentController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -34,7 +36,16 @@ class TicketCommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comment = new TicketComment($request->validate([
+           'comment'=>['required'],
+            'ticket_id'=>['required', 'integer']
+        ]));
+
+        $comment->user_id = Auth::user()->id;
+
+        $comment->save();
+
+        return back()->with(['success'=>'Comment added successfully']);
     }
 
     /**

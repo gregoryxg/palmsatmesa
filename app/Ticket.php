@@ -25,4 +25,11 @@ class Ticket extends Model
     {
 
     }
+
+    public function close()
+    {
+        $this->completed_at = date('Y-m-d H:i:s');
+
+        $this->save();
+    }
 }

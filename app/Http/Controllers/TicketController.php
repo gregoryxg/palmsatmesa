@@ -16,9 +16,25 @@ class TicketController extends Controller
      */
     public function index()
     {
-        $tickets = Auth::user()->tickets;
+        $tickets = Auth::user()->open_tickets;
 
         return view('tickets.tickets', ['tickets'=>$tickets]);
+    }
+
+    public function closed()
+    {
+        $tickets = Auth::user()->closed_tickets;
+
+        return view('tickets.tickets', ['tickets'=>$tickets]);
+    }
+
+    public function close($id)
+    {
+        $ticket = Ticket::findOrFail($id);
+
+        $ticket->close();
+
+        return back()->with(['success'=>"Ticket # $id has been closed"]);
     }
 
     /**
