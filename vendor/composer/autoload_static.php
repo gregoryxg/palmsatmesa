@@ -4339,6 +4339,7 @@ class ComposerStaticInit1bac787456196c94f27bb77cea642a2e
         'TheSeer\\Tokenizer\\XMLSerializer' => __DIR__ . '/..' . '/theseer/tokenizer/src/XMLSerializer.php',
         'TicketCommentsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/TicketCommentsTableSeeder.php',
         'TicketTypesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/TicketTypesTableSeeder.php',
+        'TicketUserTableSeeder' => __DIR__ . '/../..' . '/database/seeds/TicketUserTableSeeder.php',
         'TicketsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/TicketsTableSeeder.php',
         'TijsVerkoyen\\CssToInlineStyles\\CssToInlineStyles' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/CssToInlineStyles.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Processor.php',

@@ -3890,6 +3890,7 @@ return array(
     'TheSeer\\Tokenizer\\XMLSerializer' => $vendorDir . '/theseer/tokenizer/src/XMLSerializer.php',
     'TicketCommentsTableSeeder' => $baseDir . '/database/seeds/TicketCommentsTableSeeder.php',
     'TicketTypesTableSeeder' => $baseDir . '/database/seeds/TicketTypesTableSeeder.php',
+    'TicketUserTableSeeder' => $baseDir . '/database/seeds/TicketUserTableSeeder.php',
     'TicketsTableSeeder' => $baseDir . '/database/seeds/TicketsTableSeeder.php',
     'TijsVerkoyen\\CssToInlineStyles\\CssToInlineStyles' => $vendorDir . '/tijsverkoyen/css-to-inline-styles/src/CssToInlineStyles.php',
     'TijsVerkoyen\\CssToInlineStyles\\Css\\Processor' => $vendorDir . '/tijsverkoyen/css-to-inline-styles/src/Css/Processor.php',
