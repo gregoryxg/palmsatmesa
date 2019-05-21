@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Comment' => $baseDir . '/app/Comment.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Event' => $baseDir . '/app/Event.php',
     'App\\EventType' => $baseDir . '/app/EventType.php',
@@ -20,6 +21,7 @@ return array(
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\PagesController' => $baseDir . '/app/Http/Controllers/PagesController.php',
     'App\\Http\\Controllers\\ReservableController' => $baseDir . '/app/Http/Controllers/ReservableController.php',
+    'App\\Http\\Controllers\\TicketController' => $baseDir . '/app/Http/Controllers/TicketController.php',
     'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
@@ -38,6 +40,7 @@ return array(
     'App\\Reservable' => $baseDir . '/app/Reservable.php',
     'App\\ResidentStatus' => $baseDir . '/app/ResidentStatus.php',
     'App\\Task' => $baseDir . '/app/Task.php',
+    'App\\Ticket' => $baseDir . '/app/Ticket.php',
     'App\\Timeslot' => $baseDir . '/app/Timeslot.php',
     'App\\Unit' => $baseDir . '/app/Unit.php',
     'App\\User' => $baseDir . '/app/User.php',
