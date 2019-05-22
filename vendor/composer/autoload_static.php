@@ -158,6 +158,7 @@ class ComposerStaticInit1bac787456196c94f27bb77cea642a2e
         ),
         'A' => 
         array (
+            'Askedio\\Laravel5ProfanityFilter\\' => 32,
             'App\\' => 4,
         ),
     );
@@ -398,6 +399,10 @@ class ComposerStaticInit1bac787456196c94f27bb77cea642a2e
         array (
             0 => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src',
         ),
+        'Askedio\\Laravel5ProfanityFilter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/askedio/laravel5-profanity-filter/app',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -495,6 +500,8 @@ class ComposerStaticInit1bac787456196c94f27bb77cea642a2e
         'App\\Timeslot' => __DIR__ . '/../..' . '/app/Timeslot.php',
         'App\\Unit' => __DIR__ . '/../..' . '/app/Unit.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'Askedio\\Laravel5ProfanityFilter\\ProfanityFilter' => __DIR__ . '/..' . '/askedio/laravel5-profanity-filter/app/ProfanityFilter.php',
+        'Askedio\\Laravel5ProfanityFilter\\Providers\\ProfanityFilterServiceProvider' => __DIR__ . '/..' . '/askedio/laravel5-profanity-filter/app/Providers/ProfanityFilterServiceProvider.php',
         'Assetic\\AssetManager' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/AssetManager.php',
         'Assetic\\AssetWriter' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/AssetWriter.php',
         'Assetic\\Asset\\AssetCache' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/Asset/AssetCache.php',

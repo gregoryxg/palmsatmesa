@@ -46,6 +46,8 @@ return array(
     'App\\Timeslot' => $baseDir . '/app/Timeslot.php',
     'App\\Unit' => $baseDir . '/app/Unit.php',
     'App\\User' => $baseDir . '/app/User.php',
+    'Askedio\\Laravel5ProfanityFilter\\ProfanityFilter' => $vendorDir . '/askedio/laravel5-profanity-filter/app/ProfanityFilter.php',
+    'Askedio\\Laravel5ProfanityFilter\\Providers\\ProfanityFilterServiceProvider' => $vendorDir . '/askedio/laravel5-profanity-filter/app/Providers/ProfanityFilterServiceProvider.php',
     'Assetic\\AssetManager' => $vendorDir . '/kriswallsmith/assetic/src/Assetic/AssetManager.php',
     'Assetic\\AssetWriter' => $vendorDir . '/kriswallsmith/assetic/src/Assetic/AssetWriter.php',
     'Assetic\\Asset\\AssetCache' => $vendorDir . '/kriswallsmith/assetic/src/Assetic/Asset/AssetCache.php',
