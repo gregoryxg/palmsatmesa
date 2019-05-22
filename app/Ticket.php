@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\TicketUser;
 
 class Ticket extends Model
 {
+    protected $fillable = ['ticket_type_id', 'subject', 'body'];
+
     public function users()
     {
         return $this->belongsToMany(User::class);
@@ -21,7 +24,7 @@ class Ticket extends Model
         return $this->belongsTo(TicketType::class);
     }
 
-    public function add_comment()
+    public function follow()
     {
 
     }

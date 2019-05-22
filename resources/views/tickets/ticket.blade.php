@@ -34,9 +34,9 @@
                         <th scope="row">{{ $ticket->subject }}</th>
                         <th scope="row">{{ $ticket->ticket_type->description }}</th>
                         <th scope="row">{{ $ticket->assigned_to_id ? ($ticket->assigned_to->first_name . " " . $ticket->assigned_to->last_name) : "unassigned" }}</th>
-                        <th scope="row" nowrap>{{ $ticket->created_at ?? "N/A" }}</th>
-                        <th scope="row" nowrap>{{ $ticket->updated_at ?? "N/A" }}</th>
-                        <th scope="row" nowrap>{!! $ticket->completed_at ?? "<a href='/ticket/$ticket->id/close'><button onclick=\"return confirm('Are you sure you want to close this ticket?')\" class='btn btn-secondary'>Close Ticket</button></a>" !!}</th>
+                        <th scope="row" nowrap>{{ $ticket->created_at ? date("n/d/Y g:i A", strtotime($ticket->created_at)) : "N/A" }}</th>
+                        <th scope="row" nowrap>{{ $ticket->updated_at ? date("n/d/Y g:i A", strtotime($ticket->updated_at)) : "N/A" }}</th>
+                        <th scope="row" nowrap>{!! $ticket->completed_at ? date("n/d/Y g:i A", strtotime($ticket->completed_at)) : "<a href='/ticket/$ticket->id/close'><button onclick=\"return confirm('Are you sure you want to close this ticket?')\" class='btn btn-secondary'>Close Ticket</button></a>" !!}</th>
                     </tr>
                 </tbody>
             </table>
@@ -71,7 +71,7 @@
                     <tr class='table-row' data-href="">
                         <th scope="row">{{ $comment->comment }}</th>
                         <th scope="row">{{ $comment->user->first_name . " " . $comment->user->last_name }}</th>
-                        <th scope="row" nowrap>{{ $comment->created_at }}</th>
+                        <th scope="row" nowrap>{{ date("n/d/Y g:i A", strtotime($comment->created_at)) }}</th>
                     </tr>
                 @endforeach
                 </tbody>

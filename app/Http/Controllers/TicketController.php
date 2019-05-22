@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreTicket;
 use App\Ticket;
 use App\TicketComment;
+use App\TicketType;
 use Auth;
 
 class TicketController extends Controller
@@ -44,7 +46,9 @@ class TicketController extends Controller
      */
     public function create()
     {
-        return view('tickets.create');
+        $ticket_types = TicketType::all();
+
+        return view('tickets.create', ['ticket_types'=>$ticket_types]);
     }
 
     /**
@@ -53,9 +57,15 @@ class TicketController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTicket $request)
     {
-        //
+        $ticket = new Ticket($request->validated());
+
+        $ticket->save();
+
+        $ticket->follow();
+
+        return back()->with(['success'=>'Your ticket has been submitted. Please allow up to 1 business day for a response, thank you.']);
     }
 
     /**

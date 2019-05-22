@@ -8,7 +8,6 @@
 
 @section('content')
 <div class="container pt-5">
-    <br/>
     <form method="post" action="/event">
         @csrf
         @if ($errors->has('errors'))
