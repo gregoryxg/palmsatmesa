@@ -1,53 +1,5 @@
 [
     {
-        "name": "askedio/laravel5-profanity-filter",
-        "version": "1.10",
-        "version_normalized": "1.10.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Askedio/laravel-profanity-filter.git",
-            "reference": "34bec8cd92e998015e73a90d888ef981b0ed749a"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Askedio/laravel-profanity-filter/zipball/34bec8cd92e998015e73a90d888ef981b0ed749a",
-            "reference": "34bec8cd92e998015e73a90d888ef981b0ed749a",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.5.9"
-        },
-        "require-dev": {
-            "laravel/laravel": "5.*",
-            "phpunit/phpunit": "~5.0",
-            "symfony/css-selector": "3.1.*",
-            "symfony/dom-crawler": "3.1.*"
-        },
-        "time": "2018-10-19T16:07:02+00:00",
-        "type": "library",
-        "extra": {
-            "laravel": {
-                "providers": [
-                    "Askedio\\Laravel5ProfanityFilter\\Providers\\ProfanityFilterServiceProvider"
-                ]
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Askedio\\Laravel5ProfanityFilter\\": "app/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "AGPL-3.0"
-        ],
-        "description": "A Vendor Package Example",
-        "keywords": [
-            "laravel"
-        ]
-    },
-    {
         "name": "beyondcode/laravel-dump-server",
         "version": "1.2.2",
         "version_normalized": "1.2.2.0",
@@ -4225,6 +4177,56 @@
         ],
         "description": "Library that helps with managing the version number of Git-hosted PHP projects",
         "homepage": "https://github.com/sebastianbergmann/version"
+    },
+    {
+        "name": "snipe/banbuilder",
+        "version": "2.3.0",
+        "version_normalized": "2.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/snipe/banbuilder.git",
+            "reference": "621d6d857400983d0fd6cd291f105a835a317748"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/snipe/banbuilder/zipball/621d6d857400983d0fd6cd291f105a835a317748",
+            "reference": "621d6d857400983d0fd6cd291f105a835a317748",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.6.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.7.0"
+        },
+        "time": "2018-08-30T22:45:56+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Snipe\\BanBuilder\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "AGPL-3.0"
+        ],
+        "authors": [
+            {
+                "name": "snipe",
+                "email": "snipe@snipe.net",
+                "role": "Creator & Developer"
+            }
+        ],
+        "description": "Library to easily handle profanity filtering in PHP projects.",
+        "homepage": "http://banbuilder.com",
+        "keywords": [
+            "filter",
+            "language",
+            "profanity",
+            "strings",
+            "swear"
+        ]
     },
     {
         "name": "swiftmailer/swiftmailer",

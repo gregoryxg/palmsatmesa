@@ -76,6 +76,7 @@ class ComposerStaticInit1bac787456196c94f27bb77cea642a2e
             'Symfony\\Component\\Debug\\' => 24,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
+            'Snipe\\BanBuilder\\' => 17,
         ),
         'R' => 
         array (
@@ -158,7 +159,6 @@ class ComposerStaticInit1bac787456196c94f27bb77cea642a2e
         ),
         'A' => 
         array (
-            'Askedio\\Laravel5ProfanityFilter\\' => 32,
             'App\\' => 4,
         ),
     );
@@ -261,6 +261,10 @@ class ComposerStaticInit1bac787456196c94f27bb77cea642a2e
         'Symfony\\Component\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
+        ),
+        'Snipe\\BanBuilder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/snipe/banbuilder/src',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -399,10 +403,6 @@ class ComposerStaticInit1bac787456196c94f27bb77cea642a2e
         array (
             0 => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src',
         ),
-        'Askedio\\Laravel5ProfanityFilter\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/askedio/laravel5-profanity-filter/app',
-        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -485,6 +485,7 @@ class ComposerStaticInit1bac787456196c94f27bb77cea642a2e
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\StoreTicketComment' => __DIR__ . '/../..' . '/app/Http/Requests/StoreTicketComment.php',
         'App\\Project' => __DIR__ . '/../..' . '/app/Project.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -500,8 +501,6 @@ class ComposerStaticInit1bac787456196c94f27bb77cea642a2e
         'App\\Timeslot' => __DIR__ . '/../..' . '/app/Timeslot.php',
         'App\\Unit' => __DIR__ . '/../..' . '/app/Unit.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
-        'Askedio\\Laravel5ProfanityFilter\\ProfanityFilter' => __DIR__ . '/..' . '/askedio/laravel5-profanity-filter/app/ProfanityFilter.php',
-        'Askedio\\Laravel5ProfanityFilter\\Providers\\ProfanityFilterServiceProvider' => __DIR__ . '/..' . '/askedio/laravel5-profanity-filter/app/Providers/ProfanityFilterServiceProvider.php',
         'Assetic\\AssetManager' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/AssetManager.php',
         'Assetic\\AssetWriter' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/AssetWriter.php',
         'Assetic\\Asset\\AssetCache' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/Asset/AssetCache.php',
@@ -3718,6 +3717,7 @@ class ComposerStaticInit1bac787456196c94f27bb77cea642a2e
         'SebastianBergmann\\Timer\\RuntimeException' => __DIR__ . '/..' . '/phpunit/php-timer/src/RuntimeException.php',
         'SebastianBergmann\\Timer\\Timer' => __DIR__ . '/..' . '/phpunit/php-timer/src/Timer.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'Snipe\\BanBuilder\\CensorWords' => __DIR__ . '/..' . '/snipe/banbuilder/src/CensorWords.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => __DIR__ . '/..' . '/symfony/console/CommandLoader/CommandLoaderInterface.php',
         'Symfony\\Component\\Console\\CommandLoader\\ContainerCommandLoader' => __DIR__ . '/..' . '/symfony/console/CommandLoader/ContainerCommandLoader.php',

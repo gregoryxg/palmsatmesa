@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\TicketComment;
+use App\Http\Requests\StoreTicketComment;
 use Auth;
 
 class TicketCommentController extends Controller
@@ -34,12 +35,9 @@ class TicketCommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTicketComment $request)
     {
-        $comment = new TicketComment($request->validate([
-           'comment'=>['required'],
-            'ticket_id'=>['required', 'integer']
-        ]));
+        $comment = new TicketComment($request->validated());
 
         $comment->user_id = Auth::user()->id;
 
