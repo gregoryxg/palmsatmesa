@@ -9,8 +9,13 @@
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
+                        <div class="alert alert-success text-center" role="alert">
                             {{ session('status') }}
+                        </div>
+                    @endif
+                    @if (session('not_allowed'))
+                        <div class="alert alert-danger text-center" role="alert">
+                            {{ session('not_allowed') }}
                         </div>
                     @endif
 

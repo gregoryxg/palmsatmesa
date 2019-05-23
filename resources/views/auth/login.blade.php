@@ -78,6 +78,13 @@
                             </span>
                             </div>
                         @endif
+                        @if (session('success'))
+                            <div class="form-group pt-2 row">
+                            <span class='form-control alert-success text-center' role="alert">
+                                <strong>{{ session('success') }}</strong>
+                            </span>
+                            </div>
+                        @endif
                     </form>
                 </div>
             </div>

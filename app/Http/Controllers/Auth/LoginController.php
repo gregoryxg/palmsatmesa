@@ -43,6 +43,6 @@ class LoginController extends Controller
     {
         Auth::logout();
 
-        return redirect('/login')->with('not_allowed', $request->session()->get('not_allowed'));
+        return redirect('/login')->with(['not_allowed'=>$request->session()->get('not_allowed'), 'success'=>$request->session()->get('success')]);
     }
 }
