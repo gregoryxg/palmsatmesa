@@ -8,7 +8,6 @@
 
 @section('content')
 <div class="container pt-5">
-    @include('events.new_reservation_button')
 
     @if (\Session::has('success'))
         <div class="alert alert-success text-center">

@@ -24,7 +24,7 @@ class Ticket extends Model
         return $this->belongsTo(TicketType::class);
     }
 
-    public function follow()
+    public function follow($ticket_id, $user_id)
     {
 
     }

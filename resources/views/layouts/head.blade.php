@@ -6,6 +6,8 @@
     <meta name="generator" content="Jekyll v3.8.5">
     <title>@yield('title')</title>
 
+    <link rel="shortcut icon" href="{{ asset('img/ThePalms.png') }}">
+
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
 

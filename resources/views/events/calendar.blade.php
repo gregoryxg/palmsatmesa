@@ -10,7 +10,6 @@
 
     <div class="container pt-5">
         <div class="panel panel-default">
-            @include('events.new_reservation_button')
             @if (\Session::has('success'))
                 <div class="alert alert-success">
                     <span><strong>{{ \Session::get('success') }}</strong></span>
