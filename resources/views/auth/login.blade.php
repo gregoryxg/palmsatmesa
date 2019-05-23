@@ -10,6 +10,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
+
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -69,6 +70,13 @@
                                 <strong>{{ $errors->first("not_allowed") }}</strong>
                             </span>
                         </div>
+                        @endif
+                        @if (session('not_allowed'))
+                            <div class="form-group pt-2 row">
+                            <span class='form-control alert-danger text-center' role="alert">
+                                <strong>{{ session('not_allowed') }}</strong>
+                            </span>
+                            </div>
                         @endif
                     </form>
                 </div>

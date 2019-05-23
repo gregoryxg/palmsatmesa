@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TimeslotsTableSeeder::class);
         $this->call(ReservableTimeslotTableSeeder::class);
         $this->call(UsersTableSeeder::class);
+        $this->call(VerifyUsersTableSeeder::class);
         $this->call(CommitteesTableSeeder::class);
         $this->call(CommitteeUserTableSeeder::class);
         $this->call(TicketTypesTableSeeder::class);

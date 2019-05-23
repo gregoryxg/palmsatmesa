@@ -13,6 +13,9 @@
 
 
 Auth::routes(['verify' => true]);
+Route::get('/verification/resend/{id}', 'Auth\VerificationController@resend');
+Route::get('/user/verify/{token}', 'Auth\VerificationController@verifyEmail');
+Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'PagesController@home');

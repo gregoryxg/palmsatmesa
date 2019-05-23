@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\VerifyUser;
+use App\Mail\EmailVerification;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -75,7 +77,17 @@ class RegisterController extends Controller
 
         $data['password'] = bcrypt($data['password']);
 
-        return User::create($data);
+        $user = User::create($data);
+
+        $verifyUser = VerifyUser::Create([
+            'user_id' => $user->id,
+            'token' => sha1(time()),
+            'expires_at' => date('Y-m-d H:i:s', strtotime('+24 hours'))
+        ]);
+
+        \Mail::to($user->email)->send(new EmailVerification($user));
+
+        return $user;
 
     }
 }
