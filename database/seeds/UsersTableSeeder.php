@@ -28,7 +28,6 @@ class UsersTableSeeder extends Seeder
                'mobile_phone'=>'602-245-6956',
                'email'=>'gregory_gonzalez@sbcglobal.net',
                'password'=>bcrypt('tella100'),
-               'password_expires_at'=>date('Y-m-d H:i:s', strtotime('+3 months')),
                'created_at'=>date('Y-m-d H:i:s'),
                'updated_at'=>date('Y-m-d H:i:s'),
                'email_verified_at'=>date('Y-m-d H:i:s')],
@@ -46,7 +45,6 @@ class UsersTableSeeder extends Seeder
                 'mobile_phone'=>'910-691-9895',
                 'email'=>'elisagonzalez8842@gmail.com',
                 'password'=>bcrypt('tella100'),
-                'password_expires_at'=>date('Y-m-d H:i:s', strtotime('+3 months')),
                 'created_at'=>date('Y-m-d H:i:s'),
                 'updated_at'=>date('Y-m-d H:i:s'),
                 'email_verified_at'=>date('Y-m-d H:i:s')]

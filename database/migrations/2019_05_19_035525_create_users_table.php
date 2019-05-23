@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('unit_id');
             $table->unsignedInteger('resident_status_id');
             $table->boolean('account_approved')->default(false);
-            $table->unsignedInteger('approved_by_user_id');
+            $table->unsignedInteger('approved_by_user_id')->nullable();
             $table->boolean('board_member')->default(false);
             $table->boolean('administrator')->default(false);
             $table->boolean('active')->default(true);
@@ -35,7 +35,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->timestamp('last_login_at')->nullable();
-            $table->timestamp('password_expires_at')->nullable();
+            $table->timestamp('password_expires_at')->default(date('Y-m-d H:i:s', strtotime('+3 months')));
             $table->timestamp('email_verified_at')->nullable();
 
             $table->foreign('unit_id')->references('id')->on('units');
