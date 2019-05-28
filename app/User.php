@@ -106,4 +106,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
         return $profile_path;
     }
+
+    //Prevent default notification for verifying email from sending (custom verification in place)
+    public function sendEmailVerificationNotification() {}
 }
