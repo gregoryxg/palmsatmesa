@@ -4,12 +4,11 @@
 
 @section('content')
 
-    <div class="container pt-5">
-        <div class="row w-50 mx-auto">
+    <div class="container h-100">
+        <div class="row align-items-center h-100">
             <div class="mx-auto">
                 <img src="{{ asset($user->profile_picture) }}" height="200px" alt="http://placehold.it/150x200" class="img-rounded img-responsive">
-            </div>
-            <div class="mx-auto">
+
                 <h4>{{$user->first_name . " " . $user->last_name}}</h4>
                 <p>
                     <i class="fas fa-home">{{ "Unit # " . $user->unit_id . " (" . $user->resident_status->status . ")"}}</i>
@@ -24,8 +23,6 @@
                     <br>
                     <i class="fas fa-phone-square"></i>{{ "Home # " . ($user->work_phone ?? "N/A") }}
                 </p>
-            </div>
-            <div class="mx-auto">
                 <a href="/user/{{$user->id}}/edit"><button class="btn btn-primary">Edit</button></a>
             </div>
         </div>

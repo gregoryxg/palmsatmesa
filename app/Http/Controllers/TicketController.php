@@ -65,6 +65,8 @@ class TicketController extends Controller
 
         $ticket->users()->attach(Auth::id());
 
+
+
         return back()->with(['success'=>'Your ticket has been submitted. Please allow up to 1 business day for a response, thank you.']);
     }
 
