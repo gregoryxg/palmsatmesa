@@ -9,5 +9,7 @@
 Please click on the below link to verify your email account:
 <br/>
 <a href="{{url('password/reset', $user->password_reset->token)}}">Reset Password</a>
+<br/><br/>* This is an unmonitored email account. Any replies to this email will be rejected.
+<br>If you believe you received this email by mistake, please submit a ticket through the Palms <a href="{{route('index')}}">website</a> to the Website and Technical Support committee, thank you.
 </body>
 </html>

@@ -108,6 +108,8 @@ class EventController extends Controller
 
         $event->save();
 
+        \Mail::to($event->user->email)->send(new ReservationConfirmation($event));
+
         return redirect('event/'.$id)->with('success', 'Reservation has been updated successfully');
     }
 

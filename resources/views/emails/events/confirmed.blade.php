@@ -13,6 +13,7 @@
 <br/>End Time: {{ date('g:i A', strtotime($event->date . " " . $event->timeslot->end_time)) }}
 <br/>
 <br/>You may make changes to this reservation, or cancel it using the reservation system through the Palms <a href="{{route('index')}}">website.</a>
-<br/><br/>If you did not make this reservation, please submit a ticket through the <a href="{{route('index')}}">website</a> to the Website and Technical Support committee, thank you.
+<br/><br/>* This is an unmonitored email account. Any replies to this email will be rejected.
+<br>If you believe you received this email by mistake, please submit a ticket through the Palms <a href="{{route('index')}}">website</a> to the Website and Technical Support committee, thank you.
 </body>
 </html>
