@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><image xlink:href="{{ asset("img/palms_at_mesa_about.jpg") }}" width="100%" height="100%"/></svg>
-                    <h2>AboutSSS</h2>
+                    <h2>About</h2>
                     <p>The Palms is a D.R. Horton gated community at 1367 South Country Club Drive, Mesa. Our triplex homes will have floor plans ranging from 1447sf - 1960sf with 3-4 bedrooms, 2.5 – 3.5 bathrooms and 2 car finished garages. All this adds to very affordable maintenance free living.</p>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
