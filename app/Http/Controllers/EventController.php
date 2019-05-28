@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ReservationConfirmation;
+use App\Mail\ReservationCancellation;
 use Illuminate\Http\Request;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use App\Event;
@@ -130,6 +131,8 @@ class EventController extends Controller
         else
         {
             $event->delete();
+
+            \Mail::to($event->user->email)->send(new ReservationCancellation($event));
 
             return redirect('reservations')->with('success', 'Reservation has been deleted successfully');
         }
