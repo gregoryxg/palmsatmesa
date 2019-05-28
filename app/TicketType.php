@@ -10,4 +10,9 @@ class TicketType extends Model
     {
         return $this->hasMany(Ticket::class);
     }
+
+    public function committee()
+    {
+        return $this->belongsTo(Committee::class);
+    }
 }

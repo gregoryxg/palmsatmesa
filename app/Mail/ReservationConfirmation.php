@@ -30,6 +30,8 @@ class ReservationConfirmation extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.events.confirmed');
+        return $this
+            ->subject('Reservation ' . $this->event->title .' at The Palms is confirmed')
+            ->view('emails.events.confirmed');
     }
 }

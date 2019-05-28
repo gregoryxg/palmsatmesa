@@ -11,14 +11,16 @@ class TicketConfirmation extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $ticket;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($ticket)
     {
-        //
+        $this->ticket = $ticket;
     }
 
     /**
@@ -28,6 +30,8 @@ class TicketConfirmation extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this
+            ->subject('Ticket # ' . $this->ticket->id . ' - ' . $this->ticket->subject)
+            ->view('emails.tickets.confirmed');
     }
 }

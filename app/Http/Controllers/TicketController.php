@@ -8,6 +8,7 @@ use App\Ticket;
 use App\TicketComment;
 use App\TicketType;
 use Auth;
+use App\Mail\TicketConfirmation;
 
 class TicketController extends Controller
 {
@@ -65,7 +66,11 @@ class TicketController extends Controller
 
         $ticket->users()->attach(Auth::id());
 
+        $email_addresses = array_unique(array_merge(
+            $ticket->users->pluck('email')->toArray(),
+            $ticket->ticket_type->committee->users->pluck('email')->toArray()));
 
+        \Mail::to($email_addresses)->send(new TicketConfirmation($ticket));
 
         return back()->with(['success'=>'Your ticket has been submitted. Please allow up to 1 business day for a response, thank you.']);
     }
@@ -81,6 +86,10 @@ class TicketController extends Controller
         $ticket = Ticket::findOrFail($id);
 
         $comments = TicketComment::where(['ticket_id'=>$ticket->id])->get();
+
+        $committee_email_addresses = $ticket->ticket_type->committee->users->pluck('email');
+
+        dd($committee_email_addresses);
 
         return view('tickets.ticket', ['ticket'=>$ticket, 'comments'=>$comments]);
     }
