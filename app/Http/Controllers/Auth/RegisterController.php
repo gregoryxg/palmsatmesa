@@ -72,7 +72,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $data['profile_picture'] = User::createThumbnail($data['profile_picture']);
+        $data['profile_picture'] = strtolower(User::createThumbnail($data['profile_picture']));
 
         $data['password'] = bcrypt($data['password']);
 
