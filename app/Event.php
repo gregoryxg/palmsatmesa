@@ -32,6 +32,11 @@ class Event extends Model
         return $this->belongsTo(Reservable::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function verify($event_type)
     {
         $this->user_id = Auth::id();

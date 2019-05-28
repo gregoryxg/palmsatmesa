@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ReservationConfirmation;
 use Illuminate\Http\Request;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use App\Event;
@@ -189,6 +190,8 @@ class EventController extends Controller
         else
         {
             $event->save();
+
+            \Mail::to($event->user->email)->send(new ReservationConfirmation($event));
 
             return redirect('event')->with('success', 'Reservation has been added successfully');
         }

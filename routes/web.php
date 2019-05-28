@@ -18,7 +18,7 @@ Route::get('/user/verify/{token}', 'Auth\VerificationController@verifyEmail');
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', 'PagesController@home');
+Route::get('/', 'PagesController@home')->name('index');
 Route::get('/new_residents', 'PagesController@new_residents');
 Route::get('/privacy', 'PagesController@privacy');
 Route::get('/terms', 'PagesController@terms');
