@@ -2,9 +2,9 @@
 
 namespace App;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use App\User;
 use Auth;
 
 class Event extends Model
@@ -51,7 +51,14 @@ class Event extends Model
 
         $reservation_limit = $this->user->unit->reservation_limit;
 
-        if ($event_count >= $reservation_limit)
+        $existing_unit_events = $this->user->unit->events()->where([['date', '=', date('Y-m-d', strtotime($this->date))]])->get()->count();
+
+        if ($existing_unit_events > 0)
+        {
+            return ['status'=>'errors',
+                'response_msg'=>"Your unit already has a reservation for that date. Please select a different date."];
+        }
+        else if ($event_count >= $reservation_limit)
         {
             return ['status'=>'errors',
                 'response_msg'=>"You have reached your limit (".$reservation_limit.") on future reservations ($event_count scheduled).

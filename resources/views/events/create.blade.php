@@ -70,7 +70,7 @@
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
                 <label for="date" class="control-label">Date (Must be within the next 30 days):</label>
-                <input @if($user->unit->reservation_limit <= $user->unit->events_in_date_range->count()) disabled @endif type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name='date' value="{{ old('date') }}" min="{{ date('Y-m-d') }}" max="{{ date('Y-m-d', strtotime("+60 days")) }}" required/>
+                <input @if($user->unit->reservation_limit <= $user->unit->events_in_date_range->count()) disabled @endif type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name='date' value="{{ old('date') }}" min="{{ date('Y-m-d') }}" max="{{ date('Y-m-d', strtotime("+30 days")) }}" required/>
                 @if ($errors->has('date'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('date') }}</strong>
@@ -196,8 +196,6 @@
                         user_id: '{{ $user->id }}',
                         _token: $("input[name='_token']").val()},
                     success: function (data) {
-
-
                         if (data.result == 1)
                         {
                             document.getElementById("reservable_id").disabled=true;

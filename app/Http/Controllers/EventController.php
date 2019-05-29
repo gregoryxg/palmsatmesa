@@ -168,7 +168,7 @@ class EventController extends Controller
         $event = $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'size' => ['required', 'integer', 'min:1', 'max:30'],
-            'date' => ['required', 'date', 'date_format:Y-m-d', 'after_or_equal:today', 'before_or_equal:+60 days'],
+            'date' => ['required', 'date', 'date_format:Y-m-d', 'after_or_equal:today', 'before_or_equal:+30 days'],
             'reservable_id' => ['required', 'integer', 'exists:reservables,id'],
             'timeslot_id' => ['required', 'integer', 'exists:timeslots,id'],
             'agree_to_terms' => ['accepted'],
