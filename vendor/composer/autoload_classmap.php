@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Committee' => $baseDir . '/app/Committee.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Event' => $baseDir . '/app/Event.php',
     'App\\EventType' => $baseDir . '/app/EventType.php',
@@ -37,6 +38,7 @@ return array(
     'App\\Mail\\PasswordResetEmail' => $baseDir . '/app/Mail/PasswordResetEmail.php',
     'App\\Mail\\ReservationCancellation' => $baseDir . '/app/Mail/ReservationCancellation.php',
     'App\\Mail\\ReservationConfirmation' => $baseDir . '/app/Mail/ReservationConfirmation.php',
+    'App\\Mail\\TicketConfirmation' => $baseDir . '/app/Mail/TicketConfirmation.php',
     'App\\PasswordReset' => $baseDir . '/app/PasswordReset.php',
     'App\\Project' => $baseDir . '/app/Project.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',

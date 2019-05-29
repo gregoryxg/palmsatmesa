@@ -17,7 +17,6 @@ class CreateUsersTable extends Migration
             $table->increments('id')->unique();
             $table->string('first_name');
             $table->string('last_name');
-            $table->unsignedInteger('reservation_limit')->default(10);
             $table->unsignedInteger('unit_id');
             $table->unsignedInteger('resident_status_id');
             $table->boolean('account_approved')->default(false);

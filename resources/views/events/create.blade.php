@@ -10,6 +10,13 @@
 <div class="container pt-5">
     <form method="post" action="/event">
         @csrf
+        @if($user->unit->reservation_limit <= $user->unit->events_in_date_range->count())
+            <div class="form-group pt-2 row">
+                <span class='form-control alert-danger text-center' role="alert">
+                    <strong>You have reached your maximum reservations. You must delete some, or wait until some have passed.</strong>
+                </span>
+            </div>
+        @endif
         @if ($errors->has('errors'))
             <div class="form-group pt-2 row">
                 <span class='form-control alert-danger text-center' role="alert">
@@ -17,11 +24,27 @@
                 </span>
             </div>
         @endif
+        <div class="form-group row">
+            <span class='form-control border-0 text-center' >
+                <strong>New Reservation Instructions</strong>
+            </span>
+        </div>
+        <div class="form-group row">
+            <span class='form-control border-0 text-center' >
+                * {{$user->unit->reservation_limit }} reservations allowed per unit in a 60 day period
+            </span>
+            <span class="form-control form-control-sm border-0 text-center">(30 days prior and in the future - <strong>{{ $user->unit->events_in_date_range->count() }} currently scheduled</strong>)</span>
+        </div>
+        <div class="form-group row">
+            <span class='form-control border-0 text-center' >
+                 * Only 1 reservation per unit per day may be scheduled
+            </span>
+        </div>
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
                 <label for="title" class="control-label">Reservation Title:</label>
-                <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title') }}" required>
+                <input @if($user->unit->reservation_limit <= $user->unit->events_in_date_range->count()) disabled @endif type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title') }}" required>
                 @if ($errors->has('title'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('title') }}</strong>
@@ -34,7 +57,7 @@
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
                 <label for="size" class="control-label">Party size including host (max 30):</label>
-                <input type="number" min='1' max='30' class="form-control{{ $errors->has('size') ? ' is-invalid' : '' }}" name="size" value="{{ old('size') }}" required/>
+                <input @if($user->unit->reservation_limit <= $user->unit->events_in_date_range->count()) disabled @endif type="number" min='1' max='30' class="form-control{{ $errors->has('size') ? ' is-invalid' : '' }}" name="size" value="{{ old('size') }}" required/>
                 @if ($errors->has('size'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('size') }}</strong>
@@ -46,8 +69,8 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
-                <label for="date" class="control-label">Date (Must be within the next 60 days):</label>
-                <input type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name='date' value="{{ old('date') }}" min="{{ date('Y-m-d') }}" max="{{ date('Y-m-d', strtotime("+60 days")) }}" required/>
+                <label for="date" class="control-label">Date (Must be within the next 30 days):</label>
+                <input @if($user->unit->reservation_limit <= $user->unit->events_in_date_range->count()) disabled @endif type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name='date' value="{{ old('date') }}" min="{{ date('Y-m-d') }}" max="{{ date('Y-m-d', strtotime("+60 days")) }}" required/>
                 @if ($errors->has('date'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('date') }}</strong>
@@ -154,8 +177,10 @@
     <script>
         $("input[name='date']").change(function() {
             var date = $("input[name='date']").val();
+            var locations = {!! json_encode($locations) !!};
             $('#timeslot_id').empty()
             $('#reservable_id').val(null);
+            $('#reservable_id').empty()
             $("#esign_consent").prop('checked', false);
             document.getElementById("timeslot_id").disabled=true;
             if (date == "")
@@ -164,7 +189,32 @@
             }
             else
             {
-                document.getElementById("reservable_id").disabled=false;
+                $.ajax({
+                    url: "/reservables/locations",
+                    method: 'POST',
+                    data: {date: date,
+                        user_id: '{{ $user->id }}',
+                        _token: $("input[name='_token']").val()},
+                    success: function (data) {
+
+
+                        if (data.result == 1)
+                        {
+                            document.getElementById("reservable_id").disabled=true;
+                            $("#reservable_id").append(new Option("Reservation for unit already exists", null));
+                        }
+                        else
+                        {
+                            document.getElementById("reservable_id").disabled = false;
+
+                            $("#reservable_id").append(new Option())
+
+                            for (var i in locations) {
+                                $("#reservable_id").append(new Option(locations[i].description, locations[i].id));
+                            }
+                        }
+                    }
+                })
             }
         })
     </script>
@@ -172,6 +222,7 @@
     <script>
         $("select[name='reservable_id']").change(function() {
             var date = $("input[name='date']").val();
+            var user_id = '{{ $user->id }}';
             var reservable_id =  this.value;
             var token = $("input[name='_token']").val();
             $('#timeslot_id').empty()
@@ -185,6 +236,7 @@
                     url: "/reservables/" + reservable_id + "/timeslots",
                     method: 'POST',
                     data: {date: date,
+                            user_id: user_id,
                             reservable_id: reservable_id,
                             _token: token},
                     success: function (data) {

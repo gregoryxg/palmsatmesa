@@ -31,7 +31,7 @@ class ReservationConfirmation extends Mailable
     public function build()
     {
         return $this
-            ->subject('Reservation ' . $this->event->title .' at The Palms is confirmed')
+            ->subject('Reservation ' . chr(34) . $this->event->title . chr(34) . ' at The Palms is confirmed')
             ->view('emails.events.confirmed');
     }
 }

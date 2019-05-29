@@ -475,6 +475,7 @@ class ComposerStaticInit1bac787456196c94f27bb77cea642a2e
     );
 
     public static $classMap = array (
+        'App\\Committee' => __DIR__ . '/../..' . '/app/Committee.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Event' => __DIR__ . '/../..' . '/app/Event.php',
         'App\\EventType' => __DIR__ . '/../..' . '/app/EventType.php',
@@ -506,6 +507,7 @@ class ComposerStaticInit1bac787456196c94f27bb77cea642a2e
         'App\\Mail\\PasswordResetEmail' => __DIR__ . '/../..' . '/app/Mail/PasswordResetEmail.php',
         'App\\Mail\\ReservationCancellation' => __DIR__ . '/../..' . '/app/Mail/ReservationCancellation.php',
         'App\\Mail\\ReservationConfirmation' => __DIR__ . '/../..' . '/app/Mail/ReservationConfirmation.php',
+        'App\\Mail\\TicketConfirmation' => __DIR__ . '/../..' . '/app/Mail/TicketConfirmation.php',
         'App\\PasswordReset' => __DIR__ . '/../..' . '/app/PasswordReset.php',
         'App\\Project' => __DIR__ . '/../..' . '/app/Project.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',

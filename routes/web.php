@@ -28,6 +28,7 @@ Route::resource('/user', 'UserController')->middleware('verified');
 Route::resource('/event', 'EventController')->middleware('verified');
 Route::get('/reservations', 'EventController@reservations')->middleware('verified');
 Route::post('/reservables/{id}/timeslots', 'ReservableController@timeslots')->middleware('verified');
+Route::post('/reservables/locations', 'ReservableController@locations')->middleware('verified');
 
 Route::resource('/ticket', 'TicketController')->middleware('verified');
 Route::get('/closed_ticket', 'TicketController@closed')->middleware('verified');

@@ -160,14 +160,7 @@ class EventController extends Controller
 
         $locations = Reservable::all(['id', 'description']);
 
-        $timeslots = [];
-
-        foreach ($locations as $location)
-        {
-            $timeslots[$location->id] = $location->timeslots;
-        }
-
-        return view('events.create', ['locations'=>$locations, 'timeslots'=>$timeslots]);
+        return view('events.create', ['locations'=>$locations, 'user'=>$user]);
     }
 
     public function store(Request $request)
