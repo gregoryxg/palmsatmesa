@@ -24,7 +24,7 @@ class StoreTicketComment extends FormRequest
     public function rules()
     {
         return [
-            'comment'=>['required', 'profanity'],
+            'comment'=>['required', 'profanity', 'min:1', 'max:2000'],
             'ticket_id'=>['required', 'integer']
         ];
     }

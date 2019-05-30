@@ -35,7 +35,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <tr class='table-row' data-href="">
+                    <tr class='table-row' data-href="#">
                         <th scope="row">{{ $ticket->id }}</th>
                         <th scope="row">{{ $ticket->subject }}</th>
                         <th scope="row">{{ $ticket->ticket_type->description }}</th>
@@ -64,12 +64,12 @@
         <div class="table-responsive table-hover">
             <table class="table">
                 <thead>
-                <tr>
+                <tr data-href="#">
                     <th scope="col" nowrap>Original Description</th>
                 </tr>
                 </thead>
                 <tbody>
-                    <tr class='table-row' data-href="">
+                    <tr class='table-row' data-href="#">
                         <th scope="row">{{ $ticket->body }}</th>
                     </tr>
                 </tbody>
@@ -79,7 +79,7 @@
         <div class="table-responsive table-striped table-hover">
             <table class="table">
                 <thead>
-                <tr>
+                <tr data-href="#">
                     <th scope="col" nowrap>Comment</th>
                     <th scope="col" nowrap>By</th>
                     <th scope="col" nowrap>Posted</th>
@@ -87,7 +87,7 @@
                 </thead>
                 <tbody>
                 @foreach ($comments as $comment)
-                    <tr class='table-row' data-href="">
+                    <tr class='table-row'  data-href="#">
                         <th scope="row">{{ $comment->comment }}</th>
                         <th scope="row">{{ $comment->user->first_name . " " . $comment->user->last_name }}</th>
                         <th scope="row" nowrap>{{ date("n/d/Y g:i A", strtotime($comment->created_at)) }}</th>
@@ -103,7 +103,8 @@
             <input type="hidden" value="{{ $ticket->id }}" name="ticket_id"/>
             <div class="form-group required">
                 <label for="comment" class="control-label">Add Comment</label>
-                <textarea name="comment" class="form-control{{ $errors->has('comment') ? ' is-invalid' : '' }}" rows="5" required>{{ old('comment') }}</textarea>
+                <textarea id="comment" name="comment" class="form-control{{ $errors->has('comment') ? ' is-invalid' : '' }}" rows="5" minlength="1" maxlength="2000" required>{{ old('comment') }}</textarea>
+                <small><span id="commentcount">0</span> / 2000 Characters Max</small>
                 @if ($errors->has('comment'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('comment') }}</strong>
@@ -117,5 +118,11 @@
         @endif
 
     </div>
-
+@section('page_js')
+    <script>
+        $("#comment").keyup(function(){
+            $("#commentcount").text($(this).val().length);
+        });
+    </script>
+@endsection
 @endsection

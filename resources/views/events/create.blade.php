@@ -44,7 +44,7 @@
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
                 <label for="title" class="control-label">Reservation Title:</label>
-                <input @if($user->unit->reservation_limit <= $user->unit->events_in_date_range->count()) disabled @endif type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title') }}" minlength="1" maxlength="50" required>
+                <input @if($user->unit->reservation_limit <= $user->unit->events_in_date_range->count()) disabled @endif type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" id="title" name="title" value="{{ old('title') }}" minlength="1" maxlength="50" required>
                 <small><span id="titlecount">0</span> / 50 Characters Max</small>
                 @if ($errors->has('title'))
                     <span class="invalid-feedback" role="alert">
