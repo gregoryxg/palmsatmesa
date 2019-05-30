@@ -14,6 +14,11 @@
                 <span><strong>{{ \Session::get('success') }}</strong></span>
             </div>
         @endif
+        @if ($errors->has('failure'))
+            <div class="alert alert-danger text-center">
+                <span role="alert"><strong>{{ $errors->first('failure') }}</strong></span>
+            </div>
+        @endif
 
         <div class="table-responsive table-hover">
             <table class="table">
@@ -35,7 +40,19 @@
                         <th scope="row">{{ $ticket->subject }}</th>
                         <th scope="row">{{ $ticket->ticket_type->description }}</th>
                         <th scope="row">{{ $ticket->users()->first() ? ($ticket->users()->first()->first_name . " " . $ticket->users()->first()->last_name) : "" }}</th>
-                        <th scope="row">{{ $ticket->assigned_to_id ? ($ticket->assigned_to->first_name . " " . $ticket->assigned_to->last_name) : "unassigned" }}</th>
+                        <th scope="row">@if(isset($ticket->assigned_to_id))
+                                            {{$ticket->assigned_to->first_name . " " . $ticket->assigned_to->last_name}}
+                                        @else
+                                            @if ($ticket->ticket_type->committee->users()->where(['user_id'=>Auth::id()])->get()->first() !== null)
+                                                <form action="/committeeticket/{{$ticket->id}}/assign" method="post">
+                                                    @csrf
+                                                    <input type="hidden" name="user_id" value="{{Auth::id()}}"/>
+                                                    <button onclick="return confirm('Are you sure you want to assign yourself to this ticket?')" class="btn btn-info">Assign</button>
+                                                </form>
+                                            @else
+                                                unassigned
+                                            @endif
+                                        @endif
                         <th scope="row" nowrap>{{ $ticket->created_at ? date("n/d/Y g:i A", strtotime($ticket->created_at)) : "N/A" }}</th>
                         <th scope="row" nowrap>{{ $ticket->updated_at ? date("n/d/Y g:i A", strtotime($ticket->updated_at)) : "N/A" }}</th>
                         <th scope="row" nowrap>{!! $ticket->completed_at ? date("n/d/Y g:i A", strtotime($ticket->completed_at)) : "<a href='/ticket/$ticket->id/close'><button onclick=\"return confirm('Are you sure you want to close this ticket?')\" class='btn btn-secondary'>Close Ticket</button></a>" !!}</th>

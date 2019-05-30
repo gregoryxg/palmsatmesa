@@ -39,7 +39,9 @@ class Ticket extends Model
 
     public function assign($user_id)
     {
+        $this->assigned_to_id = $user_id;
 
+        return $this->save();
     }
 
     public function follow($ticket_id, $user_id)

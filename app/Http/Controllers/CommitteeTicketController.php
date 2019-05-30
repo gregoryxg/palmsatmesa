@@ -37,9 +37,11 @@ class CommitteeTicketController extends Controller
 
         $user = User::findOrFail($request->user_id);
 
-        $ticket->assign($user->id);
+        if($ticket->assign($user->id))
+            return back()->with(['success'=>"Ticket # $id has been assigned to " . $user->first_name . " " . $user->last_name]);
+        else
+            return back()->withErrors(['failure'=>"Could not assign User # $user->id ($user->first_name $user->last_name) to Ticket # $id... submit a ticket to the system administrator with this message."]);
 
-        return back()->with(['success'=>"Ticket # $id has been assigned to " . $user->first_name . " " . $user->last_name]);
     }
 
     public function user_assigned()
