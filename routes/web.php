@@ -34,4 +34,10 @@ Route::resource('/ticket', 'TicketController')->middleware('verified');
 Route::get('/closed_ticket', 'TicketController@closed')->middleware('verified');
 Route::get('/ticket/{ticket}/close', 'TicketController@close')->middleware('verified');
 
+Route::resource('/committeeticket', 'CommitteeTicketController')->middleware('verified');
+Route::post('/committeeticket/{id}/assign', 'CommitteeTicketController@assign')->middleware('verified');
+Route::get('/user_committeeticket', 'CommitteeTicketController@user_assigned')->middleware('verified');
+Route::get('/assigned_committeeticket', 'CommitteeTicketController@assigned')->middleware('verified');
+Route::get('/closed_committeeticket', 'CommitteeTicketController@closed')->middleware('verified');
+
 Route::post('/ticketComment', 'TicketCommentController@store')->middleware('verified');

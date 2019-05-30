@@ -11,8 +11,14 @@
 <li class="nav-item dropdown @yield('active_support')">
     <a href="#" id="supportDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Support/Maintenance</a>
     <div class="dropdown-menu bg-dark" aria-labelledby="supportDropdown">
-        <a class="dropdown-item @yield('active_open_tickets')" href="/ticket">Open Tickets</a>
-        <a class="dropdown-item @yield('active_closed_tickets')" href="/closed_ticket">Closed Tickets</a>
+        <a class="dropdown-item @yield('ticket')" href="/ticket">My Open Tickets</a>
+        <a class="dropdown-item @yield('closed_ticket')" href="/closed_ticket">My Closed Tickets</a>
         <a class="dropdown-item @yield('active_new_ticket')" href="/ticket/create">New Ticket</a>
+        @if(Auth::user()->committees->count() > 0)
+            <a class="dropdown-item @yield('committeeticket')" href="/committeeticket">Open Committee Tickets</a>
+            <a class="dropdown-item @yield('user_committeeticket')" href="/user_committeeticket">My Committee Tickets</a>
+            <a class="dropdown-item @yield('assigned_committeeticket')" href="/assigned_committeeticket">Assigned Committee Tickets</a>
+            <a class="dropdown-item @yield('closed_committeeticket')" href="/closed_committeeticket">Closed Committee Tickets</a>
+        @endif
     </div>
 </li>

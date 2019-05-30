@@ -53,6 +53,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
     }
 
+    public function committees()
+    {
+        return $this->belongsToMany(Committee::class);
+    }
+
     public function verify_user()
     {
         return $this->hasOne(VerifyUser::class);

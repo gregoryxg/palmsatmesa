@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\TicketUser;
 
 class Ticket extends Model
 {
@@ -22,6 +21,25 @@ class Ticket extends Model
     public function ticket_type()
     {
         return $this->belongsTo(TicketType::class);
+    }
+
+    public function validate_user(User $user)
+    {
+        $user_follows_ticket = $this->users()->where(['user_id'=>$user->id])->count();
+
+        $user_in_ticket_type_committee = $this->ticket_type->committee->users()->where(['user_id'=>$user->id])->get()->count();
+
+        if ($user_follows_ticket == 0 && $user_in_ticket_type_committee == 0)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function assign($user_id)
+    {
+
     }
 
     public function follow($ticket_id, $user_id)

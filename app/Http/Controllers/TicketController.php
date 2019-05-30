@@ -7,6 +7,7 @@ use App\Http\Requests\StoreTicket;
 use App\Ticket;
 use App\TicketComment;
 use App\TicketType;
+use App\User;
 use Auth;
 use App\Mail\TicketConfirmation;
 
@@ -87,11 +88,12 @@ class TicketController extends Controller
 
         $comments = TicketComment::where(['ticket_id'=>$ticket->id])->get();
 
-        $committee_email_addresses = $ticket->ticket_type->committee->users->pluck('email');
+        $user = User::findOrFail(Auth::id());
 
-        dd($committee_email_addresses);
-
-        return view('tickets.ticket', ['ticket'=>$ticket, 'comments'=>$comments]);
+        if (!$ticket->validate_user($user))
+            return redirect('ticket')->withErrors(['not_allowed'=>'You do not have permission to view that ticket.']);
+        else
+            return view('tickets.ticket', ['ticket'=>$ticket, 'comments'=>$comments]);
     }
 
     /**
