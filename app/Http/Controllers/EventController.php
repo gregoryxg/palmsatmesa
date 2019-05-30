@@ -166,7 +166,7 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $event = $request->validate([
-            'title' => ['required', 'string', 'max:255'],
+            'title' => ['required', 'string', 'max:50'],
             'size' => ['required', 'integer', 'min:1', 'max:30'],
             'date' => ['required', 'date', 'date_format:Y-m-d', 'after_or_equal:today', 'before_or_equal:+30 days'],
             'reservable_id' => ['required', 'integer', 'exists:reservables,id'],

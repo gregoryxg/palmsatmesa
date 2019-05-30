@@ -25,7 +25,7 @@ class StoreTicket extends FormRequest
     {
         return [
             'ticket_type_id'=>['required', 'integer', 'min:1', 'max:5'],
-            'subject'=>['required', 'string', 'profanity', 'min:1', 'max:255'],
+            'subject'=>['required', 'string', 'profanity', 'min:1', 'max:50'],
             'body'=>['required', 'string', 'profanity', 'min:1', 'max:2000']
         ];
     }

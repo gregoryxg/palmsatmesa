@@ -90,9 +90,9 @@ class TicketController extends Controller
 
         $user = User::findOrFail(Auth::id());
 
-        /*if (!$ticket->validate_user($user))
+        if (!$ticket->validate_user($user))
             return redirect('ticket')->withErrors(['not_allowed'=>'You do not have permission to view that ticket.']);
-        else*/
+        else
             return view('tickets.ticket', ['ticket'=>$ticket, 'comments'=>$comments]);
     }
 

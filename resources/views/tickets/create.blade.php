@@ -50,8 +50,8 @@
                 <div class="col-md-4"></div>
                 <div class="form-group required col-md-4">
                     <label for="subject" class="control-label">Subject:</label>
-                    <input type="text" class="form-control{{ $errors->has('subject') ? ' is-invalid' : '' }}" name="subject" value="{{ old('subject') }}" required>
-                    <small>255 Characters Max</small>
+                    <input id="subject" type="text" class="form-control{{ $errors->has('subject') ? ' is-invalid' : '' }}" name="subject" value="{{ old('subject') }}" maxlength="50" minlength="1" required>
+                    <small><span id="subjectcount">0</span> / 50 Characters Max</small>
                     @if ($errors->has('subject'))
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('subject') }}</strong>
@@ -64,8 +64,8 @@
                 <div class="col-md-4"></div>
                 <div class="form-group required col-md-4">
                     <label for="body" class="control-label">Description</label>
-                    <textarea name="body" class="form-control{{ $errors->has('body') ? ' is-invalid' : '' }}" rows="10" required>{{ old('body') }}</textarea>
-                    <small>2000 Characters Max</small>
+                    <textarea id="body" name="body" class="form-control{{ $errors->has('body') ? ' is-invalid' : '' }}" rows="10" maxlength="2000" required>{{ old('body') }}</textarea>
+                    <small><span id="bodycount">0</span> / 2000 Characters Max</small>
                     @if ($errors->has('body'))
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('body') }}</strong>
@@ -85,5 +85,17 @@
         </form>
 
     </div>
+@section('page_js')
+    <script>
+        $("#subject").keyup(function(){
+            $("#subjectcount").text($(this).val().length);
+        });
+    </script>
+    <script>
+        $("#body").keyup(function(){
+            $("#bodycount").text($(this).val().length);
+        });
+    </script>
 
+@endsection
 @endsection
