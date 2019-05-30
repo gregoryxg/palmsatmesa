@@ -22,6 +22,7 @@
                     <th scope="col" nowrap>#</th>
                     <th scope="col" nowrap>Subject</th>
                     <th scope="col" nowrap>Ticket Type</th>
+                    <th scope="col" nowrap>Created By</th>
                     <th scope="col" nowrap>Assigned To</th>
                     <th scope="col" nowrap>Opened</th>
                     <th scope="col" nowrap>Last Updated</th>
@@ -33,6 +34,7 @@
                         <th scope="row">{{ $ticket->id }}</th>
                         <th scope="row">{{ $ticket->subject }}</th>
                         <th scope="row">{{ $ticket->ticket_type->description }}</th>
+                        <th scope="row">{{ $ticket->users()->first() ? ($ticket->users()->first()->first_name . " " . $ticket->users()->first()->last_name) : "" }}</th>
                         <th scope="row">{{ $ticket->assigned_to_id ? ($ticket->assigned_to->first_name . " " . $ticket->assigned_to->last_name) : "unassigned" }}</th>
                         <th scope="row" nowrap>{{ $ticket->created_at ? date("n/d/Y g:i A", strtotime($ticket->created_at)) : "N/A" }}</th>
                         <th scope="row" nowrap>{{ $ticket->updated_at ? date("n/d/Y g:i A", strtotime($ticket->updated_at)) : "N/A" }}</th>
