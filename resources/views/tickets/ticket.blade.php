@@ -43,7 +43,7 @@
                         <th scope="row">@if(isset($ticket->assigned_to_id))
                                             {{$ticket->assigned_to->first_name . " " . $ticket->assigned_to->last_name}}
                                         @else
-                                            @if ($ticket->ticket_type->committee->users()->where(['user_id'=>Auth::id()])->get()->first() !== null)
+                                            @if ($ticket->ticket_type->committee->users()->where(['user_id'=>Auth::id()])->get()->first() !== null && $ticket->completed_at == null)
                                                 <form action="/committeeticket/{{$ticket->id}}/assign" method="post">
                                                     @csrf
                                                     <input type="hidden" name="user_id" value="{{Auth::id()}}"/>

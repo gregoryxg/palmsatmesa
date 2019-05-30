@@ -24,7 +24,8 @@ class CommitteeTicketController extends Controller
         {
             foreach ($committee->tickets as $ticket)
             {
-                $tickets[] = $ticket;
+                if ($ticket->assigned_to_id == null)
+                    $tickets[] = $ticket;
             }
         }
 
@@ -46,17 +47,45 @@ class CommitteeTicketController extends Controller
 
     public function user_assigned()
     {
+        $tickets = Ticket::select()->where('assigned_to_id',Auth::id())->get();
 
+        return view('tickets.tickets', ['tickets'=>$tickets]);
     }
 
     public function assigned()
     {
+        $user_committees = Auth::user()->committees()->with('tickets')->get();
 
+        $tickets = [];
+
+        foreach ($user_committees as $committee)
+        {
+            foreach ($committee->tickets as $ticket)
+            {
+                if ($ticket->assigned_to_id !== Auth::id() && $ticket->assigned_to_id !== null)
+                    $tickets[] = $ticket;
+            }
+        }
+
+        return view('tickets.tickets', ['tickets'=>$tickets]);
     }
 
     public function closed()
     {
+        $user_committees = Auth::user()->committees()->with('tickets')->orderBy('id','desc')->get();
 
+        $tickets = [];
+
+        foreach ($user_committees as $committee)
+        {
+            foreach ($committee->tickets as $ticket)
+            {
+                if ($ticket->completed_at !== null)
+                    $tickets[] = $ticket;
+            }
+        }
+
+        return view('tickets.tickets', ['tickets'=>$tickets]);
     }
 
     /**
