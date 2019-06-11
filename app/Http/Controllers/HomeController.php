@@ -42,6 +42,6 @@ class HomeController extends Controller
             return redirect('/login')->withErrors(["not_allowed"=>"Your password has expired. Use the 'Forgot Your password' link to reset it."]);
         }
 
-        return view('index');
+        return redirect('/');
     }
 }

@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\UploadedFile;
 use Image;
+use Illuminate\Support\Facades\Storage;
 
 //class User extends Model implements AuthenticatableContract {
 class User extends Authenticatable implements MustVerifyEmail
@@ -100,8 +101,7 @@ class User extends Authenticatable implements MustVerifyEmail
             $UserID = DB::select("SHOW TABLE STATUS LIKE 'users'")[0]->Auto_increment;
         }
 
-
-        $profile_path = "img/headshot_uploads/" . $UserID . "." . $profile_picture->getClientOriginalExtension();
+        $profile_path = "private/headshot_uploads/" . $UserID . ".jpg";// . $profile_picture->getClientOriginalExtension();
 
         $image = Image::make($profile_picture);
 
@@ -112,7 +112,9 @@ class User extends Authenticatable implements MustVerifyEmail
             $constraint->upsize();
         });
 
-        $image->save($profile_path);
+        $image->encode('jpg');
+
+        Storage::put($profile_path, (string)$image);
 
         return $profile_path;
     }

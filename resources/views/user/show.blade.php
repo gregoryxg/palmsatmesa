@@ -7,7 +7,7 @@
     <div class="container h-100">
         <div class="row align-items-center h-100">
             <div class="mx-auto">
-                <img src="{{ asset($user->profile_picture) }}" height="200px" alt="http://placehold.it/150x200" class="img-rounded img-responsive">
+                <img src="{{ asset(Storage::temporaryUrl($user->profile_picture, now()->addMinutes(5))) }}" height="200px" alt="http://placehold.it/150x200" class="img-rounded img-responsive">
 
                 <h4>{{$user->first_name . " " . $user->last_name}}</h4>
                 <p>

@@ -109,7 +109,7 @@
                                 <label for="profile_preview" class="col-md-4 col-form-label text-md-right">{{ __('File must be less than 10MB, and a .GIF, .JPG, .JPEG, .PNG, or .SVG type.') }}</label>
 
                                 <div class="col-md-3">
-                                    <img id="profile_preview" src="{{ asset($user->profile_picture) }}" height="200px" alt="Profile Picture" class="img-rounded img-responsive"/>
+                                    <img id="profile_preview" src="{{ asset(Storage::temporaryUrl($user->profile_picture, now()->addMinutes(5))) }}" height="200px" alt="Profile Picture" class="img-rounded img-responsive"/>
                                 </div>
                             </div>
 

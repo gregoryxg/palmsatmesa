@@ -2,11 +2,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0"/>
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.5">
+    <meta name="author" content="Gregory Gonzalez">
     <title>@yield('title')</title>
 
-    <link rel="shortcut icon" href="{{ asset('img/ThePalms.png') }}">
+    <link rel="shortcut icon" href="{{ asset(Storage::url('public/logo/ThePalms.png')) }}">
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">

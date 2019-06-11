@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -47,7 +46,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return view('user.show', ['user' => User::findOrFail($id)]);
+        $user = User::findOrFail($id);
+
+        return view('user.show', ['user' => $user]);
     }
 
     /**
@@ -89,14 +90,7 @@ class UserController extends Controller
 
         if (isset($validated['profile_picture']))
         {
-            $old_profile_picture = strtolower($user->profile_picture);
-
-            $validated['profile_picture'] = strtolower(User::createThumbnail($validated['profile_picture'], $id));
-
-            if ($old_profile_picture != $validated['profile_picture'])
-            {
-                unlink(public_path($old_profile_picture));
-            }
+            $validated['profile_picture'] = User::createThumbnail($validated['profile_picture'], $id);
         }
 
         $user->fill($validated);
