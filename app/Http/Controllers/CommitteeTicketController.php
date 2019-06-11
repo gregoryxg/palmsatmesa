@@ -24,7 +24,7 @@ class CommitteeTicketController extends Controller
         {
             foreach ($committee->tickets as $ticket)
             {
-                if ($ticket->assigned_to_id == null)
+                if ($ticket->assigned_to_id == null && $ticket->completed_at == null)
                     $tickets[] = $ticket;
             }
         }
