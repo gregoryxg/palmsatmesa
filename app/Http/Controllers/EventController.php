@@ -122,7 +122,7 @@ class EventController extends Controller
 
         $hours_diff = ($diff->d * 24) + ($diff->h) + ($diff->i/60) + ($diff->s/60/60);
 
-        //Reservations cannot be cancelled within 48 hours
+        //Reservations cannot be cancelled within 48 hours of the start time
         if ($hours_diff < 48)
         {
 

@@ -36,6 +36,10 @@ class CreateUsersTable extends Migration
             $table->timestamp('last_login_at')->nullable();
             $table->timestamp('password_expires_at')->default(date('Y-m-d H:i:s', strtotime('+3 months')));
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('stripe_id')->nullable()->collation('utf8mb4_bin');
+            $table->string('card_brand')->nullable();
+            $table->string('card_last_four', 4)->nullable();
+            $table->timestamp('trial_ends_at')->nullable();
 
             $table->foreign('unit_id')->references('id')->on('units');
             $table->foreign('resident_status_id')->references('id')->on('resident_statuses');

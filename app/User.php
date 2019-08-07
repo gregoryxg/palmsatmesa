@@ -9,11 +9,13 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\UploadedFile;
 use Image;
 use Illuminate\Support\Facades\Storage;
+use Laravel\Cashier\Billable;
 
 //class User extends Model implements AuthenticatableContract {
 class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
+    use Billable;
 
     protected $fillable = [
         'first_name',

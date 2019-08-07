@@ -31,6 +31,11 @@
                 * Only the title and number of guests may be edited for existing reservations
             </span>
         </div>
+        <div class="form-group row">
+            <span class='form-control border-0 text-center' >
+                * Reservations cannot be cancelled within 48 hours of the start time
+            </span>
+        </div>
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
@@ -117,7 +122,7 @@
             @csrf
             @method('delete')
             <div class="form-group pl-5">
-                <button onclick="return confirm('Are you sure you want to delete this event?')" id='submit_button' type="submit" class="btn btn-danger">Delete Event</button>
+                <button onclick="return confirm('Are you sure you want to cancel this event?')" id='submit_button' type="submit" class="btn btn-danger">Cancel Event</button>
             </div>
         </form>
 </div>
