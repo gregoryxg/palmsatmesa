@@ -104,7 +104,7 @@ class EventController extends Controller
 
         $event->fill($request->validate([
             'title' => ['required', 'string', 'max:255'],
-            'size' => ['required', 'integer', 'min:1', 'max:30']
+            'size' => ['required', 'integer', 'min:1', 'max:'.$event->reservable->guest_limit]
         ]));
 
         $event->save();
@@ -165,12 +165,12 @@ class EventController extends Controller
     }
 
     public function store(Request $request)
-    {
+    {        
         $event = $request->validate([
             'title' => ['required', 'string', 'max:50'],
-            'size' => ['required', 'integer', 'min:1', 'max:30'],
             'date' => ['required', 'date', 'date_format:Y-m-d', 'after_or_equal:today', 'before_or_equal:+30 days'],
             'reservable_id' => ['required', 'integer', 'exists:reservables,id'],
+            'size' => ['required', 'integer', 'min:1', 'max:'.Reservable::find($request->reservable_id)->guest_limit],
             'timeslot_id' => ['required', 'integer', 'exists:timeslots,id'],
             'agree_to_terms' => ['accepted'],
             'esign_consent' => ['accepted']

@@ -26,6 +26,11 @@
                 </span>
             </div>
         @endif
+        <div class="form-group row">
+            <span class='form-control border-0 text-center' >
+                * Only the title and number of guests may be edited for existing reservations
+            </span>
+        </div>
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
@@ -42,8 +47,8 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
-                <label for="size" class="control-label">Party size including host (max 30):</label>
-                <input type="number" min='1' max='30' class="form-control{{ $errors->has('size') ? ' is-invalid' : '' }}" name="size" value="{{ $event->size }}" required/>
+                <label for="size" class="control-label">Party size including host (max  {{ $event->reservable->guest_limit }}):</label>
+                <input type="number" min='1' max='{{ $event->reservable->guest_limit }}' class="form-control{{ $errors->has('size') ? ' is-invalid' : '' }}" name="size" value="{{ $event->size }}" required/>
                 @if ($errors->has('size'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('size') }}</strong>
@@ -55,8 +60,8 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
-                <label for="date" class="control-label">Date (Must be within the next 60 days):</label>
-                <input disabled type="date" class="form-control" name='date' value="{{ $event->date }}" required/>
+                <label for="date" class="control-label">Date (Must be within the next 30 days):</label>
+                <input disabled type="date" class="form-control" name='date' value="{{ $event->date }}" min="{{ date('Y-m-d') }}" max="{{ date('Y-m-d', strtotime("+30 days")) }}" required/>
             </div>
         </div>
 
