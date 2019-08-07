@@ -57,7 +57,10 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
-                <label for="size" class="control-label">Party size including host (max 30):</label>
+                <label for="size" class="control-label">Party size including host:</label>
+                @foreach($locations as $location)
+                    <br/><small><b>{{ $location->description . " - " . $location->guest_limit . " max"}}</b></small>
+                @endforeach               
                 <input @if($user->unit->reservation_limit <= $user->unit->events_in_date_range->count()) disabled @endif type="number" min='1' max='30' class="form-control{{ $errors->has('size') ? ' is-invalid' : '' }}" name="size" value="{{ old('size') }}" required/>
                 @if ($errors->has('size'))
                     <span class="invalid-feedback" role="alert">
@@ -71,7 +74,7 @@
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
                 <label for="date" class="control-label">Date (Must be within the next 30 days):</label>
-                <input @if($user->unit->reservation_limit <= $user->unit->events_in_date_range->count()) disabled @endif type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name='date' value="{{ old('date') }}" min="{{ date('Y-m-d') }}" max="{{ date('Y-m-d', strtotime("+30 days")) }}" required/>
+                <input id="date" @if($user->unit->reservation_limit <= $user->unit->events_in_date_range->count()) disabled @endif type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name='date' value="{{ old('date') }}" min="{{ date('Y-m-d') }}" max="{{ date('Y-m-d', strtotime("+30 days")) }}" required/>
                 @if ($errors->has('date'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('date') }}</strong>
@@ -84,6 +87,9 @@
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
                 <label for="reservable_id" class="control-label">Location:</label>
+                @foreach($locations as $location)
+                    <br/><small><b>{{ $location->description . " - $" . $location->reservation_fee . " fee"}}</b></small>
+                @endforeach   
                 <select disabled id='reservable_id' class='form-control{{ $errors->has('reservable_id') ? ' is-invalid' : '' }}' name="reservable_id" required><option/>
                     @foreach($locations as $location)
                         <option value="{{ $location->id }}" {{ old('reservable_id') ? 'selected' : ''}}>{{ $location->description }}</option>
@@ -176,8 +182,30 @@
     </script>
 
     <script>
+        $("input[name='size']").change(function() {
+            var size = $("input[name='size']").val();
+            $('#date').val(null);
+            $('#timeslot_id').empty();
+            $('#reservable_id').val(null);
+            $('#reservable_id').empty();
+            document.getElementById("reservable_id").disabled=true;
+            $("#esign_consent").prop('checked', false);
+            document.getElementById("timeslot_id").disabled=true;
+            if (size == "")
+            {
+                document.getElementById("date").disabled=true;
+            }
+            else
+            {
+                document.getElementById("date").disabled=false;                
+            }
+        })
+    </script>
+    
+    <script>
         $("input[name='date']").change(function() {
             var date = $("input[name='date']").val();
+            var size = $("input[name='size']").val();
             var locations = {!! json_encode($locations) !!};
             $('#timeslot_id').empty()
             $('#reservable_id').val(null);
@@ -209,7 +237,8 @@
                             $("#reservable_id").append(new Option())
 
                             for (var i in locations) {
-                                $("#reservable_id").append(new Option(locations[i].description, locations[i].id));
+                                if (locations[i].guest_limit >= size)
+                                    $("#reservable_id").append(new Option(locations[i].description, locations[i].id));
                             }
                         }
                     }

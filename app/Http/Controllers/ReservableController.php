@@ -35,7 +35,12 @@ class ReservableController extends Controller
     {
         if ($request->ajax()) {
 
-            $existing_unit_events = User::findOrFail($request->user_id)->unit->events()->where([['date', '=', date('Y-m-d', strtotime($request->date))]])->get()->count();
+            $existing_unit_events = User::findOrFail($request->user_id)->unit->events()
+                    ->where([
+                            ['date', '=', date('Y-m-d', strtotime($request->date))], 
+                            ])
+                    ->get()
+                    ->count();
 
             if ($existing_unit_events > 0) {
                 return response()->json(['result'=>1]);

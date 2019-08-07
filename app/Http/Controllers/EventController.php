@@ -159,7 +159,7 @@ class EventController extends Controller
             return back()->withErrors(['Your account has not been approved yet.']);
         }
 
-        $locations = Reservable::all(['id', 'description']);
+        $locations = Reservable::all(['id', 'description', 'guest_limit', 'reservation_fee']);
 
         return view('events.create', ['locations'=>$locations, 'user'=>$user]);
     }
