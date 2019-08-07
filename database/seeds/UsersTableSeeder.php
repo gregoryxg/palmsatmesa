@@ -27,7 +27,7 @@ class UsersTableSeeder extends Seeder
                'profile_picture'=>'private/headshot_uploads/1.jpg',
                'mobile_phone'=>'602-245-6956',
                'email'=>'gregory_gonzalez@sbcglobal.net',
-               'password'=>bcrypt('tella100'),
+               'password'=>'$2y$10$PNtGg2pR8pXRsZ1CW80sJedZigWOs/zJOZh1VhgLqN2zCRvuAwfvW',
                'created_at'=>date('Y-m-d H:i:s'),
                'updated_at'=>date('Y-m-d H:i:s'),
                'email_verified_at'=>date('Y-m-d H:i:s')],
@@ -44,7 +44,7 @@ class UsersTableSeeder extends Seeder
                 'profile_picture'=>'private/headshot_uploads/2.jpg',
                 'mobile_phone'=>'910-691-9895',
                 'email'=>'elisagonzalez8842@gmail.com',
-                'password'=>bcrypt('tella100'),
+                'password'=>'$2y$10$RoxzqsSkZaPlE.5EAScZq.lzmX7n2CzMxO2WRYsVUKxelp8DVm6HO',
                 'created_at'=>date('Y-m-d H:i:s'),
                 'updated_at'=>date('Y-m-d H:i:s'),
                 'email_verified_at'=>date('Y-m-d H:i:s')]
