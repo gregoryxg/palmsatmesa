@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class CommitteeUserTableSeeder extends Seeder
+class PasswordResetsTableSeeder extends Seeder
 {
 
     /**
@@ -14,7 +14,7 @@ class CommitteeUserTableSeeder extends Seeder
     {
         
 
-        \DB::table('committee_user')->delete();
+        \DB::table('password_resets')->delete();
         
         
         

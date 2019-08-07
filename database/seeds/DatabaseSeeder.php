@@ -26,5 +26,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TicketUserTableSeeder::class);
         $this->call(TicketCommentsTableSeeder::class);
         $this->call(EventsTableSeeder::class);
+        $this->call(PasswordResetsTableSeeder::class);
     }
 }

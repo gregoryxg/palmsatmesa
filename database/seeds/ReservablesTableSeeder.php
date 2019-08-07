@@ -4,21 +4,48 @@ use Illuminate\Database\Seeder;
 
 class ReservablesTableSeeder extends Seeder
 {
+
     /**
-     * Run the database seeds.
+     * Auto generated seed file
      *
      * @return void
      */
     public function run()
     {
-        DB::table('reservables')->delete();
+        
 
-        $reservable = [
-            ['description'=>'Clubhouse Kitchen', 'backgroundColor'=>'##010D56', 'textColor'=>'#FFFFFF'],
-            ['description'=>'Clubhouse Pool Room', 'backgroundColor'=>'#561801', 'textColor'=>'#FFFFFF'],
-            ['description'=>'Clubhouse Theater Room', 'backgroundColor'=>'#015613', 'textColor'=>'#FFFFFF']
-        ];
-
-        DB::table('reservables')->insert($reservable);
+        \DB::table('reservables')->delete();
+        
+        \DB::table('reservables')->insert(array (
+            0 => 
+            array (
+                'id' => 1,
+                'description' => 'Clubhouse Kitchen',
+                'backgroundColor' => '##010D56',
+                'textColor' => '#FFFFFF',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            1 => 
+            array (
+                'id' => 2,
+                'description' => 'Clubhouse Theater Room',
+                'backgroundColor' => '#015613',
+                'textColor' => '#FFFFFF',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            2 => 
+            array (
+                'id' => 3,
+                'description' => 'Clubhouse Pool Room',
+                'backgroundColor' => '#561801',
+                'textColor' => '#FFFFFF',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+        ));
+        
+        
     }
 }

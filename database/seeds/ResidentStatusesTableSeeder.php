@@ -4,20 +4,37 @@ use Illuminate\Database\Seeder;
 
 class ResidentStatusesTableSeeder extends Seeder
 {
+
     /**
-     * Run the database seeds.
+     * Auto generated seed file
      *
      * @return void
      */
     public function run()
     {
-        DB::table('resident_statuses')->delete();
+        
 
-        $resident_status = [
-            ['status'=>'Homeowner', 'add_to_calendar'=>true],
-            ['status'=>'Lessee', 'add_to_calendar'=>false]
-        ];
-
-        DB::table('resident_statuses')->insert($resident_status);
+        \DB::table('resident_statuses')->delete();
+        
+        \DB::table('resident_statuses')->insert(array (
+            0 => 
+            array (
+                'id' => 1,
+                'status' => 'Homeowner',
+                'add_to_calendar' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            1 => 
+            array (
+                'id' => 2,
+                'status' => 'Renter',
+                'add_to_calendar' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+        ));
+        
+        
     }
 }

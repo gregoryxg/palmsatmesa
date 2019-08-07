@@ -4,21 +4,42 @@ use Illuminate\Database\Seeder;
 
 class EventTypesTableSeeder extends Seeder
 {
+
     /**
-     * Run the database seeds.
+     * Auto generated seed file
      *
      * @return void
      */
     public function run()
     {
-        DB::table('event_types')->delete();
+        
 
-        $event_types = [
-            ['type'=>'Public'],
-            ['type'=>'Reservation'],
-            ['type'=>'HOA_Administrative']
-        ];
-
-        DB::table('event_types')->insert($event_types);
+        \DB::table('event_types')->delete();
+        
+        \DB::table('event_types')->insert(array (
+            0 => 
+            array (
+                'id' => 1,
+                'type' => 'Public',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            1 => 
+            array (
+                'id' => 2,
+                'type' => 'Reservation',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            2 => 
+            array (
+                'id' => 3,
+                'type' => 'HOA_Administrative',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+        ));
+        
+        
     }
 }
