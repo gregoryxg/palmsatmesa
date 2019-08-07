@@ -142,11 +142,12 @@ class EventController extends Controller
     public function create()
     {
         $user = User::findOrFail(Auth::user()->id);
-
-        if ($user->resident_status_id == 2)
-        {
-            return back()->withErrors(['Lessees are not authorized to add events to the calendar.']);
-        }
+        
+//        //The commented code below would prevent renters from making reservations
+//        if ($user->resident_status_id == 2)
+//        {
+//            return back()->withErrors(['Renters are not authorized to add events to the calendar.']);
+//        }
 
         if (!$user->unit->reservations_allowed)
         {

@@ -11,7 +11,7 @@ class Unit extends Model
         return $this->hasMany(User::class);
     }
 
-    public function events_in_date_range($DaysBefore = 30, $DaysAfter = 30)
+    public function events_in_date_range($DaysBefore = 0, $DaysAfter = 30)
     {
         return $this->hasManyThrough(Event::class, User::class)->where([
             ['date', '>=' , date('Y-m-d', strtotime('-' . $DaysBefore . ' Days'))],

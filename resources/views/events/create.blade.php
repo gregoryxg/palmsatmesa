@@ -31,9 +31,9 @@
         </div>
         <div class="form-group row">
             <span class='form-control border-0 text-center' >
-                * {{$user->unit->reservation_limit }} reservations allowed per unit in a 60 day period
+                * {{$user->unit->reservation_limit }} reservations allowed per unit in the next 30 days
             </span>
-            <span class="form-control form-control-sm border-0 text-center">(30 days prior and in the future - <strong>{{ $user->unit->events_in_date_range->count() }} currently scheduled</strong>)</span>
+            <span class="form-control form-control-sm border-0 text-center">(<strong>{{ $user->unit->events_in_date_range->count() }} currently scheduled in the next 30 days</strong>)</span>
         </div>
         <div class="form-group row">
             <span class='form-control border-0 text-center' >

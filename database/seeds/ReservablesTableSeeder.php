@@ -20,7 +20,8 @@ class ReservablesTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
-                'description' => 'Clubhouse Kitchen',
+                'description' => 'Clubhouse Kitchen / Living Room',
+                'guest_limit' => 30,
                 'backgroundColor' => '##010D56',
                 'textColor' => '#FFFFFF',
                 'created_at' => NULL,
@@ -30,6 +31,7 @@ class ReservablesTableSeeder extends Seeder
             array (
                 'id' => 2,
                 'description' => 'Clubhouse Theater Room',
+                'guest_limit' => 13,
                 'backgroundColor' => '#015613',
                 'textColor' => '#FFFFFF',
                 'created_at' => NULL,
@@ -38,7 +40,8 @@ class ReservablesTableSeeder extends Seeder
             2 => 
             array (
                 'id' => 3,
-                'description' => 'Clubhouse Pool Room',
+                'description' => 'Clubhouse Pool Table Room',
+                'guest_limit' => 6,
                 'backgroundColor' => '#561801',
                 'textColor' => '#FFFFFF',
                 'created_at' => NULL,
