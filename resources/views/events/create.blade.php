@@ -153,18 +153,41 @@
                 @endif
             </div>
         </div>
-
         <div class="row pt-2">
+            <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
+                <script
+                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="{{ env('STRIPE_KEY') }}"
+                    data-amount=""
+                    data-name="Stripe Payment"
+                    data-description="Enter your payment details below"
+                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                    data-locale="auto"
+                    data-currency="usd">
+                </script>
+                <script>
+                    document.getElementsByClassName("stripe-button-el")[0].empty;
+                    document.getElementsByClassName("stripe-button-el")[0].disabled=true;
+                    // Changes the value of the button
+                    console.log(document.getElementsByClassName("stripe-button-el"));
+                    console.log(document.getElementsByClassName("stripe-button-el")[0].span);
+                    document.getElementsByClassName("stripe-button-el").innterHTML="Finish and Pay";
+                </script>
+            </div>
+        </div>
+        
+<!--        <div class="row pt-2">
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
                 <button disabled id='submit_button' type="submit" class="btn btn-secondary">Add Event</button>
             </div>
-        </div>
+        </div>-->
     </form>
 </div>
 
 @section('page_js')
-
+        
     <script>
         $("input[name='agree_to_terms']").change(function() {
             var terms = $("input[name='agree_to_terms']").prop('checked');

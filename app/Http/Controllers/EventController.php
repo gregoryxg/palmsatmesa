@@ -173,7 +173,19 @@ class EventController extends Controller
             'size' => ['required', 'integer', 'min:1', 'max:'.Reservable::find($request->reservable_id)->guest_limit],
             'timeslot_id' => ['required', 'integer', 'exists:timeslots,id'],
             'agree_to_terms' => ['accepted'],
-            'esign_consent' => ['accepted']
+            'esign_consent' => ['accepted'],
+            'stripeToken' => ['required', 'string'],
+            'stripeEmail' => ['required', 'string']
+        ]);
+        
+        Stripe::setApiKey(env('STRIPE_SECRET'));        
+
+        $charge = Charge::create([            
+            'amount'   => Reservable::find($request->reservable_id)->reservation_fee,
+            'currency' => 'usd',
+            'description' => Reservable::find($request->reservable_id)->description . " reservation",
+            'receipt_email' => $request->stripeEmail,
+            'source'  => $request->stripeToken
         ]);
 
         $event = new Event($event);
@@ -188,11 +200,12 @@ class EventController extends Controller
         }
         else
         {
-            $event->save();
-
-            \Mail::to($event->user->email)->send(new ReservationConfirmation($event));
-
-            return redirect('event')->with('success', 'Reservation has been added successfully');
+            session(['event'=>$event]);
+//            $event->save();
+//
+//            \Mail::to($event->user->email)->send(new ReservationConfirmation($event));
+//
+//            return redirect('event')->with('success', 'Reservation has been added successfully');
         }
 
 
