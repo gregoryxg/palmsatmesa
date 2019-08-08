@@ -28,11 +28,15 @@
             <span class='form-control border-0 text-center' >
                 <strong>New Reservation Instructions</strong>
             </span>
-        </div>
-        
+        </div>        
         <div class="form-group row">
             <span class='form-control border-0 text-center' >
-                * Reservations cannot be cancelled within 48 hours of the start time, and processing fees are non-refundable.
+                * Reservations cannot be cancelled within 48 hours of the start time.
+            </span>
+        </div>           
+        <div class="form-group row">
+            <span class='form-control border-0 text-center' >
+                * Processing fees are non-refundable.
             </span>
         </div>
         <div class="form-group row">
