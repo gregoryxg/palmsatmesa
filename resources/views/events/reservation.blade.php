@@ -26,12 +26,12 @@
                 </span>
             </div>
         @endif
-        <div class="form-group row">
+        <div class="row">
             <span class='form-control border-0 text-center' >
                 * Only the title and number of guests may be edited for existing reservations
             </span>
         </div>
-        <div class="form-group row">
+        <div class="row">
             <span class='form-control border-0 text-center' >
                 * Reservations cannot be cancelled within 48 hours of the start time, and processing fees are non-refundable.
             </span>
