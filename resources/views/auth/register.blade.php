@@ -73,8 +73,9 @@
                             <div class="col-md-6">
                                 <select id="resident_status_id" class="form-control{{ $errors->has('resident_status_id') ? ' is-invalid' : '' }}" name="resident_status_id" required autofocus>
                                     <option/>
-                                    <option value="1" {{ old('resident_status_id') == 1 ? 'selected' : '' }}>Homeowner</option>
-                                    <option value="2" {{ old('resident_status_id') == 2 ? 'selected' : '' }}>Lessee</option>
+                                    @foreach ($resident_status as $i=>$status)
+                                        <option value="{{ $status->id }}" {{ old('resident_status_id') == $status->id ? 'selected' : '' }}>{{ $status->status }}</option>                                        
+                                    @endforeach
                                 </select>
 
                                 @if ($errors->has('resident_status_id'))

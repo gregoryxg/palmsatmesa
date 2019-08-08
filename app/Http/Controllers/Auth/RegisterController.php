@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\ResidentStatus;
 use App\VerifyUser;
 use App\Mail\EmailVerification;
 use App\Http\Controllers\Controller;
@@ -40,7 +41,12 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+    public function showRegistrationForm()
+    {
+        $resident_status = ResidentStatus::all();
 
+        return view("auth.register", ['resident_status'=>$resident_status]);
+    }
     /**
      * Get a validator for an incoming registration request.
      *
