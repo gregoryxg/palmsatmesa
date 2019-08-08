@@ -4,6 +4,7 @@
     <title>Your reservation at The Palms is confirmed</title>
 </head>
 <body>
+<img src='{{ asset(Storage::url('public/logo/ThePalms.png')) }}' width="100"/>
 <h2>Reservation Details:</h2>
 <br/>Title: {{ $event->title }}
 <br/>Party Size: {{ $event->size }}

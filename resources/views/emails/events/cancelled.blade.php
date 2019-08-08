@@ -4,6 +4,7 @@
     <title>Your reservation at The Palms has been cancelled</title>
 </head>
 <body>
+<img src='{{ asset(Storage::url('public/logo/ThePalms.png')) }}' width="100"/>
 <h2>Cancelled Reservation Details:</h2>
 <br/>Title: <s>{{ $event->title }}</s>
 <br/>Party Size: <s>{{ $event->size }}</s>
