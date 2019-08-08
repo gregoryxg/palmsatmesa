@@ -31,7 +31,7 @@
             <div class="form-group required col-md-4">
                 <div class='form-control border-0 text-center' >
                     * Only the title and number of guests may be edited for existing reservations
-                </div>>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -39,7 +39,7 @@
             <div class="form-group required col-md-4">
                 <div class='form-control border-0 text-center' >
                     * Reservations cannot be cancelled within 48 hours of the start time, and processing fees are non-refundable.
-                </div>>
+                </div>
             </div>
         </div>
         <div class="row">
