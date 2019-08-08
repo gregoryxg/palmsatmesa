@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->boolean('board_member')->default(false);
             $table->boolean('administrator')->default(false);
             $table->boolean('active')->default(true);
-            $table->unsignedInteger('gate_code');
+            $table->string('gate_code');
             $table->string('profile_picture');
             $table->string('mobile_phone');
             $table->string('home_phone')->nullable();
