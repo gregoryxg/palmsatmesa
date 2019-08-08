@@ -23,21 +23,21 @@ Route::get('/new_residents', 'PagesController@new_residents');
 Route::get('/privacy', 'PagesController@privacy');
 Route::get('/terms', 'PagesController@terms');
 
-Route::resource('/user', 'UserController')->middleware('verified');
+Route::resource('/user', 'UserController');
 
-Route::resource('/event', 'EventController')->middleware('verified');
-Route::get('/reservations', 'EventController@reservations')->middleware('verified');
-Route::post('/reservables/{id}/timeslots', 'ReservableController@timeslots')->middleware('verified');
-Route::post('/reservables/locations', 'ReservableController@locations')->middleware('verified');
+Route::resource('/event', 'EventController');
+Route::get('/reservations', 'EventController@reservations');
+Route::post('/reservables/{id}/timeslots', 'ReservableController@timeslots');
+Route::post('/reservables/locations', 'ReservableController@locations');
 
-Route::resource('/ticket', 'TicketController')->middleware('verified');
-Route::get('/closed_ticket', 'TicketController@closed')->middleware('verified');
-Route::get('/ticket/{ticket}/close', 'TicketController@close')->middleware('verified');
+Route::resource('/ticket', 'TicketController');
+Route::get('/closed_ticket', 'TicketController@closed');
+Route::get('/ticket/{ticket}/close', 'TicketController@close');
 
-Route::resource('/committeeticket', 'CommitteeTicketController')->middleware('verified');
-Route::post('/committeeticket/{id}/assign', 'CommitteeTicketController@assign')->middleware('verified');
-Route::get('/user_committeeticket', 'CommitteeTicketController@user_assigned')->middleware('verified');
-Route::get('/assigned_committeeticket', 'CommitteeTicketController@assigned')->middleware('verified');
-Route::get('/closed_committeeticket', 'CommitteeTicketController@closed')->middleware('verified');
+Route::resource('/committeeticket', 'CommitteeTicketController');
+Route::post('/committeeticket/{id}/assign', 'CommitteeTicketController@assign');
+Route::get('/user_committeeticket', 'CommitteeTicketController@user_assigned');
+Route::get('/assigned_committeeticket', 'CommitteeTicketController@assigned');
+Route::get('/closed_committeeticket', 'CommitteeTicketController@closed');
 
-Route::post('/ticketComment', 'TicketCommentController@store')->middleware('verified');
+Route::post('/ticketComment', 'TicketCommentController@store');
