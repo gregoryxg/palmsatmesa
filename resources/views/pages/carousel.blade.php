@@ -1,13 +1,3 @@
-@if (session('success'))
-    <div class='container pt-5'>
-        <div class="alert-success text-center" role="alert">
-            <span>
-                <strong>{{ session('success') }}</strong>
-            </span>
-        </div>
-    </div>
-@endif
-
 <div id="palmsCarousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         @foreach ($carousel as $i=>$image)

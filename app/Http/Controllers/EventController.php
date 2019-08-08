@@ -97,8 +97,15 @@ class EventController extends Controller
 
     public function show($id)
     {
-        $event = Event::where(['id' => $id, ['date', '>=' , date('Y-m-d')]])->get();
+        $event = Event::where([
+            'id' => $id, 
+            ['date', '>=' , date('Y-m-d')],
+            ['user_id', '=', Auth::id()]
+        ])->get();
 
+        if(empty($event[0]))
+            return redirect('/')->withErrors (['errors'=>'You do not have permission to access that reservation']);
+        
         return view('events.reservation', ['event'=>$event[0]]);
     }
 
@@ -106,6 +113,9 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($id);
 
+        if ($event->user_id != Auth::id())
+            return redirect('/')->withErrors (['errors'=>'You do not have permission to access that reservation']);
+        
         $event->fill($request->validate([
             'title' => ['required', 'string', 'max:255'],
             'size' => ['required', 'integer', 'min:1', 'max:'.$event->reservable->guest_limit]
@@ -121,6 +131,9 @@ class EventController extends Controller
     public function destroy($id)
     {
         $event = Event::findOrFail($id);
+
+        if ($event->user_id != Auth::id())
+            return redirect('/')->withErrors (['errors'=>'You do not have permission to access that reservation']);
 
         $diff = (new \DateTime($event->date . " " . $event->timeslot->start_time))->diff(new \DateTime(date('Y-m-d H:i:s')));
 
