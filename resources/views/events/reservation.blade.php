@@ -26,23 +26,23 @@
                 </span>
             </div>
         @endif
-        <div class="row">
+        <div class="form-group row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
-                <div class='form-control border-0 text-center' >
+                <div class='form-control border-0 text-center'>
                     * Only the title and number of guests may be edited for existing reservations
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="form-group row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
-                <div class='form-control border-0 text-center' >
+                <div class='form-control border-0 text-center'>
                     * Reservations cannot be cancelled within 48 hours of the start time, and processing fees are non-refundable.
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="form-group row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
                 <label for="title" class="control-label">Reservation Title:</label>
@@ -55,7 +55,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="form-group row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
                 <label for="size" class="control-label">Party size including host (max  {{ $event->reservable->guest_limit }}):</label>
@@ -68,7 +68,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="form-group row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
                 <label for="date" class="control-label">Date (Must be within the next 30 days):</label>
@@ -76,7 +76,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="form-group row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
                 <label for="reservable_id" class="control-label">Location:</label>
@@ -86,7 +86,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="form-group row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
                 <label for="timeslot_id" class="control-label">Time Slot:</label>
@@ -96,7 +96,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="form-group row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4 ml-4">
                 <input disabled type="checkbox" id="agree_to_terms" name="agree_to_terms" value='1' class="form-check-input" checked required/>
@@ -107,7 +107,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="form-group row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4 ml-4">
                 <input disabled type="checkbox" id="esign_consent" name="esign_consent" value='1' class="form-check-input" checked required/>
@@ -117,7 +117,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="form-group row">
             <div class="col-md-4"></div>
             <div class="form-group">
                 <button id='submit_button' type="submit" class="btn btn-secondary">Update Event</button>
