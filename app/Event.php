@@ -20,6 +20,7 @@ class Event extends Model
         'user_id',
         'event_type_id',
         'stripe_charge_id',
+        'stripe_receipt_url',
         'reserved_from_ip_address'
         ];
 

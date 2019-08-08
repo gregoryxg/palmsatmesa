@@ -94,7 +94,7 @@
             <div class="form-group required col-md-4">
                 <label for="reservable_id" class="control-label">Location:</label>
                 @foreach($locations as $location)
-                    <br/><small><b>{{ $location->description . " - $" . number_format(($location->reservation_fee /100), 2, '.', ' ') . " fee"}}</b></small>
+                    <br/><small><b>{{ $location->description . " - $" . number_format(($location->reservation_fee/100), 2, '.', ' ') . " fee"}}</b></small>
                 @endforeach   
                 <select disabled id='reservable_id' class='form-control{{ $errors->has('reservable_id') ? ' is-invalid' : '' }}' name="reservable_id" required><option/>
                     @foreach($locations as $location)

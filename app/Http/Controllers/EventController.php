@@ -12,8 +12,9 @@ use App\Reservable;
 use App\Timeslot;
 use Auth;
 use Stripe\Stripe;
-use Stripe\Customer;
 use Stripe\Charge;
+use Stripe\Refund;
+
 
 class EventController extends Controller
 {
@@ -133,11 +134,20 @@ class EventController extends Controller
         }
         else
         {
+            Stripe::setApiKey(env('STRIPE_SECRET'));
+            
+            $refund = Refund::create([
+                'charge' => $event->stripe_charge_id,
+                'amount' => $event->reservable->reservation_fee - (($event->reservable->reservation_fee*.029) + 30)
+            ]);
+            
+            $refund = "$" . number_format(($event->reservable->reservation_fee - (($event->reservable->reservation_fee*.029) + 30))/100, 2, '.', ' ');
+            
             $event->delete();
 
             \Mail::to($event->user->email)->send(new ReservationCancellation($event));
 
-            return redirect('reservations')->with('success', 'Reservation has been deleted successfully');
+            return redirect('reservations')->with('success', "Reservation has been deleted successfully. Your refund of $refund will be processed in 5-10 business days.");
         }
 
     }
@@ -183,14 +193,18 @@ class EventController extends Controller
         
         Stripe::setApiKey(env('STRIPE_SECRET'));        
 
-        $event['stripe_charge_id'] = Charge::create([            
+        $charge = Charge::create([            
             'amount'   => str_replace('.', '', Reservable::find($request->reservable_id)->reservation_fee),
             'currency' => 'usd',
             'description' => Reservable::find($request->reservable_id)->description . " reservation",
             'receipt_email' => $request->stripeEmail,
             'source'  => $request->stripeToken
-        ])->id;
-
+        ]);
+        
+        $event['stripe_charge_id'] = $charge->id;
+        
+        $event['stripe_receipt_url'] = $charge->receipt_url;
+        
         $event = new Event($event);
 
         $response = $event->verify('Reservation');

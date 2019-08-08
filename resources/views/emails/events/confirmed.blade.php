@@ -11,6 +11,7 @@
 <br/>Date: {{ date('n/d/Y', strtotime($event->date)) }}
 <br/>Start Time: {{ date('g:i A', strtotime($event->date . " " . $event->timeslot->start_time)) }}
 <br/>End Time: {{ date('g:i A', strtotime($event->date . " " . $event->timeslot->end_time)) }}
+<br/>Payment Receipt: <a href="{{ $event->stripe_receipt_url }}">{{ $event->stripe_receipt_url }}</a>
 <br/>
 <br/>You may make changes to this reservation, or cancel it using the reservation system through the Palms <a href="{{route('index')}}">website.</a>
 <br/><br/>* This is an unmonitored email account. Any replies to this email will be rejected.
