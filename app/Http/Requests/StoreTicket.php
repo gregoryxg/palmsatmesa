@@ -24,7 +24,7 @@ class StoreTicket extends FormRequest
     public function rules()
     {
         return [
-            'ticket_type_id'=>['required', 'integer', 'min:1', 'max:5'],
+            'ticket_type_id'=>['required', 'integer', 'exists:ticket_types,id'],
             'subject'=>['required', 'string', 'profanity', 'min:1', 'max:50'],
             'body'=>['required', 'string', 'profanity', 'min:1', 'max:2000']
         ];
@@ -33,6 +33,8 @@ class StoreTicket extends FormRequest
     public function messages()
     {
         return [
+            'ticket_type_id.exists'=>'Ticket type does not exist',
+            
             'subject.profanity'=>'No profanity is allowed',
 
             'body.profanity'=>'No profanity is allowed'

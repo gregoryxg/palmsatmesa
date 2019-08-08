@@ -62,7 +62,7 @@ class TicketController extends Controller
     public function store(StoreTicket $request)
     {
         $ticket = new Ticket($request->validated());
-
+        
         $ticket->save();
 
         $ticket->users()->attach(Auth::id());
