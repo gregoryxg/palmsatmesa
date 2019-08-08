@@ -22,6 +22,7 @@ return array(
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\PagesController' => $baseDir . '/app/Http/Controllers/PagesController.php',
     'App\\Http\\Controllers\\ReservableController' => $baseDir . '/app/Http/Controllers/ReservableController.php',
+    'App\\Http\\Controllers\\StripeController' => $baseDir . '/app/Http/Controllers/StripeController.php',
     'App\\Http\\Controllers\\TicketCommentController' => $baseDir . '/app/Http/Controllers/TicketCommentController.php',
     'App\\Http\\Controllers\\TicketController' => $baseDir . '/app/Http/Controllers/TicketController.php',
     'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',

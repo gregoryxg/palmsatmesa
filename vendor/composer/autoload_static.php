@@ -559,6 +559,7 @@ class ComposerStaticInit1bac787456196c94f27bb77cea642a2e
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\PagesController' => __DIR__ . '/../..' . '/app/Http/Controllers/PagesController.php',
         'App\\Http\\Controllers\\ReservableController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReservableController.php',
+        'App\\Http\\Controllers\\StripeController' => __DIR__ . '/../..' . '/app/Http/Controllers/StripeController.php',
         'App\\Http\\Controllers\\TicketCommentController' => __DIR__ . '/../..' . '/app/Http/Controllers/TicketCommentController.php',
         'App\\Http\\Controllers\\TicketController' => __DIR__ . '/../..' . '/app/Http/Controllers/TicketController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',

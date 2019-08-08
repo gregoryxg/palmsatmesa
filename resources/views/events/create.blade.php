@@ -32,7 +32,7 @@
         
         <div class="form-group row">
             <span class='form-control border-0 text-center' >
-                * Reservations cannot be cancelled within 48 hours of the start time
+                * Reservations cannot be cancelled within 48 hours of the start time, and processing fees are non-refundable.
             </span>
         </div>
         <div class="form-group row">
@@ -94,7 +94,7 @@
             <div class="form-group required col-md-4">
                 <label for="reservable_id" class="control-label">Location:</label>
                 @foreach($locations as $location)
-                    <br/><small><b>{{ $location->description . " - $" . $location->reservation_fee . " fee"}}</b></small>
+                    <br/><small><b>{{ $location->description . " - $" . number_format(($location->reservation_fee /100), 2, '.', ' ') . " fee"}}</b></small>
                 @endforeach   
                 <select disabled id='reservable_id' class='form-control{{ $errors->has('reservable_id') ? ' is-invalid' : '' }}' name="reservable_id" required><option/>
                     @foreach($locations as $location)
@@ -142,7 +142,7 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4 ml-4">
-                <input disabled onchange="document.getElementById('submit_button').disabled = !this.checked;" type="checkbox" id="esign_consent" name="esign_consent" value='1' class="form-check-input{{ $errors->has('esign_consent') ? ' is-invalid' : '' }}" required/>
+                <input disabled onchange="document.getElementsByClassName('stripe-button-el')[0].disabled=!this.checked;" type="checkbox" id="esign_consent" name="esign_consent" value='1' class="form-check-input{{ $errors->has('esign_consent') ? ' is-invalid' : '' }}" required/>
                 <label for="esign_consent" class="form-check-label control-label">
                     I understand that checking the box above constitutes an electronic signature to the terms and conditions.
                 </label>
@@ -151,6 +151,12 @@
                         <strong>{{ $errors->first('esign_consent') }}</strong>
                     </span>
                 @endif
+            </div>
+        </div>
+        <div class="row pt-2">
+            <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
+                <b><span id="total"></span></b>
             </div>
         </div>
         <div class="row pt-2">
@@ -169,25 +175,29 @@
                 <script>
                     document.getElementsByClassName("stripe-button-el")[0].empty;
                     document.getElementsByClassName("stripe-button-el")[0].disabled=true;
-                    // Changes the value of the button
-                    console.log(document.getElementsByClassName("stripe-button-el"));
-                    console.log(document.getElementsByClassName("stripe-button-el")[0].span);
-                    document.getElementsByClassName("stripe-button-el").innterHTML="Finish and Pay";
+                    // Changes the text of the span tag inside the button                    
+                    document.getElementsByClassName("stripe-button-el")[0].childNodes[0].innerHTML="Finish and Pay";
                 </script>
             </div>
         </div>
-        
-<!--        <div class="row pt-2">
-            <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-                <button disabled id='submit_button' type="submit" class="btn btn-secondary">Add Event</button>
-            </div>
-        </div>-->
     </form>
 </div>
 
-@section('page_js')
-        
+@section('page_js')    
+    <script>
+        function pay_clicked()
+        {
+            var mySpans = document.getElementsByTagName('span');
+
+            for(var i=0;i<mySpans.length;i++){
+                console.log(mySpans[i].innerHTML);
+                if(mySpans[i].innerHTML == 'Pay'){
+                    console.log(mySpans[i]);
+                    break;
+                }
+            }
+        }
+    </script>
     <script>
         $("input[name='agree_to_terms']").change(function() {
             var terms = $("input[name='agree_to_terms']").prop('checked');
@@ -195,6 +205,7 @@
             {
                 $("#esign_consent").prop('checked', false);
                 document.getElementById("esign_consent").disabled=true;
+                document.getElementsByClassName("stripe-button-el")[0].disabled=true;
             }
             else
             {
@@ -219,7 +230,9 @@
             $('#reservable_id').empty();
             document.getElementById("reservable_id").disabled=true;
             $("#esign_consent").prop('checked', false);
+            document.getElementsByClassName("stripe-button-el")[0].disabled=true;
             document.getElementById("timeslot_id").disabled=true;
+            document.getElementById("total").innerHTML="";
             if (size == "")
             {
                 document.getElementById("date").disabled=true;
@@ -240,7 +253,9 @@
             $('#reservable_id').val(null);
             $('#reservable_id').empty()
             $("#esign_consent").prop('checked', false);
+            document.getElementsByClassName("stripe-button-el")[0].disabled=true;
             document.getElementById("timeslot_id").disabled=true;
+            document.getElementById("total").innerHTML="";
             if (date == "")
             {
                 document.getElementById("reservable_id").disabled=true;
@@ -262,7 +277,6 @@
                         else
                         {
                             document.getElementById("reservable_id").disabled = false;
-
                             $("#reservable_id").append(new Option())
 
                             for (var i in locations) {
@@ -281,6 +295,7 @@
             var date = $("input[name='date']").val();
             var user_id = '{{ $user->id }}';
             var reservable_id =  this.value;
+            var locations = {!! json_encode($locations) !!};
             var token = $("input[name='_token']").val();
             $('#timeslot_id').empty()
             if (reservable_id == "")
@@ -306,7 +321,18 @@
                         }
                         else
                         {
+                            var fee = "";
+                            
                             $("#timeslot_id").append(new Option())
+                            
+                            for (var i in locations) {
+                                if (locations[i].id == reservable_id)
+                                    fee = locations[i].reservation_fee
+                            }
+                            
+                            document.getElementById("total").innerHTML="Total Charges: " 
+                                    + (fee/100).toLocaleString("en-US", {style:"currency", currency:"USD"})
+                                    + "<br/><small>(includes " + ((fee*.029 + 30)/100).toLocaleString("en-US", {style:"currency", currency:"USD"}) + " of non-refundable processing fees)</small>";
 
                             for (var i in data.timeslots) {
                                 $("#timeslot_id").append(new Option(moment(data.timeslots[i].start_time, "HH:mm:ss").format("h:mm A") + " - " + moment(data.timeslots[i].end_time, "HH:mm:ss").format("h:mm A"), data.timeslots[i].id));

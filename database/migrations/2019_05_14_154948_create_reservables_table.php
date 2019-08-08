@@ -17,7 +17,7 @@ class CreateReservablesTable extends Migration
             $table->increments('id');
             $table->string('description');
             $table->unsignedInteger('guest_limit');
-            $table->decimal('reservation_fee', 6, 2);
+            $table->unsignedBigInteger('reservation_fee');
             $table->string('backgroundColor');
             $table->string('textColor');
             $table->timestamps();

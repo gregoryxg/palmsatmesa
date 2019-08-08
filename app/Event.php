@@ -19,6 +19,7 @@ class Event extends Model
         'esign_consent',
         'user_id',
         'event_type_id',
+        'stripe_charge_id',
         'reserved_from_ip_address'
         ];
 

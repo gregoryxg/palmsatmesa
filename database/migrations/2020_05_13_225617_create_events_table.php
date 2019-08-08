@@ -24,6 +24,7 @@ class CreateEventsTable extends Migration
             $table->unsignedInteger('event_type_id');
             $table->boolean('agree_to_terms');
             $table->boolean('esign_consent');
+            $table->string('stripe_charge_id')->nullable();
             $table->string('reserved_from_ip_address');
             $table->timestamps();
 

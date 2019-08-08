@@ -11,6 +11,9 @@ use App\User;
 use App\Reservable;
 use App\Timeslot;
 use Auth;
+use Stripe\Stripe;
+use Stripe\Customer;
+use Stripe\Charge;
 
 class EventController extends Controller
 {
@@ -180,13 +183,13 @@ class EventController extends Controller
         
         Stripe::setApiKey(env('STRIPE_SECRET'));        
 
-        $charge = Charge::create([            
-            'amount'   => Reservable::find($request->reservable_id)->reservation_fee,
+        $event['stripe_charge_id'] = Charge::create([            
+            'amount'   => str_replace('.', '', Reservable::find($request->reservable_id)->reservation_fee),
             'currency' => 'usd',
             'description' => Reservable::find($request->reservable_id)->description . " reservation",
             'receipt_email' => $request->stripeEmail,
             'source'  => $request->stripeToken
-        ]);
+        ])->id;
 
         $event = new Event($event);
 
@@ -200,12 +203,11 @@ class EventController extends Controller
         }
         else
         {
-            session(['event'=>$event]);
-//            $event->save();
-//
-//            \Mail::to($event->user->email)->send(new ReservationConfirmation($event));
-//
-//            return redirect('event')->with('success', 'Reservation has been added successfully');
+            $event->save();
+
+            \Mail::to($event->user->email)->send(new ReservationConfirmation($event));
+
+            return redirect('event')->with('success', 'Reservation has been added successfully');
         }
 
 
