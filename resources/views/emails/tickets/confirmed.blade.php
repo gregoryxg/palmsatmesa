@@ -4,6 +4,7 @@
     <title>Ticket # {{ $ticket->id }} - {{ $ticket->subject }}</title>
 </head>
 <body>
+<img src='{{ asset(Storage::url('public/logo/ThePalms.png')) }}' width="100"/>
 <h2>Ticket Description:</h2>
 {{ $ticket->body }}
 <br/><br/>Please allow up to 1 business day for a response, thank you.

@@ -4,7 +4,8 @@
     <title>Welcome Email</title>
 </head>
 <body>
-<h2>Welcome to the site {{$user['name']}}</h2>
+<img src='{{ asset(Storage::url('public/logo/ThePalms.png')) }}' width="100"/>
+<h2>Welcome to the Palms at Mesa {{$user['name']}}</h2>
 <br/>
 Your registered email-id is {{$user['email']}} , Please click on the below link to verify your email account
 <br/>
