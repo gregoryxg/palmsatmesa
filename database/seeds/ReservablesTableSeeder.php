@@ -22,7 +22,7 @@ class ReservablesTableSeeder extends Seeder
                 'id' => 1,
                 'description' => 'Clubhouse Kitchen / Living Room',
                 'guest_limit' => 30,
-                'reservation_fee' => 20000,
+                'reservation_fee' => 15000,
                 'backgroundColor' => '##010D56',
                 'textColor' => '#FFFFFF',
                 'created_at' => NULL,
