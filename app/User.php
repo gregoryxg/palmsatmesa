@@ -26,7 +26,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'work_phone',
         'email',
         'password',
-        'profile_picture'
+        'profile_picture',
+        'account_approved',
+        'board_member',
+        'administrator',
+        'active'
     ];
 
     function approve_account()

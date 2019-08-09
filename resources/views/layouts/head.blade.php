@@ -18,7 +18,7 @@
 
     <!-- events.calendar.blade.php -->
     <link href="{{ asset('css/fullcalendar.min.css') }}" rel="stylesheet">
-
+    
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;

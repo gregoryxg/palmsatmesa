@@ -4,6 +4,8 @@
 <script src="{{asset('js/moment.js')}}"></script>
 @yield('page_js')
 
+
+
 <script>
     $(document).ready(function($) {
         $(".table-row").click(function() {
