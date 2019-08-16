@@ -10,4 +10,9 @@ class Reservable extends Model
     {
         return $this->belongsToMany(Timeslot::class);
     }
+    
+    public function active_timeslots()
+    {
+        return $this->belongsToMany(Timeslot::class)->where(['timeslots.active'=>true])->wherePivot('active',true);
+    }
 }

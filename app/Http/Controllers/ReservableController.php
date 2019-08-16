@@ -30,7 +30,8 @@ class ReservableController extends Controller
                 return $timeslot['timeslot_id'];
             }, $existing_events);
 
-            $timeslots = Reservable::findOrFail($id)->timeslots->whereNotIn('id', $existing_events)->toArray();
+            //$timeslots = Reservable::findOrFail($id)->timeslots->whereNotIn('id', $existing_events)->toArray();
+            $timeslots = Reservable::findOrFail($id)->active_timeslots->whereNotIn('id', $existing_events)->toArray();
 
             return response()->json(['timeslots' => $timeslots]);
         }

@@ -172,14 +172,8 @@ class EventController extends Controller
     }
 
     public function create()
-    {
+    {       
         $user = User::findOrFail(Auth::user()->id);
-        
-//        //The commented code below would prevent renters from making reservations
-//        if ($user->resident_status_id == 2)
-//        {
-//            return back()->withErrors(['Renters are not authorized to add events to the calendar.']);
-//        }
 
         if (!$user->unit->reservations_allowed)
         {
@@ -191,7 +185,7 @@ class EventController extends Controller
             return back()->withErrors(['Your account has not been approved yet.']);
         }
 
-        $locations = Reservable::all(['id', 'description', 'guest_limit', 'reservation_fee']);
+        $locations = Reservable::where([['active','=',true]])->get();
 
         return view('events.create', ['locations'=>$locations, 'user'=>$user]);
     }
