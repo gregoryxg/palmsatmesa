@@ -55,7 +55,7 @@ class EventController extends Controller
                 $end_date = date('Y-m-d H:i:s', strtotime($value->date . " " . $timeslot->end_time));
 
                 $events[] = Calendar::event(
-                    Reservable::findOrFail($value->reservable_id)->description,
+                    Reservable::findOrFail($value->reservable_id)->description . "(" . $value->user->first_name . " " . $value->user->last_name . ")",
                     false,
                     $start_date,
                     $end_date,
