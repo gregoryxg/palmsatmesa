@@ -21,7 +21,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1000,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -29,7 +29,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1001,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -37,7 +37,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1002,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -45,7 +45,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1003,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -53,7 +53,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1004,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -61,7 +61,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1005,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -69,7 +69,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1006,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -77,7 +77,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1007,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -85,7 +85,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1008,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -93,7 +93,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1009,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -101,7 +101,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1010,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -109,7 +109,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1011,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -117,7 +117,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1012,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -125,7 +125,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1013,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -133,7 +133,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1014,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -141,7 +141,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1015,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -149,7 +149,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1016,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -157,7 +157,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1017,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -165,7 +165,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1018,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -173,7 +173,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1019,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -181,7 +181,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1020,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -189,7 +189,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1021,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -197,7 +197,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1022,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -205,7 +205,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1023,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -213,7 +213,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1024,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -221,7 +221,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1025,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -229,7 +229,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1026,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -237,7 +237,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1027,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -245,7 +245,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1028,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -253,7 +253,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1029,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -261,7 +261,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1030,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -269,7 +269,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1031,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -277,7 +277,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1032,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -285,7 +285,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1033,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -293,7 +293,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1034,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -301,7 +301,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1035,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -309,7 +309,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1036,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -317,7 +317,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1037,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -325,7 +325,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1038,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -333,7 +333,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1039,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -341,7 +341,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1040,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -349,7 +349,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1041,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -357,7 +357,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1042,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -365,7 +365,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1043,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -373,7 +373,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1044,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -381,7 +381,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1045,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -389,7 +389,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1046,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -397,7 +397,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1047,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -405,7 +405,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1048,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -413,7 +413,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1049,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -421,7 +421,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1050,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -429,7 +429,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1051,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -437,7 +437,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1052,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -445,7 +445,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1053,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -453,7 +453,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1054,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -461,7 +461,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1055,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -469,7 +469,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1056,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -477,7 +477,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1057,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -485,7 +485,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1058,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -493,7 +493,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1059,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -501,7 +501,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1060,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -509,7 +509,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1061,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -517,7 +517,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1062,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -525,7 +525,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1063,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -533,7 +533,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1064,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -541,7 +541,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1065,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -549,7 +549,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1066,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -557,7 +557,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1067,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -565,7 +565,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1068,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -573,7 +573,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1069,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -581,7 +581,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1070,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -589,7 +589,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1071,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -597,7 +597,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1072,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -605,7 +605,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1073,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -613,7 +613,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1074,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -621,7 +621,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1075,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -629,7 +629,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1076,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -637,7 +637,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1077,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -645,7 +645,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1078,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -653,7 +653,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1079,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -661,7 +661,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1080,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -669,7 +669,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1081,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -677,7 +677,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1082,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -685,7 +685,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1083,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -693,7 +693,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1084,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -701,7 +701,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1085,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -709,7 +709,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1086,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -717,7 +717,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1087,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -725,7 +725,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1088,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -733,7 +733,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1089,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -741,7 +741,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1090,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -749,7 +749,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1091,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -757,7 +757,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1092,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -765,7 +765,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1093,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -773,7 +773,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1094,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -781,7 +781,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1095,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -789,7 +789,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1096,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -797,7 +797,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1097,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -805,7 +805,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1098,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -813,7 +813,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1099,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -821,7 +821,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1100,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -829,7 +829,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1101,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -837,7 +837,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1102,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -845,7 +845,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1103,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -853,7 +853,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1104,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -861,7 +861,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1105,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -869,7 +869,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1106,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -877,7 +877,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1107,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -885,7 +885,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1108,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -893,7 +893,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1109,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -901,7 +901,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1110,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -909,7 +909,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1111,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -917,7 +917,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1112,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -925,7 +925,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1113,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -933,7 +933,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1114,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -941,7 +941,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1115,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -949,7 +949,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1116,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -957,7 +957,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1117,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -965,7 +965,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1118,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -973,7 +973,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1119,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -981,7 +981,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1120,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -989,7 +989,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1121,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -997,7 +997,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1122,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1005,7 +1005,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1123,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1013,7 +1013,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1124,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1021,7 +1021,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1125,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1029,7 +1029,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1126,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1037,7 +1037,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1127,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1045,7 +1045,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1128,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1053,7 +1053,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1129,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1061,7 +1061,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1130,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1069,7 +1069,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1131,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1077,7 +1077,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1132,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1085,7 +1085,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1133,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1093,7 +1093,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1134,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1101,7 +1101,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1135,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1109,7 +1109,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1136,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1117,7 +1117,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1137,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1125,7 +1125,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1138,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1133,7 +1133,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1139,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1141,7 +1141,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1140,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1149,7 +1149,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1141,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1157,7 +1157,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1142,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1165,7 +1165,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1143,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1173,7 +1173,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1144,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1181,7 +1181,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1145,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1189,7 +1189,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1146,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1197,7 +1197,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1147,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1205,7 +1205,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1148,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1213,7 +1213,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1149,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1221,7 +1221,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1150,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1229,7 +1229,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1151,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1237,7 +1237,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1152,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1245,7 +1245,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1153,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1253,7 +1253,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1154,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1261,7 +1261,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1155,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1269,7 +1269,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1156,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1277,7 +1277,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1157,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1285,7 +1285,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1158,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1293,7 +1293,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1159,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1301,7 +1301,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1160,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1309,7 +1309,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1161,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1317,7 +1317,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1162,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1325,7 +1325,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1163,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1333,7 +1333,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1164,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1341,7 +1341,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1165,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1349,7 +1349,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1166,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1357,7 +1357,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1167,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1365,7 +1365,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1168,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1373,7 +1373,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1169,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1381,7 +1381,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1170,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1389,7 +1389,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1171,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1397,7 +1397,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1172,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1405,7 +1405,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1173,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1413,7 +1413,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1174,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1421,7 +1421,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1175,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1429,7 +1429,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1176,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1437,7 +1437,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1177,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1445,7 +1445,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1178,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1453,7 +1453,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1179,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1461,7 +1461,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1180,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1469,7 +1469,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1181,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1477,7 +1477,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1182,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1485,7 +1485,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1183,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1493,7 +1493,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1184,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1501,7 +1501,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1185,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1509,7 +1509,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1186,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1517,7 +1517,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1187,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1525,7 +1525,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1188,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1533,7 +1533,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1189,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1541,7 +1541,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1190,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1549,7 +1549,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1191,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1557,7 +1557,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1192,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1565,7 +1565,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1193,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1573,7 +1573,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1194,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1581,7 +1581,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1195,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1589,7 +1589,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1196,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1597,7 +1597,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1197,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1605,7 +1605,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1198,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1613,7 +1613,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1199,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1621,7 +1621,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1200,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1629,7 +1629,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1201,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1637,7 +1637,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1202,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1645,7 +1645,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1203,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1653,7 +1653,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1204,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1661,7 +1661,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1205,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1669,7 +1669,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1206,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1677,7 +1677,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1207,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1685,7 +1685,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1208,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1693,7 +1693,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1209,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1701,7 +1701,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1210,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1709,7 +1709,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1211,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1717,7 +1717,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1212,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1725,7 +1725,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1213,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1733,7 +1733,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1214,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1741,7 +1741,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1215,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1749,7 +1749,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1216,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1757,7 +1757,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1217,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1765,7 +1765,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1218,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1773,7 +1773,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1219,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1781,7 +1781,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1220,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1789,7 +1789,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1221,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1797,7 +1797,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1222,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1805,7 +1805,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1223,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1813,7 +1813,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1224,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1821,7 +1821,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1225,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1829,7 +1829,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1226,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1837,7 +1837,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1227,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1845,7 +1845,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1228,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1853,7 +1853,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1229,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1861,7 +1861,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1230,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1869,7 +1869,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1231,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1877,7 +1877,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1232,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1885,7 +1885,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1233,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1893,7 +1893,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1234,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1901,7 +1901,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1235,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1909,7 +1909,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1236,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1917,7 +1917,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1237,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1925,7 +1925,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1238,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1933,7 +1933,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1239,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1941,7 +1941,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1240,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1949,7 +1949,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1241,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1957,7 +1957,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1242,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1965,7 +1965,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1243,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1973,7 +1973,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1244,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1981,7 +1981,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1245,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1989,7 +1989,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1246,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -1997,7 +1997,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1247,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2005,7 +2005,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1248,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2013,7 +2013,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1249,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2021,7 +2021,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1250,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2029,7 +2029,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1251,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2037,7 +2037,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1252,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2045,7 +2045,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1253,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2053,7 +2053,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1254,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2061,7 +2061,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1255,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2069,7 +2069,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1256,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2077,7 +2077,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1257,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2085,7 +2085,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1258,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2093,7 +2093,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1259,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2101,7 +2101,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1260,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2109,7 +2109,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1261,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2117,7 +2117,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1262,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2125,7 +2125,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1263,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2133,7 +2133,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1264,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2141,7 +2141,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1265,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2149,7 +2149,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1266,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2157,7 +2157,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1267,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2165,7 +2165,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1268,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2173,7 +2173,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1269,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2181,7 +2181,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1270,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2189,7 +2189,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1271,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2197,7 +2197,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1272,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2205,7 +2205,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1273,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2213,7 +2213,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1274,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2221,7 +2221,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1275,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2229,7 +2229,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1276,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2237,7 +2237,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1277,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2245,7 +2245,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1278,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2253,7 +2253,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1279,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2261,7 +2261,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1280,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2269,7 +2269,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1281,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2277,7 +2277,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1282,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2285,7 +2285,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1283,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2293,7 +2293,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1284,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2301,7 +2301,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1285,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2309,7 +2309,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1286,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2317,7 +2317,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1287,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2325,7 +2325,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1288,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2333,7 +2333,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1289,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2341,7 +2341,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1290,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2349,7 +2349,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1291,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2357,7 +2357,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1292,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2365,7 +2365,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1293,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2373,7 +2373,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1294,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2381,7 +2381,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1295,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2389,7 +2389,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1296,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2397,7 +2397,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1297,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2405,7 +2405,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1298,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2413,7 +2413,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1299,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2421,7 +2421,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1300,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2429,7 +2429,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1301,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2437,7 +2437,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1302,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2445,7 +2445,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1303,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2453,7 +2453,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1304,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2461,7 +2461,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1305,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2469,7 +2469,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1306,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2477,7 +2477,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1307,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2485,7 +2485,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1308,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2493,7 +2493,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1309,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2501,7 +2501,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1310,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2509,7 +2509,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1311,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2517,7 +2517,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1312,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2525,7 +2525,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1313,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2533,7 +2533,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1314,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2541,7 +2541,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1315,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2549,7 +2549,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1316,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2557,7 +2557,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1317,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2565,7 +2565,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1318,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2573,7 +2573,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1319,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2581,7 +2581,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1320,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2589,7 +2589,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1321,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2597,7 +2597,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1322,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2605,7 +2605,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1323,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2613,7 +2613,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1324,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2621,7 +2621,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1325,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2629,7 +2629,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1326,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2637,7 +2637,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1327,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2645,7 +2645,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1328,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2653,7 +2653,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1329,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2661,7 +2661,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1330,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2669,7 +2669,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1331,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2677,7 +2677,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1332,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2685,7 +2685,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1333,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2693,7 +2693,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1334,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2701,7 +2701,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1335,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2709,7 +2709,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1336,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2717,7 +2717,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1337,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2725,7 +2725,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1338,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2733,7 +2733,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1339,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2741,7 +2741,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1340,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2749,7 +2749,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1341,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2757,7 +2757,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1342,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2765,7 +2765,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1343,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2773,7 +2773,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1344,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2781,7 +2781,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1345,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2789,7 +2789,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1346,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2797,7 +2797,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1347,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2805,7 +2805,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1348,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2813,7 +2813,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1349,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2821,7 +2821,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1350,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2829,7 +2829,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1351,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2837,7 +2837,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1352,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2845,7 +2845,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1353,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2853,7 +2853,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1354,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2861,7 +2861,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1355,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2869,7 +2869,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1356,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2877,7 +2877,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1357,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2885,7 +2885,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1358,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2893,7 +2893,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1359,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2901,7 +2901,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1360,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2909,7 +2909,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1361,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2917,7 +2917,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1362,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2925,7 +2925,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1363,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2933,7 +2933,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1364,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2941,7 +2941,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1365,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2949,7 +2949,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1366,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2957,7 +2957,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1367,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2965,7 +2965,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1368,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2973,7 +2973,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1369,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2981,7 +2981,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1370,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2989,7 +2989,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1371,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -2997,7 +2997,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1372,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3005,7 +3005,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1373,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3013,7 +3013,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1374,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3021,7 +3021,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1375,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3029,7 +3029,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1376,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3037,7 +3037,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1377,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3045,7 +3045,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1378,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3053,7 +3053,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1379,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3061,7 +3061,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1380,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3069,7 +3069,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1381,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3077,7 +3077,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1382,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3085,7 +3085,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1383,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3093,7 +3093,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1384,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3101,7 +3101,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1385,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3109,7 +3109,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1386,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3117,7 +3117,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1387,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3125,7 +3125,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1388,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3133,7 +3133,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1389,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3141,7 +3141,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1390,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3149,7 +3149,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1391,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3157,7 +3157,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1392,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3165,7 +3165,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1393,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3173,7 +3173,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1394,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3181,7 +3181,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1395,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3189,7 +3189,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1396,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3197,7 +3197,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1397,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3205,7 +3205,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1398,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3213,7 +3213,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1399,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -3221,7 +3221,7 @@ class UnitsTableSeeder extends Seeder
             array (
                 'id' => 1400,
                 'reservations_allowed' => 1,
-                'reservation_limit' => 4,
+                'reservation_limit' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
