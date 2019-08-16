@@ -17,6 +17,8 @@ class CreateReservableTimeslotTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('reservable_id');
             $table->unsignedInteger('timeslot_id');
+            $table->unique(['reservable_id', 'timeslot_id']);
+            $table->boolean('active')->default(true);;
             $table->timestamps();
 
             $table->foreign('reservable_id')->references('id')->on('reservables');

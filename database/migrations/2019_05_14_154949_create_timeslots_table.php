@@ -17,6 +17,8 @@ class CreateTimeslotsTable extends Migration
             $table->increments('id');
             $table->time('start_time');
             $table->time('end_time');
+            $table->unique(['start_time','end_time']);
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

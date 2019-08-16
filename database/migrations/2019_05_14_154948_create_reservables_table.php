@@ -20,6 +20,7 @@ class CreateReservablesTable extends Migration
             $table->unsignedBigInteger('reservation_fee');
             $table->string('backgroundColor');
             $table->string('textColor');
+            $table->boolean('active')->default(true);;
             $table->timestamps();
         });
     }
