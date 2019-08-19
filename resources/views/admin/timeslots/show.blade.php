@@ -43,7 +43,7 @@
         <div class="form-group row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
-                <label for="end_time" class="control-label">Start Time:</label>
+                <label for="end_time" class="control-label">End Time:</label>
                 <input type="time" class="form-control{{ $errors->has('end_time') ? ' is-invalid' : '' }}" name="end_time" value="{{ $timeslot->end_time }}" required>
                 @if ($errors->has('end_time'))
                     <span class="invalid-feedback" role="alert">
