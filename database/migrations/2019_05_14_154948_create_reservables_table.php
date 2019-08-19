@@ -15,7 +15,7 @@ class CreateReservablesTable extends Migration
     {
         Schema::create('reservables', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('description');
+            $table->string('description')->unique();
             $table->unsignedInteger('guest_limit');
             $table->unsignedBigInteger('reservation_fee');
             $table->unsignedBigInteger('security_deposit');

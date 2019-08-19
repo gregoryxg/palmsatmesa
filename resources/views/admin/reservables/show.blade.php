@@ -1,10 +1,10 @@
 @extends('layouts.master')
 
-@section('title', 'Timeslot')
+@section('title', 'Reservable Area')
 
 @section('content')
     <div class="container pt-5">
-        <form method="post" action="/admin/timeslots/{{ $timeslot->id }}">
+        <form method="post" action="/admin/reservables/{{ $reservable->id }}">
         @csrf
         @method('patch')
         @if (\Session::has('success'))
@@ -23,7 +23,7 @@
         @endif
         <div class="form-group row">
             <span class='form-control border-0 text-center' >
-                    * All timeslots must be unique (no duplicate start/end time combinations).
+                    * No duplicate reservable areas allowed (description is unique).
             </span>
         </div>  
         
