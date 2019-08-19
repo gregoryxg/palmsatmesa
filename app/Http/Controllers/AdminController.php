@@ -117,6 +117,12 @@ class AdminController extends Controller
         
         $timeslot->save();
         
+        //Updates any ReservableTimeslot entries as active/inactive when a timeslot is activated/deactivated
+        foreach ($timeslot->reservables as $reservable)
+        {
+            $timeslot->reservables()->updateExistingPivot($reservable->id, ['active'=>$timeslot->active]);
+        }
+                
         return redirect('/admin/timeslots/'.$id)->with(['success'=>'Timeslot updated successfully']);
     }
 }
