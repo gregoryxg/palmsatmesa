@@ -80,6 +80,20 @@ class AdminController extends Controller
         return redirect("admin/editUser/" . $id);
     }
     
+    public function reservables()
+    {
+        $reservables = Reservable::all();
+        
+        return view('admin.reservables.index', ['reservables'=>$reservables]);
+    }
+    
+    public function reservable($id)
+    {
+        $reservable = Reservable::findOrFail($id);
+        
+        return view('admin.reservables.show', ['reservable'=>$reservable]);
+    }
+    
     public function timeslots()
     {
         $timeslots = Timeslot::all();

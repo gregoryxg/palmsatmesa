@@ -18,6 +18,7 @@ class CreateReservablesTable extends Migration
             $table->string('description');
             $table->unsignedInteger('guest_limit');
             $table->unsignedBigInteger('reservation_fee');
+            $table->unsignedBigInteger('security_deposit');
             $table->string('backgroundColor');
             $table->string('textColor');
             $table->boolean('active')->default(true);;
