@@ -42,6 +42,12 @@ Route::get('/closed_committeeticket', 'CommitteeTicketController@closed');
 
 Route::post('/ticketComment', 'TicketCommentController@store');
 
+//Admin functions
+
 Route::get('/admin','AdminController@index');
 Route::get('/admin/editUser/{id}', 'AdminController@editUser');
 Route::patch('/admin/updateUser/{id}', 'AdminController@updateUser');
+
+Route::get('/admin/timeslots', 'AdminController@timeslots');
+Route::get('/admin/timeslots/{id}', 'AdminController@timeslot');
+Route::patch('admin/timeslots/{id}', 'AdminController@updateTimeslot');

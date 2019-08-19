@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Timeslot;
 
 class AdminController extends Controller
-{
-    
+{    
     public function __construct()
     {
         $this->middleware('admin');
@@ -28,8 +28,7 @@ class AdminController extends Controller
     }
     
     public function updateUser(Request $request, $id)
-    {
-        
+    {        
         $validated = $request->validate([
             'first_name' => ['max:255'],
             'last_name' => ['max:255'],
@@ -79,5 +78,45 @@ class AdminController extends Controller
         $user->save();
 
         return redirect("admin/editUser/" . $id);
+    }
+    
+    public function timeslots()
+    {
+        $timeslots = Timeslot::all();
+        
+        return view('admin.timeslots.index', ['timeslots'=>$timeslots]);
+    }
+    
+    public function timeslot($id)
+    {
+        $timeslot = Timeslot::findOrFail($id);
+        
+        return view ('admin.timeslots.show', ['timeslot'=>$timeslot]);
+    }
+    
+    public function updateTimeslot(Request $request, $id)
+    {        
+        $validated = $request->validate([
+            'start_time' => ['date_multi_format:"H:i:s","H:i"', 'required'],
+            'end_time' => ['date_multi_format:"H:i:s","H:i"', 'after:start_time', 'required'],
+            'active'=>[''],
+        ]);
+        
+        if (!$request->has('active'))
+            $validated['active'] = false;
+        
+        $duplicate = Timeslot::where(['start_time'=>$validated['start_time'], 'end_time'=>$validated['end_time']])->get();
+
+        //Ensures the time slot doesn't already exist under a different ID
+        if (!empty($duplicate) && !empty($duplicate->first()->id) && $duplicate->first()->id != $id)
+            return back()->withErrors(['errors'=>'That timeslot already exists. Use a different start and/or end time']);
+        
+        $timeslot = Timeslot::findOrFail($id);
+        
+        $timeslot->fill($validated);
+        
+        $timeslot->save();
+        
+        return redirect('/admin/timeslots/'.$id)->with(['success'=>'Timeslot updated successfully']);
     }
 }
