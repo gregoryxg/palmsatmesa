@@ -49,7 +49,7 @@ Route::get('/admin/editUser/{id}', 'AdminController@editUser');
 Route::patch('/admin/updateUser/{id}', 'AdminController@updateUser');
 
 Route::get('/admin/reservables', 'AdminController@reservables');
-Route::get('/admin/reservable/{id}', 'AdminController@reservable');
+Route::get('/admin/reservables/{id}', 'AdminController@reservable');
 
 Route::get('/admin/timeslots', 'AdminController@timeslots');
 Route::get('/admin/timeslots/{id}', 'AdminController@timeslot');

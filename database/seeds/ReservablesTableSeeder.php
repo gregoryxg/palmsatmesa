@@ -24,7 +24,7 @@ class ReservablesTableSeeder extends Seeder
                 'guest_limit' => 30,
                 'reservation_fee' => 5000,
                 'security_deposit' => 25000,
-                'backgroundColor' => '##010D56',
+                'backgroundColor' => '#010D56',
                 'textColor' => '#FFFFFF',
                 'active' => 1,
                 'created_at' => NULL,
