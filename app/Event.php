@@ -15,6 +15,8 @@ class Event extends Model
         'date',
         'reservable_id',
         'timeslot_id',
+        'reservation_fee',
+        'security_deposit',
         'agree_to_terms',
         'esign_consent',
         'user_id',

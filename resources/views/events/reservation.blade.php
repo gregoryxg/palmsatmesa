@@ -33,7 +33,7 @@
         </div>     
         <div class="form-group row">
             <span class='form-control border-0 text-center' >
-                * Reservations cannot be cancelled within 48 hours of the start time.
+                * Reservations cannot be cancelled within 72 hours of the start time.
             </span>
         </div>           
         <div class="form-group row">

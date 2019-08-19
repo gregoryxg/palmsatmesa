@@ -31,7 +31,7 @@
         </div>        
         <div class="form-group row">
             <span class='form-control border-0 text-center' >
-                * Reservations cannot be cancelled within 48 hours of the start time.
+                * Reservations cannot be cancelled within 72 hours of the start time.
             </span>
         </div>           
         <div class="form-group row">
@@ -41,7 +41,7 @@
         </div>
         <div class="form-group row">
             <span class='form-control border-0 text-center' >
-                * {{$user->unit->reservation_limit }} reservations allowed per unit in the next 30 days
+                * {{$user->unit->reservation_limit }} reservation(s) allowed per unit in the next 30 days
             </span>
             <span class="form-control form-control-sm border-0 text-center">(<strong>{{ $user->unit->events_in_date_range->count() }} currently scheduled in the next 30 days</strong>)</span>
         </div>
@@ -98,7 +98,8 @@
             <div class="form-group required col-md-4">
                 <label for="reservable_id" class="control-label">Location:</label>
                 @foreach($locations as $location)
-                    <br/><small><b>{{ $location->description . " - $" . number_format(($location->reservation_fee/100), 2, '.', ' ') . " fee"}}</b></small>
+                <br/><small><b>{{ $location->description }}</b>
+                    <br/>${{ number_format(($location->reservation_fee/100), 2, '.', ' ') . " fee ($" . number_format(($location->security_deposit/100), 2, '.', ' ') . " refundable security deposit)"}}</small>
                 @endforeach   
                 <select disabled id='reservable_id' class='form-control{{ $errors->has('reservable_id') ? ' is-invalid' : '' }}' name="reservable_id" required><option/>
                     @foreach($locations as $location)
@@ -325,18 +326,22 @@
                         }
                         else
                         {
-                            var fee = "";
+                            var fee = 0;
+                            var deposit = 0;
                             
                             $("#timeslot_id").append(new Option())
                             
                             for (var i in locations) {
                                 if (locations[i].id == reservable_id)
                                     fee = locations[i].reservation_fee
+                                    deposit = locations[i].security_deposit
                             }
                             
-                            document.getElementById("total").innerHTML="Total Charges: " 
-                                    + (fee/100).toLocaleString("en-US", {style:"currency", currency:"USD"})
-                                    + "<br/><small>(includes " + ((fee*.029 + 30)/100).toLocaleString("en-US", {style:"currency", currency:"USD"}) + " of non-refundable processing fees)</small>";
+                            document.getElementById("total").innerHTML="Total Deposit Today: " 
+                                    + (deposit/100 + fee/100).toLocaleString("en-US", {style:"currency", currency:"USD"})
+                                    + "<br/><small>Reservation Fee: " + (fee/100).toLocaleString("en-US", {style:"currency", currency:"USD"}) + "</small>"
+                                    + "<br/><small>(includes " + ((deposit*.029 + fee*.029 + 30)/100).toLocaleString("en-US", {style:"currency", currency:"USD"}) + " of non-refundable processing fees)</small>"
+                                    + "<br/><small>Refundable Security Deposit: " + (deposit/100).toLocaleString("en-US", {style:"currency", currency:"USD"}) + "</small>";
 
                             for (var i in data.timeslots) {
                                 $("#timeslot_id").append(new Option(moment(data.timeslots[i].start_time, "HH:mm:ss").format("h:mm A") + " - " + moment(data.timeslots[i].end_time, "HH:mm:ss").format("h:mm A"), data.timeslots[i].id));

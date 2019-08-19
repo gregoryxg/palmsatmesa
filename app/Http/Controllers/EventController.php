@@ -146,10 +146,9 @@ class EventController extends Controller
         $hours_diff = ($diff->d * 24) + ($diff->h) + ($diff->i/60) + ($diff->s/60/60);
 
         //Reservations cannot be cancelled within 48 hours of the start time
-        if ($hours_diff < 48)
+        if ($hours_diff < 72)
         {
-
-            return back()->withErrors(['errors'=>'Reservations cannot be deleted within 48 hours of the reservation date']);
+            return back()->withErrors(['errors'=>'Reservations cannot be deleted within 72 hours of the reservation date']);
         }
         else
         {
@@ -157,10 +156,10 @@ class EventController extends Controller
             
             $refund = Refund::create([
                 'charge' => $event->stripe_charge_id,
-                'amount' => $event->reservable->reservation_fee - (($event->reservable->reservation_fee*.029) + 30)
+                'amount' => ($event->reservation_fee + $event->security_deposit) - (($event->reservation_fee*.029) + ($event->security_deposit*.029) + 30)
             ]);
             
-            $refund = "$" . number_format(($event->reservable->reservation_fee - (($event->reservable->reservation_fee*.029) + 30))/100, 2, '.', ' ');
+            $refund = "$" . number_format((($event->reservation_fee + $event->security_deposit) - (($event->reservation_fee*.029) + ($event->security_deposit*.029) + 30))/100, 2, '.', ' ');
             
             $event->delete();
 
@@ -206,10 +205,12 @@ class EventController extends Controller
         
         Stripe::setApiKey(env('STRIPE_SECRET'));        
 
+        $reservable = Reservable::find($request->reservable_id);
+        
         $charge = Charge::create([            
-            'amount'   => str_replace('.', '', Reservable::find($request->reservable_id)->reservation_fee),
+            'amount'   => str_replace('.', '', $reservable->reservation_fee + $reservable->security_deposit),
             'currency' => 'usd',
-            'description' => Reservable::find($request->reservable_id)->description . " reservation",
+            'description' => $reservable->description . " reservation",
             'receipt_email' => $request->stripeEmail,
             'source'  => $request->stripeToken
         ]);
@@ -217,6 +218,10 @@ class EventController extends Controller
         $event['stripe_charge_id'] = $charge->id;
         
         $event['stripe_receipt_url'] = $charge->receipt_url;
+        
+        $event['reservation_fee'] = $reservable->reservation_fee;
+        
+        $event['security_deposit'] = $reservable->security_deposit;
         
         $event = new Event($event);
 
