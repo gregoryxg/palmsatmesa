@@ -10,13 +10,13 @@
 <div class="container pt-5">
     <form method="post" action="/event">
         @csrf
-        @if($user->unit->reservation_limit <= $user->unit->events_in_date_range->count())
+<!--        @if($user->unit->reservation_limit <= $user->unit->events_in_date_range->count())
             <div class="form-group pt-2 row">
                 <span class='form-control alert-danger text-center' role="alert">
                     <strong>You have reached your maximum reservations. You must delete some, or wait until some have passed.</strong>
                 </span>
             </div>
-        @endif
+        @endif-->
         @if ($errors->has('errors'))
             <div class="form-group pt-2 row">
                 <span class='form-control alert-danger text-center' role="alert">
@@ -28,12 +28,22 @@
             <span class='form-control border-0 text-center' >
                 <strong>New Reservation Instructions</strong>
             </span>
-        </div>        
+        </div>          
         <div class="form-group row">
             <span class='form-control border-0 text-center' >
-                * Reservations cannot be cancelled within 72 hours of the start time.
+                * Reservations must be made at least 7 days in advance.
             </span>
         </div>           
+        <div class="form-group row">
+            <span class='form-control border-0 text-center' >
+                * Reservations cannot be cancelled within 7 days of the start time.
+            </span>
+        </div>         
+        <div class="form-group row">
+            <span class='form-control border-0 text-center' >
+                * Reservations cannot be made further than 60 days out.
+            </span>
+        </div>                 
         <div class="form-group row">
             <span class='form-control border-0 text-center' >
                 * Processing fees are non-refundable.
@@ -54,7 +64,8 @@
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
                 <label for="title" class="control-label">Reservation Title:</label>
-                <input @if($user->unit->reservation_limit <= $user->unit->events_in_date_range->count()) disabled @endif type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" id="title" name="title" value="{{ old('title') }}" minlength="1" maxlength="50" required>
+                <input  type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" id="title" name="title" value="{{ old('title') }}" minlength="1" maxlength="50" required>
+                <!--@if($user->unit->reservation_limit <= $user->unit->events_in_date_range->count()) disabled @endif-->
                 <small><span id="titlecount">0</span> / 50 Characters Max</small>
                 @if ($errors->has('title'))
                     <span class="invalid-feedback" role="alert">
@@ -71,7 +82,8 @@
                 @foreach($locations as $location)
                     <br/><small><b>{{ $location->description . " - " . $location->guest_limit . " max"}}</b></small>
                 @endforeach               
-                <input @if($user->unit->reservation_limit <= $user->unit->events_in_date_range->count()) disabled @endif type="number" min='1' max='30' class="form-control{{ $errors->has('size') ? ' is-invalid' : '' }}" name="size" value="{{ old('size') }}" required/>
+                <input type="number" min='1' max='30' class="form-control{{ $errors->has('size') ? ' is-invalid' : '' }}" name="size" value="{{ old('size') }}" required/>
+                <!--@if($user->unit->reservation_limit <= $user->unit->events_in_date_range->count()) disabled @endif--> 
                 @if ($errors->has('size'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('size') }}</strong>
@@ -83,8 +95,9 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
-                <label for="date" class="control-label">Date (Must be within the next 30 days):</label>
-                <input id="date" @if($user->unit->reservation_limit <= $user->unit->events_in_date_range->count()) disabled @endif type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name='date' value="{{ old('date') }}" min="{{ date('Y-m-d') }}" max="{{ date('Y-m-d', strtotime("+30 days")) }}" required/>
+                <label for="date" class="control-label">Date (Must be within the next 60 days):</label>
+                <input id="date" type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name='date' value="{{ old('date') }}" @if($user->unit->reservation_limit <= $user->unit->events_in_date_range->count()) min="{{ date('Y-m-d', strtotime('+30 days')) }}" @else min="{{ date('Y-m-d', strtotime('+7 days')) }}" @endif max="{{ date('Y-m-d', strtotime("+60 days")) }}" required/>
+                 <!--@if($user->unit->reservation_limit <= $user->unit->events_in_date_range->count()) disabled @endif-->
                 @if ($errors->has('date'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('date') }}</strong>

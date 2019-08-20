@@ -193,7 +193,7 @@ class EventController extends Controller
     {        
         $event = $request->validate([
             'title' => ['required', 'string', 'max:50'],
-            'date' => ['required', 'date', 'date_format:Y-m-d', 'after_or_equal:today', 'before_or_equal:+30 days'],
+            'date' => ['required', 'date', 'date_format:Y-m-d', 'after_or_equal:'.date('Y-m-d', strtotime("+7 days")), 'before_or_equal:'.date('Y-m-d', strtotime("+60 days"))],
             'reservable_id' => ['required', 'integer', 'exists:reservables,id'],
             'size' => ['required', 'integer', 'min:1', 'max:'.Reservable::find($request->reservable_id)->guest_limit],
             'timeslot_id' => ['required', 'integer', 'exists:timeslots,id'],
@@ -202,7 +202,7 @@ class EventController extends Controller
             'stripeToken' => ['required', 'string'],
             'stripeEmail' => ['required', 'string']
         ]);
-        
+
         Stripe::setApiKey(env('STRIPE_SECRET'));        
 
         $reservable = Reservable::find($request->reservable_id);

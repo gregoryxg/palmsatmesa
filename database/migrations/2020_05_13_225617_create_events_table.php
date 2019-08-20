@@ -22,6 +22,8 @@ class CreateEventsTable extends Migration
             $table->unsignedInteger('reservable_id');
             $table->unsignedInteger('timeslot_id');
             $table->unsignedInteger('event_type_id');
+            $table->unsignedBigInteger('reservation_fee');
+            $table->unsignedBigInteger('security_deposit');
             $table->boolean('agree_to_terms');
             $table->boolean('esign_consent');
             $table->string('stripe_charge_id')->nullable();
