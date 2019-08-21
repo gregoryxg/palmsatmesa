@@ -203,7 +203,7 @@ class EventController extends Controller
             'stripeEmail' => ['required', 'string']
         ]);                
         
-        if (Auth()->user()->unit->events_in_date_range(0,30)->count() >= 1 && strtotime($event['date']) <= strtotime(date('Y-m-d', strtotime("+29 days"))))
+        if (Auth()->user()->unit->events_in_date_range(0,29)->count() >= 1 && strtotime($event['date']) <= strtotime(date('Y-m-d', strtotime("+29 days"))))
         {            
             return back()->withInput(['title'=>$event['title'], 'size'=>$event['size']])->withErrors(['errors'=>'Your unit already has 1 scheduled reservation in the next 30 days.']);
         }
