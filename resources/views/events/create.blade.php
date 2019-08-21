@@ -96,7 +96,7 @@
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4">
                 <label for="date" class="control-label">Date (Must be within the next 60 days):</label>
-                <input @if($user->unit->events_in_date_range(0,60)->count() >= 2) disabled @endif id="date" type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name='date' value="{{ old('date') }}" @if($user->unit->reservation_limit <= $user->unit->events_in_date_range->count()) min="{{ date('Y-m-d', strtotime('+30 days')) }}" @else min="{{ date('Y-m-d', strtotime('+7 days')) }}" @endif max="{{ date('Y-m-d', strtotime("+60 days")) }}" required/>
+                <input @if($user->unit->events_in_date_range(0,60)->count() >= 2) disabled @endif id="date" type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name='date' value="{{ old('date') }}" @if($user->unit->events_in_date_range(0,29)->count() >= 1) min="{{ date('Y-m-d', strtotime('+30 days')) }}" @else min="{{ date('Y-m-d', strtotime('+7 days')) }}" @endif max="{{ date('Y-m-d', strtotime("+60 days")) }}" required/>
                 @if ($errors->has('date'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('date') }}</strong>
