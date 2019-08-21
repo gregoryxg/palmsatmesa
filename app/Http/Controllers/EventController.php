@@ -146,9 +146,9 @@ class EventController extends Controller
         $hours_diff = ($diff->d * 24) + ($diff->h) + ($diff->i/60) + ($diff->s/60/60);
 
         //Reservations cannot be cancelled within 48 hours of the start time
-        if ($hours_diff < 72)
+        if ($hours_diff < 168)
         {
-            return back()->withErrors(['errors'=>'Reservations cannot be deleted within 72 hours of the reservation date']);
+            return back()->withErrors(['errors'=>'Reservations cannot be deleted within 7 days of the reservation date']);
         }
         else
         {
@@ -201,8 +201,21 @@ class EventController extends Controller
             'esign_consent' => ['accepted'],
             'stripeToken' => ['required', 'string'],
             'stripeEmail' => ['required', 'string']
-        ]);
-
+        ]);                
+        
+        if (Auth()->user()->unit->events_in_date_range(0,30)->count() >= 1 && strtotime($event['date']) <= strtotime(date('Y-m-d', strtotime("+29 days"))))
+        {            
+            return back()->withInput(['title'=>$event['title'], 'size'=>$event['size']])->withErrors(['errors'=>'Your unit already has 1 scheduled reservation in the next 30 days.']);
+        }
+        else if (Auth()->user()->unit->events_from_today->count() >= 2)
+        {
+            return back()->withInput(['title'=>$event['title'], 'size'=>$event['size']])->withErrors(['errors'=>'Your unit already has 2 scheduled reservations in the next 60 days.']);
+        }
+        else if (Event::where(['date'=>$event['date'], 'reservable_id'=>$event['reservable_id'], 'timeslot_id'=>$event['timeslot_id']])->get()->count())        
+        {
+            return back()->withInput(['title'=>$event['title'], 'size'=>$event['size']])->withErrors(['errors'=>'That area and timeslot are already booked. Please choose another.']);            
+        }
+        
         Stripe::setApiKey(env('STRIPE_SECRET'));        
 
         $reservable = Reservable::find($request->reservable_id);

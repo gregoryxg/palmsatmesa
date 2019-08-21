@@ -18,6 +18,13 @@ class Unit extends Model
             ['date', '<=' , date('Y-m-d', strtotime('+' . $DaysAfter . ' Days'))]
         ]);
     }
+    
+    public function events_from_today()
+    {
+        return $this->hasManyThrough(Event::class, User::class)->where([
+            ['date', '>=' , date('Y-m-d')]
+        ]);
+    }
 
     public function events()
     {
