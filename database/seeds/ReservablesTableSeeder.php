@@ -12,31 +12,31 @@ class ReservablesTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('reservables')->delete();
-        
+
         \DB::table('reservables')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
-                'description' => 'Clubhouse Kitchen / Pool Table / Living Room',
+                'description' => 'Clubhouse Kitchen',
                 'guest_limit' => 30,
-                'reservation_fee' => 5000,
-                'security_deposit' => 25000,
+                'reservation_fee' => 0,
+                'security_deposit' => 20000,
                 'backgroundColor' => '#010D56',
                 'textColor' => '#FFFFFF',
                 'active' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
                 'description' => 'Clubhouse Theater Room',
                 'guest_limit' => 13,
-                'reservation_fee' => 2000,
-                'security_deposit' => 25000,
+                'reservation_fee' => 0,
+                'security_deposit' => 20000,
                 'backgroundColor' => '#015613',
                 'textColor' => '#FFFFFF',
                 'active' => 1,
@@ -44,7 +44,7 @@ class ReservablesTableSeeder extends Seeder
                 'updated_at' => NULL,
             ),
         ));
-        
-        
+
+
     }
 }

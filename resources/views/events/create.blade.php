@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="container pt-5">
-    <form method="post" action="/event">
+    <form method="post" action="/validate">
         @csrf
         @if($user->unit->events_in_date_range(0,60)->count() >= 2)
             <div class="form-group pt-2 row">
@@ -28,22 +28,22 @@
             <span class='form-control border-0 text-center' >
                 <strong>New Reservation Instructions</strong>
             </span>
-        </div>          
+        </div>
         <div class="form-group row">
             <span class='form-control border-0 text-center' >
                 * Reservations must be made at least 7 days in advance.
             </span>
-        </div>           
+        </div>
         <div class="form-group row">
             <span class='form-control border-0 text-center' >
                 * Reservations cannot be cancelled within 7 days of the start time.
             </span>
-        </div>         
+        </div>
         <div class="form-group row">
             <span class='form-control border-0 text-center' >
                 * Reservations cannot be made further than 60 days out.
             </span>
-        </div>                 
+        </div>
         <div class="form-group row">
             <span class='form-control border-0 text-center' >
                 * Processing fees are non-refundable.
@@ -66,7 +66,7 @@
             <div class="form-group required col-md-4">
                 <label for="title" class="control-label">Reservation Title:</label>
                 <input @if($user->unit->events_in_date_range(0,60)->count() >= 2) disabled @endif type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" id="title" name="title" value="{{ old('title') }}" minlength="1" maxlength="50" required>
-                
+
                 <small><span id="titlecount">0</span> / 50 Characters Max</small>
                 @if ($errors->has('title'))
                     <span class="invalid-feedback" role="alert">
@@ -82,7 +82,7 @@
                 <label for="size" class="control-label">Party size including host:</label>
                 @foreach($locations as $location)
                     <br/><small><b>{{ $location->description . " - " . $location->guest_limit . " max"}}</b></small>
-                @endforeach               
+                @endforeach
                 <input @if($user->unit->events_in_date_range(0,60)->count() >= 2) disabled @endif type="number" min='1' max='30' class="form-control{{ $errors->has('size') ? ' is-invalid' : '' }}" name="size" value="{{ old('size') }}" required/>
                 @if ($errors->has('size'))
                     <span class="invalid-feedback" role="alert">
@@ -112,7 +112,7 @@
                 @foreach($locations as $location)
                 <br/><small><b>{{ $location->description }}</b>
                     <br/>${{ number_format(($location->reservation_fee/100), 2, '.', ' ') . " fee ($" . number_format(($location->security_deposit/100), 2, '.', ' ') . " refundable security deposit)"}}</small>
-                @endforeach   
+                @endforeach
                 <select disabled id='reservable_id' class='form-control{{ $errors->has('reservable_id') ? ' is-invalid' : '' }}' name="reservable_id" required><option/>
                     @foreach($locations as $location)
                         <option value="{{ $location->id }}" {{ old('reservable_id') ? 'selected' : ''}}>{{ $location->description }}</option>
@@ -159,7 +159,7 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4 ml-4">
-                <input disabled onchange="document.getElementsByClassName('stripe-button-el')[0].disabled=!this.checked;" type="checkbox" id="esign_consent" name="esign_consent" value='1' class="form-check-input{{ $errors->has('esign_consent') ? ' is-invalid' : '' }}" required/>
+                <input disabled onchange="document.getElementById('submit').disabled=!this.checked;" type="checkbox" id="esign_consent" name="esign_consent" value='1' class="form-check-input{{ $errors->has('esign_consent') ? ' is-invalid' : '' }}" required/>
                 <label for="esign_consent" class="form-check-label control-label">
                     I understand that checking the box above constitutes an electronic signature to the terms and conditions.
                 </label>
@@ -179,7 +179,8 @@
         <div class="row pt-2">
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-                <script
+                <button disabled type='submit' id='submit' class='btn btn-primary'>Checkout</button>
+                {{-- <script
                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="{{ env('STRIPE_KEY') }}"
                     data-amount=""
@@ -192,15 +193,15 @@
                 <script>
                     document.getElementsByClassName("stripe-button-el")[0].empty;
                     document.getElementsByClassName("stripe-button-el")[0].disabled=true;
-                    // Changes the text of the span tag inside the button                    
+                    // Changes the text of the span tag inside the button
                     document.getElementsByClassName("stripe-button-el")[0].childNodes[0].innerHTML="Finish and Pay";
-                </script>
+                </script> --}}
             </div>
         </div>
     </form>
 </div>
 
-@section('page_js')    
+@section('page_js')
     <script>
         function pay_clicked()
         {
@@ -222,7 +223,7 @@
             {
                 $("#esign_consent").prop('checked', false);
                 document.getElementById("esign_consent").disabled=true;
-                document.getElementsByClassName("stripe-button-el")[0].disabled=true;
+                document.getElementById("submit").disabled=true;
             }
             else
             {
@@ -247,7 +248,7 @@
             $('#reservable_id').empty();
             document.getElementById("reservable_id").disabled=true;
             $("#esign_consent").prop('checked', false);
-            document.getElementsByClassName("stripe-button-el")[0].disabled=true;
+            document.getElementById("submit").disabled=true;
             document.getElementById("timeslot_id").disabled=true;
             document.getElementById("total").innerHTML="";
             if (size == "")
@@ -256,11 +257,11 @@
             }
             else
             {
-                document.getElementById("date").disabled=false;                
+                document.getElementById("date").disabled=false;
             }
         })
     </script>
-    
+
     <script>
         $("input[name='date']").change(function() {
             var date = $("input[name='date']").val();
@@ -270,7 +271,7 @@
             $('#reservable_id').val(null);
             $('#reservable_id').empty()
             $("#esign_consent").prop('checked', false);
-            document.getElementsByClassName("stripe-button-el")[0].disabled=true;
+            document.getElementById("submit").disabled=true;
             document.getElementById("timeslot_id").disabled=true;
             document.getElementById("total").innerHTML="";
             if (date == "")
@@ -340,16 +341,16 @@
                         {
                             var fee = 0;
                             var deposit = 0;
-                            
+
                             $("#timeslot_id").append(new Option())
-                            
+
                             for (var i in locations) {
                                 if (locations[i].id == reservable_id)
                                     fee = locations[i].reservation_fee
                                     deposit = locations[i].security_deposit
                             }
-                            
-                            document.getElementById("total").innerHTML="Total Deposit Today: " 
+
+                            document.getElementById("total").innerHTML="Total Deposit Today: "
                                     + (deposit/100 + fee/100).toLocaleString("en-US", {style:"currency", currency:"USD"})
                                     + "<br/><small>Reservation Fee: " + (fee/100).toLocaleString("en-US", {style:"currency", currency:"USD"}) + "</small>"
                                     + "<br/><small>(includes " + ((deposit*.029 + fee*.029 + 30)/100).toLocaleString("en-US", {style:"currency", currency:"USD"}) + " of non-refundable processing fees)</small>"

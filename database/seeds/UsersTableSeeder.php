@@ -12,12 +12,12 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('users')->delete();
-        
+
         \DB::table('users')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'first_name' => 'Gregory',
@@ -40,10 +40,10 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2019-05-29 11:27:38',
                 'updated_at' => '2019-05-29 11:27:38',
                 'last_login_at' => NULL,
-                'password_expires_at' => '2019-08-29 11:27:35',
+                'password_expires_at' => '2021-08-29 11:27:35',
                 'email_verified_at' => '2019-05-29 11:27:38',
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
                 'first_name' => 'Elisa',
@@ -66,10 +66,10 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2019-05-29 11:27:38',
                 'updated_at' => '2019-05-29 11:27:38',
                 'last_login_at' => NULL,
-                'password_expires_at' => '2019-08-29 11:27:35',
+                'password_expires_at' => '2021-08-29 11:27:35',
                 'email_verified_at' => '2019-05-29 11:27:38',
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 3,
                 'first_name' => 'Cameron',
@@ -95,7 +95,7 @@ class UsersTableSeeder extends Seeder
                 'password_expires_at' => '2019-08-29 11:27:35',
                 'email_verified_at' => '2019-05-29 11:27:38',
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 4,
                 'first_name' => 'Winnie',
@@ -121,7 +121,7 @@ class UsersTableSeeder extends Seeder
                 'password_expires_at' => '2019-08-29 11:27:35',
                 'email_verified_at' => '2019-05-29 11:27:38',
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 5,
                 'first_name' => 'Steve',
@@ -147,7 +147,7 @@ class UsersTableSeeder extends Seeder
                 'password_expires_at' => '2019-08-29 11:27:35',
                 'email_verified_at' => '2019-05-29 11:27:38',
             ),
-            5 => 
+            5 =>
             array (
                 'id' => 6,
                 'first_name' => 'Steven',
@@ -173,7 +173,7 @@ class UsersTableSeeder extends Seeder
                 'password_expires_at' => '2019-08-29 11:27:35',
                 'email_verified_at' => '2019-05-29 11:27:38',
             ),
-            6 => 
+            6 =>
             array (
                 'id' => 7,
                 'first_name' => 'Ricardo',
@@ -200,7 +200,7 @@ class UsersTableSeeder extends Seeder
                 'email_verified_at' => '2019-05-29 11:27:38',
             ),
         ));
-        
-        
+
+
     }
 }

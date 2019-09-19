@@ -26,6 +26,9 @@ Route::get('/terms', 'PagesController@terms');
 Route::resource('/user', 'UserController');
 
 Route::resource('/event', 'EventController');
+Route::post('/validate', 'EventController@validateEvent');
+Route::get('/checkout', 'EventController@checkout');
+Route::get('/confirmEvent/{id}', 'EventController@confirmEvent');
 Route::get('/reservations', 'EventController@reservations');
 Route::post('/reservables/{id}/timeslots', 'ReservableController@timeslots');
 Route::post('/reservables/locations', 'ReservableController@locations');

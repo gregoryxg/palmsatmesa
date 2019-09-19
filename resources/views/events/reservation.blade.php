@@ -130,7 +130,7 @@
                 <button onclick="return confirm('Are you sure you want to cancel this event?')" id='submit_button' type="submit" class="btn btn-danger">Cancel Event</button>
             </div>
         </form>
-</div>
+    </div>
 </div>
 
 @endsection
