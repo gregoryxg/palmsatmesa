@@ -32,7 +32,7 @@
             <div class='col-md-4'>
                 <table class='table text-center'>
                     <thead>
-                        <tr><th scope='col' class='text-center border-0'>New Reservation Instructions</th></tr>
+                        <tr><th scope='col' class='text-center border-0'>Reservation Instructions</th></tr>
                     </thead>
                     <tbody>
                         <tr><td><small>Reservations must be scheduled {{ $advanceDays }} days in advance.</small></td></tr>
@@ -80,7 +80,7 @@
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4 font-weight-bold text-center">
                 <label for="date" class="control-label">Date:</label>
-                <input @if($user->unit->events_in_date_range(0,$maxRange)->count() >= $maxEvents) disabled @endif id="date" type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name='date' value="{{ old('date') }}" @if($user->unit->events_in_date_range(0,$daysPerEvent)->count() >= 1) min="{{ date('Y-m-d', strtotime('+30 days')) }}" @else min="{{ date('Y-m-d', strtotime('+7 days')) }}" @endif max="{{ date('Y-m-d', strtotime("+$maxRange days")) }}" required/>
+                <input @if($user->unit->events_in_date_range(0,$maxRange)->count() >= $maxEvents) disabled @endif id="date" type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name='date' value="{{ old('date') }}" min="{{ $min_date }}" @endif max="{{ date('Y-m-d', strtotime("+$maxRange days")) }}" required/>
                 <small>Must be within the next {{ $maxRange }} days</small>
                 @if ($errors->has('date'))
                     <span class="invalid-feedback" role="alert">
@@ -92,7 +92,7 @@
 
         <div class="row">
             <div class="col-md-4"></div>
-            <div class="form-group required col-md-2 font-weight-bold text-center">
+            <div class="form-group required col-md-4 font-weight-bold text-center">
                 <label for="start_time" class="control-label">Start Time:</label>
                 <input @if($user->unit->events_in_date_range(0,$maxRange)->count() >= $maxEvents) disabled @endif type="time" class="form-control{{ $errors->has('start_time') ? ' is-invalid' : '' }}" name="start_time" value="{{ old('start_time') }}" required/>
                 <small>{{ $preEventBuffer/60 }}-hour of non-reserved time required before start time</small>
@@ -102,37 +102,83 @@
                     </span>
                 @endif
             </div>
-            <div class="form-group required col-md-2 font-weight-bold text-center">
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group required col-md-4 font-weight-bold text-center">
                 <label for="end_time" class="control-label">End Time:</label>
                 <input @if($user->unit->events_in_date_range(0,$maxRange)->count() >= $maxEvents) disabled @endif type="time" class="form-control{{ $errors->has('end_time') ? ' is-invalid' : '' }}" name="end_time" value="{{ old('end_time') }}" required/>
-                <small>{{ $maxEventTime/60 }}-hour max</small>
-                @if ($errors->has('start_time'))
+                <small>{{ $maxEventTime/60 }}-hour max reservation time</small>
+                @if ($errors->has('end_time'))
                     <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('start_time') }}</strong>
+                        <strong>{{ $errors->first('end_time') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group required col-md-4 font-weight-bold text-center">
+                <label for="reservable_id" class="control-label">Location:</label>
+                @foreach($locations as $location)
+                <br/><small><b>{{ $location->description }}</b>
+                    <br/>${{ number_format(($location->reservation_fee/100), 2, '.', ' ') . " fee ($" . number_format(($location->security_deposit/100), 2, '.', ' ') . " refundable security deposit, less processing fees of $" . number_format((($location->reservation_fee/100 + $location->security_deposit/100)*.029) +.3, 2, '.', ' ') . ")"}}</small>
+                @endforeach
+                <select id='reservable_id' class='form-control{{ $errors->has('reservable_id') ? ' is-invalid' : '' }}' name="reservable_id" required><option/>
+                    @foreach($locations as $location)
+                        <option value="{{ $location->id }}" {{ old('reservable_id') ? 'selected' : ''}}>{{ $location->description }}</option>
+                    @endforeach
+                </select>
+                @if ($errors->has('reservable_id'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('reservable_id') }}</strong>
                     </span>
                 @endif
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group required col-md-4 ml-4">
+                <input disabled type="checkbox" id="agree_to_terms" name="agree_to_terms" value='1' class="form-check-input{{ $errors->has('agree_to_terms') ? ' is-invalid' : '' }}" required/>
+                <label for="agree_to_terms" class="form-check-label control-label">
+                    I agree to the reservation <a href="{{ asset('docs/reservation_terms_and_conditions.pdf') }}" onClick="terms_opened()" target="_newtab_{{ date('YmdHis') }}">Terms and Conditions</a>
+                    <br/><small>(You must read the terms and conditions before continuing)</small>
+                </label>
+                @if ($errors->has('agree_to_terms'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('agree_to_terms') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group required col-md-4 ml-4">
+                <input disabled onchange="document.getElementById('submit').disabled=!this.checked;" type="checkbox" id="esign_consent" name="esign_consent" value='1' class="form-check-input{{ $errors->has('esign_consent') ? ' is-invalid' : '' }}" required/>
+                <label for="esign_consent" class="form-check-label control-label">
+                    I understand that checking the box above constitutes an electronic signature to the terms and conditions.
+                </label>
+                @if ($errors->has('esign_consent'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('esign_consent') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
+                <button disabled type='submit' id='submit' class='btn btn-primary'>Checkout</button>
+            </div>
+        </div>
     </form>
 </div>
 
 @section('page_js')
-    <script>
-        function pay_clicked()
-        {
-            var mySpans = document.getElementsByTagName('span');
-
-            for(var i=0;i<mySpans.length;i++){
-                console.log(mySpans[i].innerHTML);
-                if(mySpans[i].innerHTML == 'Pay'){
-                    console.log(mySpans[i]);
-                    break;
-                }
-            }
-        }
-    </script>
     <script>
         $("input[name='agree_to_terms']").change(function() {
             var terms = $("input[name='agree_to_terms']").prop('checked');
@@ -154,133 +200,6 @@
         {
             document.getElementById("agree_to_terms").disabled=false;
         }
-    </script>
-
-    <script>
-        $("input[name='size']").change(function() {
-            var size = $("input[name='size']").val();
-            $('#date').val(null);
-            $('#timeslot_id').empty();
-            $('#reservable_id').val(null);
-            $('#reservable_id').empty();
-            document.getElementById("reservable_id").disabled=true;
-            $("#esign_consent").prop('checked', false);
-            document.getElementById("submit").disabled=true;
-            document.getElementById("timeslot_id").disabled=true;
-            document.getElementById("total").innerHTML="";
-            if (size == "")
-            {
-                document.getElementById("date").disabled=true;
-            }
-            else
-            {
-                document.getElementById("date").disabled=false;
-            }
-        })
-    </script>
-
-    <script>
-        $("input[name='date']").change(function() {
-            var date = $("input[name='date']").val();
-            var size = $("input[name='size']").val();
-            var locations = {!! json_encode($locations) !!};
-            $('#timeslot_id').empty()
-            $('#reservable_id').val(null);
-            $('#reservable_id').empty()
-            $("#esign_consent").prop('checked', false);
-            document.getElementById("submit").disabled=true;
-            document.getElementById("timeslot_id").disabled=true;
-            document.getElementById("total").innerHTML="";
-            if (date == "")
-            {
-                document.getElementById("reservable_id").disabled=true;
-            }
-            else
-            {
-                $.ajax({
-                    url: "/reservables/locations",
-                    method: 'POST',
-                    data: {date: date,
-                        user_id: '{{ $user->id }}',
-                        _token: $("input[name='_token']").val()},
-                    success: function (data) {
-                        if (data.result == 1)
-                        {
-                            document.getElementById("reservable_id").disabled=true;
-                            $("#reservable_id").append(new Option("Reservation for unit already exists", null));
-                        }
-                        else
-                        {
-                            document.getElementById("reservable_id").disabled = false;
-                            $("#reservable_id").append(new Option())
-
-                            for (var i in locations) {
-                                if (locations[i].guest_limit >= size)
-                                    $("#reservable_id").append(new Option(locations[i].description, locations[i].id));
-                            }
-                        }
-                    }
-                })
-            }
-        })
-    </script>
-
-    <script>
-        $("select[name='reservable_id']").change(function() {
-            var date = $("input[name='date']").val();
-            var user_id = '{{ $user->id }}';
-            var reservable_id =  this.value;
-            var locations = {!! json_encode($locations) !!};
-            var token = $("input[name='_token']").val();
-            $('#timeslot_id').empty()
-            if (reservable_id == "")
-            {
-                document.getElementById("timeslot_id").disabled=true;
-            }
-            else
-            {
-                $.ajax({
-                    url: "/reservables/" + reservable_id + "/timeslots",
-                    method: 'POST',
-                    data: {date: date,
-                            user_id: user_id,
-                            reservable_id: reservable_id,
-                            _token: token},
-                    success: function (data) {
-
-                        document.getElementById("timeslot_id").disabled = false;
-
-                        if (data.timeslots.length == 0)
-                        {
-                            $("#timeslot_id").append(new Option("No timeslots available for that date", null));
-                        }
-                        else
-                        {
-                            var fee = 0;
-                            var deposit = 0;
-
-                            $("#timeslot_id").append(new Option())
-
-                            for (var i in locations) {
-                                if (locations[i].id == reservable_id)
-                                    fee = locations[i].reservation_fee
-                                    deposit = locations[i].security_deposit
-                            }
-
-                            document.getElementById("total").innerHTML="Total Deposit Today: "
-                                    + (deposit/100 + fee/100).toLocaleString("en-US", {style:"currency", currency:"USD"})
-                                    + "<br/><small>Reservation Fee: " + (fee/100).toLocaleString("en-US", {style:"currency", currency:"USD"}) + "</small>"
-                                    + "<br/><small>(includes " + ((deposit*.029 + fee*.029 + 30)/100).toLocaleString("en-US", {style:"currency", currency:"USD"}) + " of non-refundable processing fees)</small>"
-                                    + "<br/><small>Refundable Security Deposit: " + (deposit/100).toLocaleString("en-US", {style:"currency", currency:"USD"}) + "</small>";
-
-                            for (var i in data.timeslots) {
-                                $("#timeslot_id").append(new Option(moment(data.timeslots[i].start_time, "HH:mm:ss").format("h:mm A") + " - " + moment(data.timeslots[i].end_time, "HH:mm:ss").format("h:mm A"), data.timeslots[i].id));
-                            }
-                        }
-                    }
-                })
-            }
-        });
     </script>
     <script>
         $("#title").keyup(function(){

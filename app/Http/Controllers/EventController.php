@@ -188,6 +188,29 @@ class EventController extends Controller
 
         $locations = Reservable::where([['active','=',true]])->get();
 
+        $minDate = date('Y-m-d', strtotime('+7 days'));
+
+        $events = $user->unit->events()
+            ->where('date', '>=', date('Y-m-d', strtotime('-22 days')))
+            ->orderBy('date')
+            ->get();
+
+        if (!empty($events))
+        {
+            foreach ($events as $i=>$event)
+            {
+                if ($event->date <= $minDate)
+                {
+                    $plus30 = date('Y-m-d', strtotime('+29 days', strtotime($event->date)));
+
+                    if ($minDate < $plus30)
+                        $minDate = date('Y-m-d', strtotime('+1 day', strtotime($plus30)));
+
+                    echo "$event->date - $plus30 - $minDate</br>";
+                }
+            }
+        }
+        dd();
         return view('events.create', [
             'locations'=>$locations,
             'user'=>$user,
@@ -196,7 +219,8 @@ class EventController extends Controller
             'maxEvents'=> 3,
             'daysPerEvent'=> 30,
             'maxEventTime'=> 240,
-            'preEventBuffer' => 60
+            'preEventBuffer' => 60,
+            'minDate'=>$minDate
         ]);
     }
 
