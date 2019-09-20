@@ -10,15 +10,13 @@
 <div class="container pt-5">
     <form method="post" action="/validate">
         @csrf
-
-        @if($user->unit->events_in_date_range(0,$maxRange)->count() >= $maxEvents)
+        @if($user->unit->events_in_date_range(0,90)->count() >= 3)
             <div class="form-group pt-2 row">
                 <span class='form-control alert-danger text-center' role="alert">
                     <strong>You have reached your maximum reservations. You must delete some, or wait until some have passed.</strong>
                 </span>
             </div>
         @endif
-
         @if ($errors->has('errors'))
             <div class="form-group pt-2 row">
                 <span class='form-control alert-danger text-center' role="alert">
@@ -26,31 +24,59 @@
                 </span>
             </div>
         @endif
-
-        <div class="row">
-            <div class='col-md-4'></div>
-            <div class='col-md-4'>
-                <table class='table text-center'>
-                    <thead>
-                        <tr><th scope='col' class='text-center border-0'>New Reservation Instructions</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><small>Reservations must be scheduled {{ $advanceDays }} days in advance.</small></td></tr>
-                        <tr><td><small>Only 1 clubhouse reservation per unit is allowed in a {{ $daysPerEvent }}-day period.</small></td></tr>
-                        <tr><td><small>No reservations are allowed beyond {{ $maxRange }} days in the future.</small></td></tr>
-                        <tr><td><small>Reservations are for a maximum of {{ $maxEventTime/60 }} hours and must include a {{ $preEventBuffer/60 }}-hour buffer before the start time to allow for setup and cleanup time.</small></td></tr>
-                        <tr><td><small>Processing fees are non-refundable.</small></td></tr>
-                        <tr><td><small>All clubhouse rules defined in the terms and conditions below must be followed at all times.</small></td></tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="form-group row">
+            <span class='form-control border-0 text-center' >
+                <strong>New Reservation Instructions</strong>
+            </span>
         </div>
-
+        <div class="form-group row">
+            <span class='form-control border-0 text-center' >
+                * Reservations must be scheduled 7 days in advance.
+            </span>
+        </div>
+        <div class="form-group row">
+            <span class='form-control border-0 text-center' >
+                * Only 1 clubhouse reservation per unit is allowed in a 30-day period.
+            </span>
+        </div>
+        <div class="form-group row">
+            <span class='form-control border-0 text-center' >
+                * No reservations are allowed beyond 90 days in the future.
+            </span>
+        </div>
+        <div class="form-group row">
+            <span class='form-control border-0 text-center' >
+                * Reservations are for a maximum of 4 hours and must include a 1-hour buffer before the start time to allow for setup and cleanup time.
+            </span>
+        </div>
+        <div class="form-group row">
+            <span class='form-control border-0 text-center' >
+                * Processing fees are non-refundable.
+            </span>
+        </div>
+        <div class="form-group row">
+            <span class='form-control border-0 text-center' >
+                * All clubhouse rules defined in the terms and conditions below must be followed at all times.
+            </span>
+        </div>
+        <div class="form-group row">
+            <span class='form-control border-0 text-center' >
+                * {{$user->unit->reservation_limit }} reservation(s) allowed per unit in the next 30 days
+            </span>
+            <span class="form-control form-control-sm border-0 text-center">(<strong>{{ $user->unit->events_in_date_range(0,29)->count() }} currently scheduled in the next 30 days</strong>)</span>
+            <span class="form-control form-control-sm border-0 text-center">(<strong>{{ $user->unit->events_from_today->count() }} currently scheduled in the future</strong>)</span>
+        </div>
+        <div class="form-group row">
+            <span class='form-control border-0 text-center' >
+                 * Only 1 reservation per unit per day may be scheduled
+            </span>
+        </div>
         <div class="row">
             <div class="col-md-4"></div>
-            <div class="form-group required col-md-4 text-center">
-                <label for="title" class="control-label font-weight-bold">Reservation Title:</label>
-                <input @if($user->unit->events_in_date_range(0,$maxRange)->count() >= $maxEvents) disabled @endif type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" id="title" name="title" value="{{ old('title') }}" minlength="1" maxlength="50" required>
+            <div class="form-group required col-md-4">
+                <label for="title" class="control-label">Reservation Title:</label>
+                <input @if($user->unit->events_in_date_range(0,60)->count() >= 2) disabled @endif type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" id="title" name="title" value="{{ old('title') }}" minlength="1" maxlength="50" required>
+
                 <small><span id="titlecount">0</span> / 50 Characters Max</small>
                 @if ($errors->has('title'))
                     <span class="invalid-feedback" role="alert">
@@ -62,12 +88,12 @@
 
         <div class="row">
             <div class="col-md-4"></div>
-            <div class="form-group required col-md-4 text-center">
-                <label for="size" class="control-label font-weight-bold">Party size including host:</label>
+            <div class="form-group required col-md-4">
+                <label for="size" class="control-label">Party size including host:</label>
                 @foreach($locations as $location)
-                    <br/><small>{{ $location->description . " - " . $location->guest_limit . " max"}}</small>
+                    <br/><small><b>{{ $location->description . " - " . $location->guest_limit . " max"}}</b></small>
                 @endforeach
-                <input @if($user->unit->events_in_date_range(0,$maxRange)->count() >= $maxEvents) disabled @endif type="number" min='1' max='43' class="form-control{{ $errors->has('size') ? ' is-invalid' : '' }}" name="size" value="{{ old('size') }}" required/>
+                <input @if($user->unit->events_in_date_range(0,60)->count() >= 2) disabled @endif type="number" min='1' max='30' class="form-control{{ $errors->has('size') ? ' is-invalid' : '' }}" name="size" value="{{ old('size') }}" required/>
                 @if ($errors->has('size'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('size') }}</strong>
@@ -78,10 +104,9 @@
 
         <div class="row">
             <div class="col-md-4"></div>
-            <div class="form-group required col-md-4 font-weight-bold text-center">
-                <label for="date" class="control-label">Date:</label>
-                <input @if($user->unit->events_in_date_range(0,$maxRange)->count() >= $maxEvents) disabled @endif id="date" type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name='date' value="{{ old('date') }}" @if($user->unit->events_in_date_range(0,$daysPerEvent)->count() >= 1) min="{{ date('Y-m-d', strtotime('+30 days')) }}" @else min="{{ date('Y-m-d', strtotime('+7 days')) }}" @endif max="{{ date('Y-m-d', strtotime("+$maxRange days")) }}" required/>
-                <small>Must be within the next {{ $maxRange }} days</small>
+            <div class="form-group required col-md-4">
+                <label for="date" class="control-label">Date (Must be within the next 60 days):</label>
+                <input @if($user->unit->events_in_date_range(0,60)->count() >= 2) disabled @endif id="date" type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name='date' value="{{ old('date') }}" @if($user->unit->events_in_date_range(0,29)->count() >= 1) min="{{ date('Y-m-d', strtotime('+30 days')) }}" @else min="{{ date('Y-m-d', strtotime('+7 days')) }}" @endif max="{{ date('Y-m-d', strtotime("+60 days")) }}" required/>
                 @if ($errors->has('date'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('date') }}</strong>
@@ -92,29 +117,97 @@
 
         <div class="row">
             <div class="col-md-4"></div>
-            <div class="form-group required col-md-2 font-weight-bold text-center">
-                <label for="start_time" class="control-label">Start Time:</label>
-                <input @if($user->unit->events_in_date_range(0,$maxRange)->count() >= $maxEvents) disabled @endif type="time" class="form-control{{ $errors->has('start_time') ? ' is-invalid' : '' }}" name="start_time" value="{{ old('start_time') }}" required/>
-                <small>{{ $preEventBuffer/60 }}-hour of non-reserved time required before start time</small>
-                @if ($errors->has('start_time'))
+            <div class="form-group required col-md-4">
+                <label for="reservable_id" class="control-label">Location:</label>
+                @foreach($locations as $location)
+                <br/><small><b>{{ $location->description }}</b>
+                    <br/>${{ number_format(($location->reservation_fee/100), 2, '.', ' ') . " fee ($" . number_format(($location->security_deposit/100), 2, '.', ' ') . " refundable security deposit)"}}</small>
+                @endforeach
+                <select disabled id='reservable_id' class='form-control{{ $errors->has('reservable_id') ? ' is-invalid' : '' }}' name="reservable_id" required><option/>
+                    @foreach($locations as $location)
+                        <option value="{{ $location->id }}" {{ old('reservable_id') ? 'selected' : ''}}>{{ $location->description }}</option>
+                    @endforeach
+                </select>
+                @if ($errors->has('reservable_id'))
                     <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('start_time') }}</strong>
-                    </span>
-                @endif
-            </div>
-            <div class="form-group required col-md-2 font-weight-bold text-center">
-                <label for="end_time" class="control-label">End Time:</label>
-                <input @if($user->unit->events_in_date_range(0,$maxRange)->count() >= $maxEvents) disabled @endif type="time" class="form-control{{ $errors->has('end_time') ? ' is-invalid' : '' }}" name="end_time" value="{{ old('end_time') }}" required/>
-                <small>{{ $maxEventTime/60 }}-hour max</small>
-                @if ($errors->has('start_time'))
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('start_time') }}</strong>
+                        <strong>{{ $errors->first('reservable_id') }}</strong>
                     </span>
                 @endif
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group required col-md-4">
+                <label for="timeslot_id" class="control-label">Time Slot:</label>
+                <select disabled id='timeslot_id' class='form-control{{ $errors->has('timeslot_id') ? ' is-invalid' : '' }}' name="timeslot_id">
+                </select>
+                @if ($errors->has('timeslot_id'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('timeslot_id') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group required col-md-4 ml-4">
+                <input disabled type="checkbox" id="agree_to_terms" name="agree_to_terms" value='1' class="form-check-input{{ $errors->has('agree_to_terms') ? ' is-invalid' : '' }}" required/>
+                <label for="agree_to_terms" class="form-check-label control-label">
+                    I agree to the reservation <a href="{{ asset('docs/reservation_terms_and_conditions.pdf') }}" onClick="terms_opened()" target="_newtab_{{ date('YmdHis') }}">Terms and Conditions</a>
+                    <br/><small>(You must read the terms and conditions before continuing)</small>
+                </label>
+                @if ($errors->has('agree_to_terms'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('agree_to_terms') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group required col-md-4 ml-4">
+                <input disabled onchange="document.getElementById('submit').disabled=!this.checked;" type="checkbox" id="esign_consent" name="esign_consent" value='1' class="form-check-input{{ $errors->has('esign_consent') ? ' is-invalid' : '' }}" required/>
+                <label for="esign_consent" class="form-check-label control-label">
+                    I understand that checking the box above constitutes an electronic signature to the terms and conditions.
+                </label>
+                @if ($errors->has('esign_consent'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('esign_consent') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+        <div class="row pt-2">
+            <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
+                <b><span id="total"></span></b>
+            </div>
+        </div>
+        <div class="row pt-2">
+            <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
+                <button disabled type='submit' id='submit' class='btn btn-primary'>Checkout</button>
+                {{-- <script
+                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="{{ env('STRIPE_KEY') }}"
+                    data-amount=""
+                    data-name="Stripe Payment"
+                    data-description="Enter your payment details below"
+                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                    data-locale="auto"
+                    data-currency="usd">
+                </script>
+                <script>
+                    document.getElementsByClassName("stripe-button-el")[0].empty;
+                    document.getElementsByClassName("stripe-button-el")[0].disabled=true;
+                    // Changes the text of the span tag inside the button
+                    document.getElementsByClassName("stripe-button-el")[0].childNodes[0].innerHTML="Finish and Pay";
+                </script> --}}
+            </div>
+        </div>
     </form>
 </div>
 

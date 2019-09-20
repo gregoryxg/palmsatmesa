@@ -188,7 +188,16 @@ class EventController extends Controller
 
         $locations = Reservable::where([['active','=',true]])->get();
 
-        return view('events.create', ['locations'=>$locations, 'user'=>$user]);
+        return view('events.create', [
+            'locations'=>$locations,
+            'user'=>$user,
+            'advanceDays'=> 7,
+            'maxRange'=> 90,
+            'maxEvents'=> 3,
+            'daysPerEvent'=> 30,
+            'maxEventTime'=> 240,
+            'preEventBuffer' => 60
+        ]);
     }
 
     public function validateEvent(Request $request)
