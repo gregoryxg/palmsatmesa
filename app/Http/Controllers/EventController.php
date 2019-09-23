@@ -174,6 +174,15 @@ class EventController extends Controller
 
     public function create()
     {
+
+        $maxRange = 90;
+
+        $daysPerEvent = 30;
+
+        $maxEvents = floor($maxRange/$daysPerEvent);
+
+        $advanceDays = 7;
+
         $user = User::findOrFail(Auth::user()->id);
 
         if (!$user->unit->reservations_allowed)
@@ -188,10 +197,20 @@ class EventController extends Controller
 
         $locations = Reservable::where([['active','=',true]])->get();
 
-        $minDate = date('Y-m-d', strtotime('+7 days'));
+        $futureEvents = $user->unit->events()
+            ->where('date', '>=', date('Y-m-d'))
+            ->orderBy('date')
+            ->get();
+
+        if (count($futureEvents) >= 3)
+        {
+            return redirect('/reservations')->withErrors(["errors"=>"You have reached your unit's maximum number of future events ($maxEvents). You must wait for some to pass, or cancel some."]);
+        }
+
+        $minDate = date('Y-m-d', strtotime("+$advanceDays days"));
 
         $events = $user->unit->events()
-            ->where('date', '>=', date('Y-m-d', strtotime('-22 days')))
+            ->where('date', '>=', date('Y-m-d', strtotime('-'.($daysPerEvent-1) .' days', strtotime($minDate))))
             ->orderBy('date')
             ->get();
 
@@ -199,6 +218,28 @@ class EventController extends Controller
         {
             foreach ($events as $i=>$event)
             {
+                do {
+                    if ($event->date > $minDate)
+                        $daysBetween = (strtotime($event->date) - strtotime($minDate));
+                    else
+                        $daysBetween = (strtotime($minDate) - strtotime($event->date));
+
+                    $daysBetween = round($daysBetween / (60*60*24));
+
+                    echo "Event: $event->date - minDate: $minDate - DaysBetween: $daysBetween<br/>";
+
+                    if ($daysBetween < 30)
+                    {
+                        $minDate = date('Y-m-d', strtotime("+1 day", strtotime($minDate)));
+                    }
+
+                } while($daysBetween < $daysPerEvent);
+
+                /* if ($event->date >= $minus30 && $event->date < $plus30)
+                {
+
+                }
+
                 if ($event->date <= $minDate)
                 {
                     $plus30 = date('Y-m-d', strtotime('+29 days', strtotime($event->date)));
@@ -208,16 +249,31 @@ class EventController extends Controller
 
                     echo "$event->date - $plus30 - $minDate</br>";
                 }
+                else if ($minDate > date('Y-m-d', strtotime('-29 days', strtotime($event->date))))
+                {
+                    $minDate = date('Y-m-d', strtotime('+30 days', strtotime($event->date)));
+                }
+
+                if ($minDate < date('Y-m-d', strtotime('+7 days')))
+                {
+
+                } */
             }
         }
-        dd();
+
+        if ($minDate > date('Y-m-d', strtotime("+$maxRange days")))
+        {
+            echo "Your future reservations do not allow for any reservable times in the next $maxRange days. You must cancel some to create more (only 1 reservation allowed every $daysPerEvent day period.";
+        }
+
+        dd($minDate);
         return view('events.create', [
             'locations'=>$locations,
             'user'=>$user,
-            'advanceDays'=> 7,
-            'maxRange'=> 90,
-            'maxEvents'=> 3,
-            'daysPerEvent'=> 30,
+            'advanceDays'=> $advanceDays,
+            'daysPerEvent'=> $daysPerEvent,
+            'maxRange'=> $maxRange,
+            'maxEvents'=> $maxRange,
             'maxEventTime'=> 240,
             'preEventBuffer' => 60,
             'minDate'=>$minDate

@@ -11,9 +11,18 @@
 
     @if (\Session::has('success'))
         <div class="alert alert-success text-center">
-            <span><strong>{{ \Session::get('success') }}</strong></span>
+            <span>
+                <strong>{{ \Session::get('success') }}</strong>
+            </span>
         </div>
     @endif
+    @if ($errors->has('errors'))
+            <div class="alert alert-danger text-center">
+                <span>
+                    <strong>{{ $errors->first('errors') }}</strong>
+                </span>
+            </div>
+        @endif
     <div class="table-responsive table-sm table-hover">
         <table class="table">
             <thead>
