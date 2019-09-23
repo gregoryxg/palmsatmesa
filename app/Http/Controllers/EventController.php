@@ -174,110 +174,14 @@ class EventController extends Controller
 
     public function create()
     {
+        $eventParameters = Event::getParameters();
 
-        $maxRange = 90;
+        $eligibility = Event::checkReservationEligibility($eventParameters);
 
-        $daysPerEvent = 30;
+        if (!empty($eligibility['errors']))
+            return redirect('/reservations')->withErrors($eligibility);
 
-        $maxEvents = floor($maxRange/$daysPerEvent);
-
-        $advanceDays = 7;
-
-        $user = User::findOrFail(Auth::user()->id);
-
-        if (!$user->unit->reservations_allowed)
-        {
-            return back()->withErrors(['Your unit (' . $user->unit_id . ') is not permitted to add events to the calendar.']);
-        }
-
-        if (!$user->account_approved)
-        {
-            return back()->withErrors(['Your account has not been approved yet.']);
-        }
-
-        $locations = Reservable::where([['active','=',true]])->get();
-
-        $futureEvents = $user->unit->events()
-            ->where('date', '>=', date('Y-m-d'))
-            ->orderBy('date')
-            ->get();
-
-        if (count($futureEvents) >= 3)
-        {
-            return redirect('/reservations')->withErrors(["errors"=>"You have reached your unit's maximum number of future events ($maxEvents). You must wait for some to pass, or cancel some."]);
-        }
-
-        $minDate = date('Y-m-d', strtotime("+$advanceDays days"));
-
-        $events = $user->unit->events()
-            ->where('date', '>=', date('Y-m-d', strtotime('-'.($daysPerEvent-1) .' days', strtotime($minDate))))
-            ->orderBy('date')
-            ->get();
-
-        if (!empty($events))
-        {
-            foreach ($events as $i=>$event)
-            {
-                do {
-                    if ($event->date > $minDate)
-                        $daysBetween = (strtotime($event->date) - strtotime($minDate));
-                    else
-                        $daysBetween = (strtotime($minDate) - strtotime($event->date));
-
-                    $daysBetween = round($daysBetween / (60*60*24));
-
-                    echo "Event: $event->date - minDate: $minDate - DaysBetween: $daysBetween<br/>";
-
-                    if ($daysBetween < 30)
-                    {
-                        $minDate = date('Y-m-d', strtotime("+1 day", strtotime($minDate)));
-                    }
-
-                } while($daysBetween < $daysPerEvent);
-
-                /* if ($event->date >= $minus30 && $event->date < $plus30)
-                {
-
-                }
-
-                if ($event->date <= $minDate)
-                {
-                    $plus30 = date('Y-m-d', strtotime('+29 days', strtotime($event->date)));
-
-                    if ($minDate < $plus30)
-                        $minDate = date('Y-m-d', strtotime('+1 day', strtotime($plus30)));
-
-                    echo "$event->date - $plus30 - $minDate</br>";
-                }
-                else if ($minDate > date('Y-m-d', strtotime('-29 days', strtotime($event->date))))
-                {
-                    $minDate = date('Y-m-d', strtotime('+30 days', strtotime($event->date)));
-                }
-
-                if ($minDate < date('Y-m-d', strtotime('+7 days')))
-                {
-
-                } */
-            }
-        }
-
-        if ($minDate > date('Y-m-d', strtotime("+$maxRange days")))
-        {
-            echo "Your future reservations do not allow for any reservable times in the next $maxRange days. You must cancel some to create more (only 1 reservation allowed every $daysPerEvent day period.";
-        }
-
-        dd($minDate);
-        return view('events.create', [
-            'locations'=>$locations,
-            'user'=>$user,
-            'advanceDays'=> $advanceDays,
-            'daysPerEvent'=> $daysPerEvent,
-            'maxRange'=> $maxRange,
-            'maxEvents'=> $maxRange,
-            'maxEventTime'=> 240,
-            'preEventBuffer' => 60,
-            'minDate'=>$minDate
-        ]);
+        return view('events.create', $eligibility);
     }
 
     public function validateEvent(Request $request)

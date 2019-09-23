@@ -11,14 +11,6 @@
     <form method="post" action="/validate">
         @csrf
 
-        @if($user->unit->events_in_date_range(0,$maxRange)->count() >= $maxEvents)
-            <div class="form-group pt-2 row">
-                <span class='form-control alert-danger text-center' role="alert">
-                    <strong>You have reached your maximum reservations. You must delete some, or wait until some have passed.</strong>
-                </span>
-            </div>
-        @endif
-
         @if ($errors->has('errors'))
             <div class="form-group pt-2 row">
                 <span class='form-control alert-danger text-center' role="alert">
@@ -50,7 +42,7 @@
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4 text-center">
                 <label for="title" class="control-label font-weight-bold">Reservation Title:</label>
-                <input @if($user->unit->events_in_date_range(0,$maxRange)->count() >= $maxEvents) disabled @endif type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" id="title" name="title" value="{{ old('title') }}" minlength="1" maxlength="50" required>
+                <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" id="title" name="title" value="{{ old('title') }}" minlength="1" maxlength="50" required>
                 <small><span id="titlecount">0</span> / 50 Characters Max</small>
                 @if ($errors->has('title'))
                     <span class="invalid-feedback" role="alert">
@@ -67,7 +59,7 @@
                 @foreach($locations as $location)
                     <br/><small>{{ $location->description . " - " . $location->guest_limit . " max"}}</small>
                 @endforeach
-                <input @if($user->unit->events_in_date_range(0,$maxRange)->count() >= $maxEvents) disabled @endif type="number" min='1' max='43' class="form-control{{ $errors->has('size') ? ' is-invalid' : '' }}" name="size" value="{{ old('size') }}" required/>
+                <input type="number" min='1' max='43' class="form-control{{ $errors->has('size') ? ' is-invalid' : '' }}" name="size" value="{{ old('size') }}" required/>
                 @if ($errors->has('size'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('size') }}</strong>
@@ -80,7 +72,7 @@
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4 font-weight-bold text-center">
                 <label for="date" class="control-label">Date:</label>
-                <input @if($user->unit->events_in_date_range(0,$maxRange)->count() >= $maxEvents) disabled @endif id="date" type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name='date' value="{{ old('date') }}" min="{{ $min_date }}" @endif max="{{ date('Y-m-d', strtotime("+$maxRange days")) }}" required/>
+                <input id="date" type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name='date' value="{{ old('date') }}" min="{{ $minDate }}" max="{{ date('Y-m-d', strtotime("+$maxRange days")) }}" required/>
                 <small>Must be within the next {{ $maxRange }} days</small>
                 @if ($errors->has('date'))
                     <span class="invalid-feedback" role="alert">
@@ -94,7 +86,7 @@
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4 font-weight-bold text-center">
                 <label for="start_time" class="control-label">Start Time:</label>
-                <input @if($user->unit->events_in_date_range(0,$maxRange)->count() >= $maxEvents) disabled @endif type="time" class="form-control{{ $errors->has('start_time') ? ' is-invalid' : '' }}" name="start_time" value="{{ old('start_time') }}" required/>
+                <input type="time" class="form-control{{ $errors->has('start_time') ? ' is-invalid' : '' }}" name="start_time" value="{{ old('start_time') }}" required/>
                 <small>{{ $preEventBuffer/60 }}-hour of non-reserved time required before start time</small>
                 @if ($errors->has('start_time'))
                     <span class="invalid-feedback" role="alert">
@@ -108,7 +100,7 @@
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4 font-weight-bold text-center">
                 <label for="end_time" class="control-label">End Time:</label>
-                <input @if($user->unit->events_in_date_range(0,$maxRange)->count() >= $maxEvents) disabled @endif type="time" class="form-control{{ $errors->has('end_time') ? ' is-invalid' : '' }}" name="end_time" value="{{ old('end_time') }}" required/>
+                <input type="time" class="form-control{{ $errors->has('end_time') ? ' is-invalid' : '' }}" name="end_time" value="{{ old('end_time') }}" required/>
                 <small>{{ $maxEventTime/60 }}-hour max reservation time</small>
                 @if ($errors->has('end_time'))
                     <span class="invalid-feedback" role="alert">
