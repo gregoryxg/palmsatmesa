@@ -130,7 +130,7 @@
                 @endforeach
                 <select id='reservable_id' class='form-control{{ $errors->has('reservable_id') ? ' is-invalid' : '' }}' name="reservable_id" required><option/>
                     @foreach($locations as $location)
-                        <option value="{{ $location->id }}" {{ old('reservable_id') ? 'selected' : ''}}>{{ $location->description }}</option>
+                        <option value="{{ $location->id }}" {{ old('reservable_id') == $location->id ? 'selected' : ''}}>{{ $location->description }}</option>
                     @endforeach
                 </select>
                 @if ($errors->has('reservable_id'))

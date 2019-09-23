@@ -48,7 +48,9 @@ class ValidateEvent extends FormRequest
 
             'date.event_buffer'=>'Reservation date must not be within ' . config('event.daysPerEvent') . ' days of another event for your unit.',
 
-            'end_time.event_duration'=>'Reservations must not exceed 4 hours.'
+            'end_time.event_duration'=>'Reservations must not exceed 4 hours.',
+
+            'size.max'=>'The maximum guests for the ' . Reservable::find($this->reservable_id)->description . ' is ' . Reservable::find($this->reservable_id)->guest_limit . '.'
         ];
     }
 }

@@ -188,6 +188,10 @@ class EventController extends Controller
     public function validateEvent(ValidateEvent $request)
     {
 
+        //Make sure event at same date and time doesn't exist
+
+        //get event where date = date, start_time between (start_time - 1hr) and end_time OR end_time between (start_time - 1hr) and end_time
+
         dd($request->all());
 
         /* $event = $request->validate([
@@ -198,7 +202,7 @@ class EventController extends Controller
             'timeslot_id' => ['required', 'integer', 'exists:timeslots,id'],
             'agree_to_terms' => ['accepted'],
             'esign_consent' => ['accepted']
-        ]); */
+        ]);
 
         if (Auth()->user()->unit->events_in_date_range(0,29)->count() >= 1 && strtotime($event['date']) <= strtotime(date('Y-m-d', strtotime("+29 days"))))
         {
@@ -211,7 +215,7 @@ class EventController extends Controller
         else if (Event::where(['date'=>$event['date'], 'reservable_id'=>$event['reservable_id'], 'timeslot_id'=>$event['timeslot_id']])->get()->count())
         {
             return back()->withInput(['title'=>$event['title'], 'size'=>$event['size']])->withErrors(['errors'=>'That area and timeslot are already booked. Please choose another.']);
-        }
+        }*/
 
         session(['event'=>$event]);
 
