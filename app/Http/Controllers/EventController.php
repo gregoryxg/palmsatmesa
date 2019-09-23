@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\ReservationConfirmation;
 use App\Mail\ReservationCancellation;
 use Illuminate\Http\Request;
+use App\Http\Requests\ValidateEvent;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use App\Event;
 use App\User;
@@ -184,7 +185,7 @@ class EventController extends Controller
         return view('events.create', $eligibility);
     }
 
-    public function validateEvent(Request $request)
+    public function validateEvent(ValidateEvent $request)
     {
         $event = $request->validate([
             'title' => ['required', 'string', 'max:50'],
