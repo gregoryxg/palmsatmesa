@@ -175,7 +175,7 @@ class EventController extends Controller
 
     public function create()
     {
-        $eventParameters = Event::getParameters();
+        $eventParameters = config('event');
 
         $eligibility = Event::checkReservationEligibility($eventParameters);
 
@@ -187,17 +187,18 @@ class EventController extends Controller
 
     public function validateEvent(ValidateEvent $request)
     {
-        $event = $request->validate([
+
+        dd($request->all());
+
+        /* $event = $request->validate([
             'title' => ['required', 'string', 'max:50'],
             'date' => ['required', 'date', 'date_format:Y-m-d', 'after_or_equal:'.date('Y-m-d', strtotime("+7 days")), 'before_or_equal:'.date('Y-m-d', strtotime("+60 days"))],
             'reservable_id' => ['required', 'integer', 'exists:reservables,id'],
             'size' => ['required', 'integer', 'min:1', 'max:'.Reservable::find($request->reservable_id)->guest_limit],
             'timeslot_id' => ['required', 'integer', 'exists:timeslots,id'],
             'agree_to_terms' => ['accepted'],
-            'esign_consent' => ['accepted']/* ,
-            'stripeToken' => ['required', 'string'],
-            'stripeEmail' => ['required', 'string'] */
-        ]);
+            'esign_consent' => ['accepted']
+        ]); */
 
         if (Auth()->user()->unit->events_in_date_range(0,29)->count() >= 1 && strtotime($event['date']) <= strtotime(date('Y-m-d', strtotime("+29 days"))))
         {

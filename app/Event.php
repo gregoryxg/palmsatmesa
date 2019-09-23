@@ -54,7 +54,7 @@ class Event extends Model
 
     public static function checkReservationEligibility(Array $eventParameters)
     {
-        $user = $eventParameters['user'];
+        $user = User::findOrFail(Auth::user()->id);
 
         if (!$user->unit->reservations_allowed)
         {
@@ -111,6 +111,8 @@ class Event extends Model
             {
                 return ["errors"=>"Your future reservations do not allow for any reservable times in the next " . $eventParameters['maxRange'] . " days. You must cancel some to create more (only 1 reservation allowed every " . $eventParameters['daysPerEvent'] . " day period."];
             }
+
+            $eventParameters['locations'] = Reservable::where([['active','=',true]])->get();
 
             return $eventParameters;
 

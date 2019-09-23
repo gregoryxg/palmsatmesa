@@ -574,6 +574,7 @@ class ComposerStaticInit1bac787456196c94f27bb77cea642a2e
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\StoreTicket' => __DIR__ . '/../..' . '/app/Http/Requests/StoreTicket.php',
         'App\\Http\\Requests\\StoreTicketComment' => __DIR__ . '/../..' . '/app/Http/Requests/StoreTicketComment.php',
+        'App\\Http\\Requests\\ValidateEvent' => __DIR__ . '/../..' . '/app/Http/Requests/ValidateEvent.php',
         'App\\Mail\\EmailVerification' => __DIR__ . '/../..' . '/app/Mail/EmailVerification.php',
         'App\\Mail\\PasswordResetEmail' => __DIR__ . '/../..' . '/app/Mail/PasswordResetEmail.php',
         'App\\Mail\\ReservationCancellation' => __DIR__ . '/../..' . '/app/Mail/ReservationCancellation.php',

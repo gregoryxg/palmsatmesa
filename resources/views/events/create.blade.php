@@ -86,8 +86,12 @@
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4 font-weight-bold text-center">
                 <label for="start_time" class="control-label">Start Time:</label>
-                <input type="time" class="form-control{{ $errors->has('start_time') ? ' is-invalid' : '' }}" name="start_time" value="{{ old('start_time') }}" required/>
-                <small>{{ $preEventBuffer/60 }}-hour of non-reserved time required before start time</small>
+                <select name='start_time' class='form-control{{ $errors->has('start_time') ? ' is-invalid' : '' }}' required><option></option>
+                    @for ($i=9;$i<21;$i++)
+                        <option value='{{ date('g:i A', strtotime($i.":00")) }}' {{ old('start_time') == date('g:i A', strtotime($i.":00")) ? 'selected' : ''}}>{{ date('g:i A', strtotime($i.":00")) }}</option>
+                    @endfor
+                </select>
+                <small>9am-8pm: {{ $preEventBuffer/60 }}-hour of unreserved time required before start</small>
                 @if ($errors->has('start_time'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('start_time') }}</strong>
@@ -100,8 +104,12 @@
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4 font-weight-bold text-center">
                 <label for="end_time" class="control-label">End Time:</label>
-                <input type="time" class="form-control{{ $errors->has('end_time') ? ' is-invalid' : '' }}" name="end_time" value="{{ old('end_time') }}" required/>
-                <small>{{ $maxEventTime/60 }}-hour max reservation time</small>
+                <select name='end_time' class='form-control{{ $errors->has('end_time') ? ' is-invalid' : '' }}' required><option></option>
+                    @for ($i=10;$i<22;$i++)
+                        <option value='{{ date('g:i A', strtotime($i.":00")) }}' {{ old('end_time') == date('g:i A', strtotime($i.":00")) ? 'selected' : ''}}>{{ date('g:i A', strtotime($i.":00")) }}</option>
+                    @endfor
+                </select>
+                <small>9am-8pm: {{ $preEventBuffer/60 }}-hour of unreserved time required before start</small>
                 @if ($errors->has('end_time'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('end_time') }}</strong>
@@ -109,6 +117,9 @@
                 @endif
             </div>
         </div>
+
+
+
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4 font-weight-bold text-center">
@@ -133,7 +144,7 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4 ml-4">
-                <input disabled type="checkbox" id="agree_to_terms" name="agree_to_terms" value='1' class="form-check-input{{ $errors->has('agree_to_terms') ? ' is-invalid' : '' }}" required/>
+                <input {{ old('agree_to_terms') ? 'checked' : 'disabled' }} type="checkbox" id="agree_to_terms" name="agree_to_terms" value='1' class="form-check-input{{ $errors->has('agree_to_terms') ? ' is-invalid' : '' }}" required/>
                 <label for="agree_to_terms" class="form-check-label control-label">
                     I agree to the reservation <a href="{{ asset('docs/reservation_terms_and_conditions.pdf') }}" onClick="terms_opened()" target="_newtab_{{ date('YmdHis') }}">Terms and Conditions</a>
                     <br/><small>(You must read the terms and conditions before continuing)</small>
@@ -149,7 +160,7 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4 ml-4">
-                <input disabled onchange="document.getElementById('submit').disabled=!this.checked;" type="checkbox" id="esign_consent" name="esign_consent" value='1' class="form-check-input{{ $errors->has('esign_consent') ? ' is-invalid' : '' }}" required/>
+                <input {{ old('esign_consent') ? 'checked' : 'disabled' }} onchange="document.getElementById('submit').disabled=!this.checked;" type="checkbox" id="esign_consent" name="esign_consent" value='1' class="form-check-input{{ $errors->has('esign_consent') ? ' is-invalid' : '' }}" required/>
                 <label for="esign_consent" class="form-check-label control-label">
                     I understand that checking the box above constitutes an electronic signature to the terms and conditions.
                 </label>
@@ -164,7 +175,7 @@
         <div class="row pt-2">
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-                <button disabled type='submit' id='submit' class='btn btn-primary'>Checkout</button>
+                <button {{ old('esign_consent') ?? 'disabled' }} type='submit' id='submit' class='btn btn-primary'>Checkout</button>
             </div>
         </div>
     </form>

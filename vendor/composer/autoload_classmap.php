@@ -37,6 +37,7 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\StoreTicket' => $baseDir . '/app/Http/Requests/StoreTicket.php',
     'App\\Http\\Requests\\StoreTicketComment' => $baseDir . '/app/Http/Requests/StoreTicketComment.php',
+    'App\\Http\\Requests\\ValidateEvent' => $baseDir . '/app/Http/Requests/ValidateEvent.php',
     'App\\Mail\\EmailVerification' => $baseDir . '/app/Mail/EmailVerification.php',
     'App\\Mail\\PasswordResetEmail' => $baseDir . '/app/Mail/PasswordResetEmail.php',
     'App\\Mail\\ReservationCancellation' => $baseDir . '/app/Mail/ReservationCancellation.php',
