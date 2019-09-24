@@ -236,7 +236,7 @@ class EventController extends Controller
 
         $paymentIntent->capture();
 
-        dd($session);
+        dd($paymentIntent);
 
         dd($event);
 
