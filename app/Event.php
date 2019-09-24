@@ -121,41 +121,4 @@ class Event extends Model
             return ["errors"=>"Something went wrong...cannot create a new reservation at this time. Please contact support."];
         }
     }
-
-    public static function getParameters()
-    {
-        $user = User::findOrFail(Auth::user()->id);
-
-        $maxRange = 90;
-
-        $daysPerEvent = 30;
-
-        $maxEvents = floor($maxRange/$daysPerEvent);
-
-        $advanceDays = 7;
-
-        $maxEventTime = 240;
-
-        $preEventBuffer = 60;
-
-        $locations = Reservable::where([['active','=',true]])->get();
-
-        return [
-            'user' => $user,
-
-            'maxRange' => $maxRange,
-
-            'daysPerEvent' => $daysPerEvent,
-
-            'maxEvents' => $maxEvents,
-
-            'advanceDays' => $advanceDays,
-
-            'maxEventTime' => $maxEventTime,
-
-            'preEventBuffer' => $preEventBuffer,
-
-            'locations' => $locations
-        ];
-    }
 }

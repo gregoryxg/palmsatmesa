@@ -187,37 +187,7 @@ class EventController extends Controller
 
     public function validateEvent(ValidateEvent $request)
     {
-
-        //Make sure event at same date and time doesn't exist
-
-        //get event where date = date, start_time between (start_time - 1hr) and end_time OR end_time between (start_time - 1hr) and end_time
-
-        dd($request->all());
-
-        /* $event = $request->validate([
-            'title' => ['required', 'string', 'max:50'],
-            'date' => ['required', 'date', 'date_format:Y-m-d', 'after_or_equal:'.date('Y-m-d', strtotime("+7 days")), 'before_or_equal:'.date('Y-m-d', strtotime("+60 days"))],
-            'reservable_id' => ['required', 'integer', 'exists:reservables,id'],
-            'size' => ['required', 'integer', 'min:1', 'max:'.Reservable::find($request->reservable_id)->guest_limit],
-            'timeslot_id' => ['required', 'integer', 'exists:timeslots,id'],
-            'agree_to_terms' => ['accepted'],
-            'esign_consent' => ['accepted']
-        ]);
-
-        if (Auth()->user()->unit->events_in_date_range(0,29)->count() >= 1 && strtotime($event['date']) <= strtotime(date('Y-m-d', strtotime("+29 days"))))
-        {
-            return back()->withInput(['title'=>$event['title'], 'size'=>$event['size']])->withErrors(['errors'=>'Your unit already has 1 scheduled reservation in the next 30 days.']);
-        }
-        else if (Auth()->user()->unit->events_from_today->count() >= 2)
-        {
-            return back()->withInput(['title'=>$event['title'], 'size'=>$event['size']])->withErrors(['errors'=>'Your unit already has 2 scheduled reservations in the next 60 days.']);
-        }
-        else if (Event::where(['date'=>$event['date'], 'reservable_id'=>$event['reservable_id'], 'timeslot_id'=>$event['timeslot_id']])->get()->count())
-        {
-            return back()->withInput(['title'=>$event['title'], 'size'=>$event['size']])->withErrors(['errors'=>'That area and timeslot are already booked. Please choose another.']);
-        }*/
-
-        session(['event'=>$event]);
+        session(['event'=>$request->all()]);
 
         Stripe::setApiKey(env('STRIPE_SECRET'));
 
@@ -234,8 +204,8 @@ class EventController extends Controller
                 'currency' => 'usd',
                 'quantity' => 1,
             ]],
-            'success_url' => 'http://localhost:91/confirmEvent/{CHECKOUT_SESSION_ID}',
-            'cancel_url' => 'http://localhost:91/confirmEvent',
+            'success_url' => 'http://gregoryxg.ddns.net:90/confirmEvent/{CHECKOUT_SESSION_ID}',
+            'cancel_url' => 'http://gregoryxg.ddns.net:90/confirmEvent',
         ]);
 
         /* $charge = Charge::create([
@@ -257,6 +227,18 @@ class EventController extends Controller
     public function confirmEvent($id)
     {
         $event = session('event');
+
+        Stripe::setApiKey(env('STRIPE_SECRET'));
+
+        $session = Session::retrieve($id);
+
+        $paymentIntent = PaymentIntent::retrieve($session->payment_intent);
+
+        $paymentIntent->capture();
+
+        dd($session);
+
+        dd($event);
 
         $event['stripe_charge_id'] = $charge->id;
 

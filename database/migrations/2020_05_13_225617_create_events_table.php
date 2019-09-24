@@ -18,9 +18,10 @@ class CreateEventsTable extends Migration
             $table->string('title');
             $table->unsignedInteger('size');
             $table->date('date');
+            $table->time('start_time');
+            $table->time('end_time');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('reservable_id');
-            $table->unsignedInteger('timeslot_id');
             $table->unsignedInteger('event_type_id');
             $table->unsignedBigInteger('reservation_fee');
             $table->unsignedBigInteger('security_deposit');
@@ -34,9 +35,8 @@ class CreateEventsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('reservable_id')->references('id')->on('reservables');
             $table->foreign('event_type_id')->references('id')->on('event_types');
-            $table->foreign('timeslot_id')->references('id')->on('timeslots');
 
-            $table->unique(['date', 'reservable_id', 'timeslot_id']);
+            $table->unique(['date', 'reservable_id', 'start_time', 'end_time']);
         });
     }
 

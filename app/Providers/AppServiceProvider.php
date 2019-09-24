@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Validator;
 use Snipe\BanBuilder\CensorWords;
 use App\User;
+use App\Event;
 use Auth;
 
 class AppServiceProvider extends ServiceProvider
@@ -83,6 +84,36 @@ class AppServiceProvider extends ServiceProvider
             return true;
         else
             return false;
+
+      });
+
+      Validator::extend('duplicate_event', function($attribute, $value, $parameters, $validator) {
+
+        $start_time = date('H:i:s', strtotime('-1 hour', strtotime($validator->getData()['start_time'])));
+
+        $end_time = date('H:i:s', strtotime('+1 hour', strtotime($validator->getData()['end_time'])));
+
+        $start_time_end = date('H:i:s', strtotime('-1 second', strtotime($end_time)));
+
+        $end_time_start = date('H:i:s', strtotime('+1 second', strtotime($start_time)));
+
+        $reservable_id = $validator->getData()['reservable_id'];
+
+        $checkExisting = Event::where('date', '=', date('Y-m-d', strtotime($value)))
+        ->where('reservable_id', '=', $reservable_id)
+        ->whereBetween('start_time', [
+            $start_time,
+            $start_time_end
+        ])
+        ->orWhereBetween('end_time', [
+            $end_time_start,
+            $end_time
+        ])->get();
+
+        if (!$checkExisting->isEmpty())
+            return false;
+        else
+            return true;
 
       });
     }

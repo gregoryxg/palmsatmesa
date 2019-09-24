@@ -15,8 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ResidentStatusesTableSeeder::class);
         $this->call(EventTypesTableSeeder::class);
         $this->call(ReservablesTableSeeder::class);
-        $this->call(TimeslotsTableSeeder::class);
-        $this->call(ReservableTimeslotTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(VerifyUsersTableSeeder::class);
         $this->call(CommitteesTableSeeder::class);
