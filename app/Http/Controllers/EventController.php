@@ -141,17 +141,20 @@ class EventController extends Controller
         if ($event->user_id != Auth::id())
             return redirect('/reservations')->withErrors (['errors'=>'You do not have permission to access that reservation']);
 
-        $diff = (new \DateTime($event->date . " " . $event->timeslot->start_time))->diff(new \DateTime(date('Y-m-d H:i:s')));
+        $start_time = strtotime($event->date . " " . $event->start_time);
 
-        $hours_diff = ($diff->d * 24) + ($diff->h) + ($diff->i/60) + ($diff->s/60/60);
+        $diff = $start_time - strtotime(date('Y-m-d H:i:s'));
 
-        //Reservations cannot be cancelled within 48 hours of the start time
-        if ($hours_diff < 168)
+        $hours_diff = $diff / (60 * 60);
+
+        //Reservations cannot be cancelled within configured hours of the start time
+        if ($hours_diff < config('event.noCancellationWindow')/60)
         {
-            return back()->withErrors(['errors'=>'Reservations cannot be deleted within 7 days of the reservation date']);
+            return back()->withErrors(['errors'=>'Reservations cannot be deleted within ' . config('event.noCancellationWindow')/60 . ' hours of the start time.']);
         }
         else
         {
+            dd($hours_diff);
             Stripe::setApiKey(env('STRIPE_SECRET'));
 
             $refund = Refund::create([
