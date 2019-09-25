@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="container pt-5">
-    <form method="post" action="/validate">
+    <form method="post" action="/event/{{ $event->id }}">
         @csrf
         @method('patch')
 
@@ -16,6 +16,14 @@
             <div class="form-group pt-2 row">
                 <span class='form-control alert-danger text-center' role="alert">
                     <strong>{{ $errors->first('errors') }}</strong>
+                </span>
+            </div>
+        @endif
+
+        @if (\Session::has('success'))
+            <div class="form-group pt-2 row">
+                <span class='form-control alert-success text-center' role="alert">
+                    <strong>{{ \Session::get('success') }}</strong>
                 </span>
             </div>
         @endif
@@ -177,7 +185,7 @@
             </div>
         <form method="post" action="/event/{{ $event->id }}">
             @csrf
-            @method('patch')
+            @method('delete')
             <div class="form-group">
                 <button onclick="return confirm('Are you sure you want to cancel this event?')" id='submit_button' type="submit" class="btn btn-large btn-danger">Cancel Event</button>
             </div>
