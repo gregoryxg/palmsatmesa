@@ -10,10 +10,9 @@ use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use App\Event;
 use App\User;
 use App\Reservable;
-use App\Timeslot;
+use App\EventType;
 use Auth;
 use Stripe\Stripe;
-//use Stripe\Charge;
 use Stripe\Refund;
 use Stripe\Checkout\Session;
 use Stripe\PaymentIntent;
@@ -51,11 +50,9 @@ class EventController extends Controller
         {
             foreach ($data as $key => $value)
             {
-                $timeslot = Timeslot::findOrFail($value->timeslot_id);
+                $start_date = date('Y-m-d H:i:s', strtotime($value->date . " " . $value->start_time));
 
-                $start_date = date('Y-m-d H:i:s', strtotime($value->date . " " . $timeslot->start_time));
-
-                $end_date = date('Y-m-d H:i:s', strtotime($value->date . " " . $timeslot->end_time));
+                $end_date = date('Y-m-d H:i:s', strtotime($value->date . " " . $value->end_time));
 
                 $events[] = Calendar::event(
                     " - " . $value->size . " guests at " . Reservable::findOrFail($value->reservable_id)->description
@@ -113,9 +110,9 @@ class EventController extends Controller
         ])->get();
 
         if(empty($event[0]))
-            return redirect('/')->withErrors (['errors'=>'You do not have permission to access that reservation']);
+            return redirect('/reservations')->withErrors (['errors'=>'You do not have permission to access that reservation']);
 
-        return view('events.reservation', ['event'=>$event[0]]);
+        return view('events.reservation', ['event'=>$event[0], 'locations'=>Reservable::all()]);
     }
 
     public function update(Request $request, $id)
@@ -123,7 +120,7 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
 
         if ($event->user_id != Auth::id())
-            return redirect('/')->withErrors (['errors'=>'You do not have permission to access that reservation']);
+            return redirect('/reservations')->withErrors (['errors'=>'You do not have permission to access that reservation']);
 
         $event->fill($request->validate([
             'title' => ['required', 'string', 'max:255'],
@@ -142,7 +139,7 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
 
         if ($event->user_id != Auth::id())
-            return redirect('/')->withErrors (['errors'=>'You do not have permission to access that reservation']);
+            return redirect('/reservations')->withErrors (['errors'=>'You do not have permission to access that reservation']);
 
         $diff = (new \DateTime($event->date . " " . $event->timeslot->start_time))->diff(new \DateTime(date('Y-m-d H:i:s')));
 
@@ -168,7 +165,7 @@ class EventController extends Controller
 
             \Mail::to($event->user->email)->send(new ReservationCancellation($event));
 
-            return redirect('reservations')->with('success', "Reservation has been deleted successfully. Your refund of $refund will be processed in 5-10 business days.");
+            return redirect('/reservations')->with('success', "Reservation has been deleted successfully. Your refund of $refund will be processed in 5-10 business days.");
         }
 
     }
@@ -208,14 +205,6 @@ class EventController extends Controller
             'cancel_url' => 'http://gregoryxg.ddns.net:90/confirmEvent',
         ]);
 
-        /* $charge = Charge::create([
-            'amount'   => str_replace('.', '', $reservable->reservation_fee + $reservable->security_deposit),
-            'currency' => 'usd',
-            'description' => $reservable->description . " reservation",
-            'receipt_email' => $request->stripeEmail,
-            'source'  => $request->stripeToken
-        ]); */
-
         return redirect('/checkout')->with(['stripe_session_id'=>$session->id]);
     }
 
@@ -226,7 +215,7 @@ class EventController extends Controller
 
     public function confirmEvent($id)
     {
-        $event = session('event');
+        $event = Event::make(session('event'));
 
         Stripe::setApiKey(env('STRIPE_SECRET'));
 
@@ -234,37 +223,37 @@ class EventController extends Controller
 
         $paymentIntent = PaymentIntent::retrieve($session->payment_intent);
 
-        $paymentIntent->capture();
+        $validation = $event->confirm();
 
-        dd($paymentIntent);
-
-        dd($event);
-
-        $event['stripe_charge_id'] = $charge->id;
-
-        $event['stripe_receipt_url'] = $charge->receipt_url;
-
-        $event['reservation_fee'] = $reservable->reservation_fee;
-
-        $event['security_deposit'] = $reservable->security_deposit;
-
-        $event = new Event($event);
-
-        $response = $event->verify('Reservation');
-
-        if ($response['status'] == 'errors')
+        if($validation->fails())
         {
-            return back()
-                ->withInput(['title'=>$event->title, 'size'=>$event->size])
-                ->withErrors(['errors'=>$response['response_msg']]);
-        }
-        else
-        {
-            $event->save();
+            $paymentIntent->cancel();
 
-            \Mail::to($event->user->email)->send(new ReservationConfirmation($event));
-
-            return redirect('event')->with('success', 'Reservation has been added successfully');
+            return redirect('/event/create')
+                ->withErrors($validation)
+                ->withInput();
         }
+
+        //$paymentIntent->capture();
+
+        $charge = $paymentIntent->charges->data[0];
+
+        $event->fill([
+            'start_time'=>date('H:i:s', strtotime($event->start_time)),
+            'end_time'=>date('H:i:s', strtotime($event->end_time)),
+            'stripe_charge_id'=>$charge->id,
+            'stripe_receipt_url'=>$charge->receipt_url,
+            'reservation_fee'=>$event->reservable->reservation_fee,
+            'security_deposit'=>$event->reservable->security_deposit,
+            'user_id'=>Auth::id(),
+            'reserved_from_ip_address'=>Request()->ip(),
+            'event_type_id'=>EventType::where(['type' => 'Reservation'])->first()->id
+        ]);
+
+        $event->save();
+
+        \Mail::to($event->user->email)->send(new ReservationConfirmation($event));
+
+        return redirect('event')->with('success', 'Reservation has been added successfully');
     }
 }

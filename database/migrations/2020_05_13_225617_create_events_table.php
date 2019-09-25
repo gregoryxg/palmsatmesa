@@ -30,9 +30,12 @@ class CreateEventsTable extends Migration
             $table->string('stripe_charge_id')->nullable();
             $table->string('stripe_receipt_url')->nullable();
             $table->string('reserved_from_ip_address');
+            $table->timestamp('cancelled_at')->nullable();
+            $table->unsignedInteger('cancelled_by_id')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('cancelled_by_id')->references('id')->on('users');
             $table->foreign('reservable_id')->references('id')->on('reservables');
             $table->foreign('event_type_id')->references('id')->on('event_types');
 

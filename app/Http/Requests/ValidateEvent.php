@@ -32,7 +32,8 @@ class ValidateEvent extends FormRequest
                 'after_or_equal:'.date('Y-m-d', strtotime("+7 days")),
                 'before_or_equal:'.date('Y-m-d', strtotime("+".config('event.maxRange') . " days")),
                 'event_buffer:true',
-                'duplicate_event'
+                'duplicate_event:true',
+                'unit_events:true'
             ],
             'start_time' => ['required', 'date_format:g:i A', 'before:end_time', 'after_or_equal:9:00 AM', 'before_or_equal:8:00 PM'],
             'end_time' => ['required', 'date_format:g:i A', 'after:start_time', 'after_or_equal:10:00 AM', 'before_or_equal:9:00 PM', 'event_duration:true'],
@@ -57,7 +58,10 @@ class ValidateEvent extends FormRequest
 
             'size.max'=>'The maximum guests for the ' . Reservable::find($this->reservable_id)->description . ' is ' . Reservable::find($this->reservable_id)->guest_limit . '.',
 
-            'date.duplicate_event'=>'There is an overlapping event at that time. Please check the calendar, and choose a new date and/or time.'
+            'date.duplicate_event'=>'There is an overlapping event at that time. Please check the calendar, and choose a new date and/or time.',
+
+            'date.unit_events'=>"You have reached your unit's maximum number of future events (" . config('event.maxEvents') . "). You must wait for some to pass, or cancel some."
+
         ];
     }
 }

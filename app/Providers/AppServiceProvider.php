@@ -7,6 +7,7 @@ use Validator;
 use Snipe\BanBuilder\CensorWords;
 use App\User;
 use App\Event;
+use DB;
 use Auth;
 
 class AppServiceProvider extends ServiceProvider
@@ -58,6 +59,22 @@ class AppServiceProvider extends ServiceProvider
         return false;
       });
 
+      Validator::extend('unit_events', function ($attribute, $value) {
+
+            $user = User::findOrFail(Auth::user()->id);
+
+            $futureEvents = $user->unit->events()
+                ->where('date', '>=', date('Y-m-d'))
+                ->get();
+
+            if (count($futureEvents) >= config('event.maxEvents')) {
+                return false;
+            }
+            else {
+                return true;
+            }
+      });
+
       Validator::extend('event_buffer', function ($attribute, $value) {
 
             $user = User::findOrFail(Auth::user()->id);
@@ -89,26 +106,29 @@ class AppServiceProvider extends ServiceProvider
 
       Validator::extend('duplicate_event', function($attribute, $value, $parameters, $validator) {
 
-        $start_time = date('H:i:s', strtotime('-1 hour', strtotime($validator->getData()['start_time'])));
-
-        $end_time = date('H:i:s', strtotime('+1 hour', strtotime($validator->getData()['end_time'])));
-
-        $start_time_end = date('H:i:s', strtotime('-1 second', strtotime($end_time)));
-
-        $end_time_start = date('H:i:s', strtotime('+1 second', strtotime($start_time)));
-
         $reservable_id = $validator->getData()['reservable_id'];
 
         $checkExisting = Event::where('date', '=', date('Y-m-d', strtotime($value)))
         ->where('reservable_id', '=', $reservable_id)
-        ->whereBetween('start_time', [
-            $start_time,
-            $start_time_end
-        ])
-        ->orWhereBetween('end_time', [
-            $end_time_start,
-            $end_time
-        ])->get();
+        ->where(function ($query) use ($validator) {
+
+            $start_time = date('H:i:s', strtotime('-1 hour', strtotime($validator->getData()['start_time'])));
+
+            $end_time = date('H:i:s', strtotime('+1 hour', strtotime($validator->getData()['end_time'])));
+
+            $start_time_end = date('H:i:s', strtotime('-1 second', strtotime($end_time)));
+
+            $end_time_start = date('H:i:s', strtotime('+1 second', strtotime($start_time)));
+
+            $query->whereBetween('start_time', [
+                $start_time,
+                $start_time_end
+            ])
+            ->orWhereBetween('end_time', [
+                $end_time_start,
+                $end_time
+            ]);
+        })->get();
 
         if (!$checkExisting->isEmpty())
             return false;

@@ -43,7 +43,7 @@
                     <th scope="row">{{ $event->size }}</th>
                     <th scope="row">{{ $event->reservable->description }}</th>
                     <th scope="row">{{ date('m/d/Y', strtotime($event->date)) }}</th>
-                    <th scope="row">{{ date('g:i A', strtotime($event->timeslot->start_time)) . " - " . date('h:i A', strtotime($event->timeslot->end_time)) }}</th>
+                    <th scope="row">{{ date('g:i A', strtotime($event->start_time)) . " - " . date('h:i A', strtotime($event->end_time)) }}</th>
                 </tr>
             @endforeach
             </tbody>

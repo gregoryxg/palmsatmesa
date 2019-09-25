@@ -28,6 +28,7 @@
                     </thead>
                     <tbody>
                         <tr><td><small>Reservations must be scheduled {{ $advanceDays }} days in advance.</small></td></tr>
+                        <tr><td><small>No cancellations are allowed within {{ $noCancellationWindow/60 }} hours of the start time.</small></td></tr>
                         <tr><td><small>Only 1 clubhouse reservation per unit is allowed in a {{ $daysPerEvent }}-day period.</small></td></tr>
                         <tr><td><small>No reservations are allowed beyond {{ $maxRange }} days in the future.</small></td></tr>
                         <tr><td><small>Reservations are for a maximum of {{ $maxEventTime/60 }} hours and must include a {{ $preEventBuffer/60 }}-hour buffer before the start time to allow for setup and cleanup time.</small></td></tr>
@@ -109,7 +110,7 @@
                         <option value='{{ date('g:i A', strtotime($i.":00")) }}' {{ old('end_time') == date('g:i A', strtotime($i.":00")) ? 'selected' : ''}}>{{ date('g:i A', strtotime($i.":00")) }}</option>
                     @endfor
                 </select>
-                <small>9am-8pm: {{ $preEventBuffer/60 }}-hour of unreserved time required before start</small>
+                <small>9am-8pm: {{ $preEventBuffer/60 }}-hour of unreserved time required after end</small>
                 @if ($errors->has('end_time'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('end_time') }}</strong>

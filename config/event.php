@@ -10,6 +10,8 @@ return [
 
     'advanceDays' => 7,
 
+    'noCancellationWindow' => 1440,
+
     'maxEventTime' => 240,
 
     'preEventBuffer' => 60
