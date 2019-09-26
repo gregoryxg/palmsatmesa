@@ -57,3 +57,5 @@ Route::get('/admin/reservables/{id}', 'AdminController@reservable');
 Route::get('/admin/timeslots', 'AdminController@timeslots');
 Route::get('/admin/timeslots/{id}', 'AdminController@timeslot');
 Route::patch('admin/timeslots/{id}', 'AdminController@updateTimeslot');
+
+Route::get('/test', 'EventController@test');

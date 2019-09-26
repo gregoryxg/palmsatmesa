@@ -17,6 +17,12 @@
                     <strong>{{ $errors->first('errors') }}</strong>
                 </span>
             </div>
+        @elseif ($errors->has('date'))
+            <div class="form-group pt-2 row">
+                    <span class='form-control alert-danger text-center' role="alert">
+                    <strong>{{ $errors->first('date') }}</strong>
+                </span>
+            </div>
         @endif
 
         <div class="row">
@@ -71,6 +77,23 @@
 
         <div class="row">
             <div class="col-md-4"></div>
+            <div class="form-group required col-md-4 font-weight-bold text-center" id="date_picker">
+                <label for="date" class="control-label">Date:</label>
+                <vuejs-datepicker
+                    :bootstrap-styling="true"
+                    :placeholder="state.placeholder"
+                    :format="state.format"
+                    :disabled-dates="state.disabledDates"
+                    :value="state.date"
+                    required
+                    name='date'>
+                </vuejs-datepicker>
+                <small>Must be within the next {{ $maxRange }} days</small>
+            </div>
+        </div>
+
+        {{-- <div class="row">
+            <div class="col-md-4"></div>
             <div class="form-group required col-md-4 font-weight-bold text-center">
                 <label for="date" class="control-label">Date:</label>
                 <input id="date" type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name='date' value="{{ old('date') }}" min="{{ $minDate }}" max="{{ date('Y-m-d', strtotime("+$maxRange days")) }}" required/>
@@ -81,7 +104,7 @@
                     </span>
                 @endif
             </div>
-        </div>
+        </div> --}}
 
         <div class="row">
             <div class="col-md-4"></div>
@@ -209,6 +232,28 @@
         $("#title").keyup(function(){
             $("#titlecount").text($(this).val().length);
         });
+    </script>
+
+    <script>
+        const date_picker = new Vue({
+            el: '#date_picker',
+            components: {
+                vuejsDatepicker
+            },
+            data() {
+                return {
+                    state: {
+                        format: "yyyy-MM-dd",
+                        placeholder: "YYYY-MM-DD",
+                        date: "{{ old('date') }}",
+                        disabledDates: {
+                            to: new Date('{{ $minDate }}'), // Disable all dates up to specific date
+                            from: new Date("{{ date('Y-m-d', strtotime("+$maxRange days")) }}"), // Disable all dates after specific date
+                        }
+                    }
+                }
+            }
+        })
     </script>
 
 @endsection

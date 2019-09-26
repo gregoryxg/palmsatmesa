@@ -2,9 +2,10 @@
 <script>window.jQuery || document.write('<script src="{{ asset('js/bootstrap.bundle.js') }}"><\/script>')</script>
 <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{asset('js/moment.js')}}"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/vuejs-datepicker"></script>
+
 @yield('page_js')
-
-
 
 <script>
     $(document).ready(function($) {
