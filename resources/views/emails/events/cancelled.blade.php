@@ -10,8 +10,8 @@
 <br/>Party Size: <s>{{ $event->size }}</s>
 <br/>Location: <s>{{$event->reservable->description }}</s>
 <br/>Date: <s>{{ date('n/d/Y', strtotime($event->date)) }}</s>
-<br/>Start Time: <s>{{ date('g:i A', strtotime($event->date . " " . $event->timeslot->start_time)) }}</s>
-<br/>End Time: <s>{{ date('g:i A', strtotime($event->date . " " . $event->timeslot->end_time)) }}</s>
+<br/>Start Time: <s>{{ date('g:i A', strtotime($event->date . " " . $event->start_time)) }}</s>
+<br/>End Time: <s>{{ date('g:i A', strtotime($event->date . " " . $event->end_time)) }}</s>
 <br/>Refund Receipt: <a href="{{ $event->stripe_receipt_url }}">{{ $event->stripe_receipt_url }}</a>
 <br/>Your refund of ${{ number_format((($event->reservation_fee + $event->security_deposit) - (($event->reservation_fee*.029) + ($event->security_deposit*.029) + 30))/100, 2, '.', ' ')  }} will be processed in 5-10 business days</s>
 <br/>

@@ -35,15 +35,15 @@ class EventController extends Controller
 
         if ($user->board_member === true || $user->administrator === true) //Board member / Administrator events
         {
-            $data = Event::all();
+            $data = Event::all()->where('cancelled_at', '=', null);
         }
         else if ($user->id == 1) //Homeowner events
         {
-            $data = Event::all();
+            $data = Event::all()->where('cancelled_at', '=', null);
         }
         else //HOA Events (lessee view)
         {
-            $data = Event::all();
+            $data = Event::all()->where('cancelled_at', '=', null);
         }
 
         if($data->count())
@@ -96,7 +96,11 @@ class EventController extends Controller
     public function reservations()
     {
         //Lists user's reservations
-        $events = Event::where(['user_id' => Auth::user()->id, ['date', '>=' , date('Y-m-d')]])->orderBy('date')->orderBy('id')->get();
+        $events = Event::where([
+            'user_id' => Auth::user()->id,
+            ['date', '>=' , date('Y-m-d')],
+            ['cancelled_at', '=', null]
+        ])->orderBy('date')->orderBy('id')->get();
 
         return view('events.reservations', ['events'=>$events]);
     }
@@ -154,7 +158,6 @@ class EventController extends Controller
         }
         else
         {
-            dd($hours_diff);
             Stripe::setApiKey(env('STRIPE_SECRET'));
 
             $refund = Refund::create([
@@ -164,11 +167,16 @@ class EventController extends Controller
 
             $refund = "$" . number_format((($event->reservation_fee + $event->security_deposit) - (($event->reservation_fee*.029) + ($event->security_deposit*.029) + 30))/100, 2, '.', ' ');
 
-            $event->delete();
+            $event->fill([
+                'cancelled_by_id'=>Auth::id(),
+                'cancelled_at'=>date('Y-m-d H:i:s')
+            ]);
+
+            $event->save();
 
             \Mail::to($event->user->email)->send(new ReservationCancellation($event));
 
-            return redirect('/reservations')->with('success', "Reservation has been deleted successfully. Your refund of $refund will be processed in 5-10 business days.");
+            return redirect('/reservations')->with('success', "Reservation has been cancelled successfully. Your refund of $refund will be processed in 5-10 business days.");
         }
 
     }
@@ -237,7 +245,7 @@ class EventController extends Controller
                 ->withInput();
         }
 
-        //$paymentIntent->capture();
+        $paymentIntent->capture();
 
         $charge = $paymentIntent->charges->data[0];
 

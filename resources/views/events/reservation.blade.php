@@ -180,16 +180,19 @@
 
         <div class="row pt-2">
             <div class="col-md-4"></div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-4 text-center">
                 <button type='submit' id='submit' class='btn btn-primary'>Update</button></form>
             </div>
-        <form method="post" action="/event/{{ $event->id }}">
-            @csrf
-            @method('delete')
-            <div class="form-group">
-                <button onclick="return confirm('Are you sure you want to cancel this event?')" id='submit_button' type="submit" class="btn btn-large btn-danger">Cancel Event</button>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="form-group col-md-4 text-center">
+                <form method="post" action="/event/{{ $event->id }}">
+                    @csrf
+                    @method('delete')
+                    <button onclick="return confirm('Are you sure you want to cancel this event?')" id='submit_button' type="submit" class="btn btn-large btn-danger">Cancel Event</button>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 
