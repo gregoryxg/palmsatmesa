@@ -72,6 +72,7 @@ class Event extends Model
         try {
             $futureEvents = $user->unit->events()
                 ->where('date', '>=', date('Y-m-d'))
+                ->where('cancelled_at', '=', null)
                 ->orderBy('date')
                 ->get();
 
@@ -84,6 +85,7 @@ class Event extends Model
 
             $events = $user->unit->events()
                 ->where('date', '>=', date('Y-m-d', strtotime('-' . ($eventParameters['daysPerEvent']-1) .' days', strtotime($eventParameters['minDate']))))
+                ->where('cancelled_at', '=', null)
                 ->orderBy('date')
                 ->get();
 

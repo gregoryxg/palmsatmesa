@@ -65,6 +65,7 @@ class AppServiceProvider extends ServiceProvider
 
             $futureEvents = $user->unit->events()
                 ->where('date', '>=', date('Y-m-d'))
+                ->where('cancelled_at', '=', null)
                 ->get();
 
             if (count($futureEvents) >= config('event.maxEvents')) {
@@ -80,6 +81,7 @@ class AppServiceProvider extends ServiceProvider
             $user = User::findOrFail(Auth::user()->id);
 
             $events = $user->unit->events()
+                ->where('cancelled_at', '=', null)
                 ->whereBetween('date', [
                     date('Y-m-d', strtotime('-' . (config('event.daysPerEvent')-1) .' days', strtotime($value))),
                     date('Y-m-d', strtotime('+' . (config('event.daysPerEvent')-1) .' days', strtotime($value)))
@@ -109,6 +111,7 @@ class AppServiceProvider extends ServiceProvider
         $reservable_id = $validator->getData()['reservable_id'];
 
         $checkExisting = Event::where('date', '=', date('Y-m-d', strtotime($value)))
+        ->where('cancelled_at', '=', null)
         ->where('reservable_id', '=', $reservable_id)
         ->where(function ($query) use ($validator) {
 

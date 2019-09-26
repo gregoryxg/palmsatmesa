@@ -110,7 +110,8 @@ class EventController extends Controller
         $event = Event::where([
             'id' => $id,
             ['date', '>=' , date('Y-m-d')],
-            ['user_id', '=', Auth::id()]
+            ['user_id', '=', Auth::id()],
+            ['cancelled_at', '=', null]
         ])->get();
 
         if(empty($event[0]))
@@ -123,7 +124,7 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($id);
 
-        if ($event->user_id != Auth::id())
+        if ($event->user_id != Auth::id() || !is_null($event->cancelled_at))
             return redirect('/reservations')->withErrors (['errors'=>'You do not have permission to access that reservation']);
 
         $event->fill($request->validate([
@@ -142,7 +143,7 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($id);
 
-        if ($event->user_id != Auth::id())
+        if ($event->user_id != Auth::id() || !is_null($event->cancelled_at))
             return redirect('/reservations')->withErrors (['errors'=>'You do not have permission to access that reservation']);
 
         $start_time = strtotime($event->date . " " . $event->start_time);
