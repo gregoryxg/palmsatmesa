@@ -25,11 +25,6 @@ class EventController extends Controller
         $this->middleware('auth');
     }
 
-    public function test()
-    {
-        return view('test');
-    }
-
     public function index()
     {
         $user = User::findOrFail(Auth::user()->id);

@@ -92,20 +92,6 @@
             </div>
         </div>
 
-        {{-- <div class="row">
-            <div class="col-md-4"></div>
-            <div class="form-group required col-md-4 font-weight-bold text-center">
-                <label for="date" class="control-label">Date:</label>
-                <input id="date" type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name='date' value="{{ old('date') }}" min="{{ $minDate }}" max="{{ date('Y-m-d', strtotime("+$maxRange days")) }}" required/>
-                <small>Must be within the next {{ $maxRange }} days</small>
-                @if ($errors->has('date'))
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('date') }}</strong>
-                    </span>
-                @endif
-            </div>
-        </div> --}}
-
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group required col-md-4 font-weight-bold text-center">
