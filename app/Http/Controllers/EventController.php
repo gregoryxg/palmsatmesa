@@ -93,6 +93,93 @@ class EventController extends Controller
         return view('events.calendar', compact('calendar'));
     }
 
+    public function create()
+    {
+        $eventParameters = config('event');
+
+        $eligibility = Event::checkReservationEligibility($eventParameters);
+
+        if (!empty($eligibility['errors']))
+            return redirect('/reservations')->withErrors($eligibility);
+
+        return view('events.create', $eligibility);
+    }
+
+    public function validateEvent(ValidateEvent $request)
+    {
+        session(['event'=>$request->all()]);
+
+        Stripe::setApiKey(env('STRIPE_SECRET'));
+
+        $reservable = Reservable::find($request->reservable_id);
+
+        $session = Session::create([
+            'payment_method_types' => ['card'],
+            'payment_intent_data' => ['capture_method'=>'manual'],
+            'line_items' => [[
+                'name' => $reservable->description . " reservation",
+                'description' => 'Guest Limit: '. $reservable->guest_limit,
+                'images' => ["https://palmsatmesa.s3-us-west-1.amazonaws.com/public/reservable_images/$reservable->id.jpg"],
+                'amount' => str_replace('.', '', $reservable->reservation_fee + $reservable->security_deposit),
+                'currency' => 'usd',
+                'quantity' => 1,
+            ]],
+            'success_url' => 'http://gregoryxg.ddns.net:90/confirmEvent/{CHECKOUT_SESSION_ID}',
+            'cancel_url' => 'http://gregoryxg.ddns.net:90/confirmEvent',
+        ]);
+
+        return redirect('/checkout')->with(['stripe_session_id'=>$session->id]);
+    }
+
+    public function checkout()
+    {
+        return view('checkout.index', ['stripe_session_id'=>session('stripe_session_id')]);
+    }
+
+    public function confirmEvent($id)
+    {
+        $event = Event::make(session('event'));
+
+        Stripe::setApiKey(env('STRIPE_SECRET'));
+
+        $session = Session::retrieve($id);
+
+        $paymentIntent = PaymentIntent::retrieve($session->payment_intent);
+
+        $validation = $event->confirm();
+
+        if($validation->fails())
+        {
+            $paymentIntent->cancel();
+
+            return redirect('/event/create')
+                ->withErrors($validation)
+                ->withInput();
+        }
+
+        $paymentIntent->capture();
+
+        $charge = $paymentIntent->charges->data[0];
+
+        $event->fill([
+            'start_time'=>date('H:i:s', strtotime($event->start_time)),
+            'end_time'=>date('H:i:s', strtotime($event->end_time)),
+            'stripe_charge_id'=>$charge->id,
+            'stripe_receipt_url'=>$charge->receipt_url,
+            'reservation_fee'=>$event->reservable->reservation_fee,
+            'security_deposit'=>$event->reservable->security_deposit,
+            'user_id'=>Auth::id(),
+            'reserved_from_ip_address'=>Request()->ip(),
+            'event_type_id'=>EventType::where(['type' => 'Reservation'])->first()->id
+        ]);
+
+        $event->save();
+
+        \Mail::to($event->user->email)->send(new ReservationConfirmation($event));
+
+        return redirect('event')->with('success', 'Reservation has been added successfully');
+    }
+
     public function reservations()
     {
         //Lists user's reservations
@@ -180,92 +267,5 @@ class EventController extends Controller
             return redirect('/reservations')->with('success', "Reservation has been cancelled successfully. Your refund of $refund will be processed in 5-10 business days.");
         }
 
-    }
-
-    public function create()
-    {
-        $eventParameters = config('event');
-
-        $eligibility = Event::checkReservationEligibility($eventParameters);
-
-        if (!empty($eligibility['errors']))
-            return redirect('/reservations')->withErrors($eligibility);
-
-        return view('events.create', $eligibility);
-    }
-
-    public function validateEvent(ValidateEvent $request)
-    {
-        session(['event'=>$request->all()]);
-
-        Stripe::setApiKey(env('STRIPE_SECRET'));
-
-        $reservable = Reservable::find($request->reservable_id);
-
-        $session = Session::create([
-            'payment_method_types' => ['card'],
-            'payment_intent_data' => ['capture_method'=>'manual'],
-            'line_items' => [[
-                'name' => $reservable->description . " reservation",
-                'description' => 'Guest Limit: '. $reservable->guest_limit,
-                'images' => ["https://palmsatmesa.s3-us-west-1.amazonaws.com/public/reservable_images/$reservable->id.jpg"],
-                'amount' => str_replace('.', '', $reservable->reservation_fee + $reservable->security_deposit),
-                'currency' => 'usd',
-                'quantity' => 1,
-            ]],
-            'success_url' => 'http://gregoryxg.ddns.net:90/confirmEvent/{CHECKOUT_SESSION_ID}',
-            'cancel_url' => 'http://gregoryxg.ddns.net:90/confirmEvent',
-        ]);
-
-        return redirect('/checkout')->with(['stripe_session_id'=>$session->id]);
-    }
-
-    public function checkout()
-    {
-        return view('checkout.index', ['stripe_session_id'=>session('stripe_session_id')]);
-    }
-
-    public function confirmEvent($id)
-    {
-        $event = Event::make(session('event'));
-
-        Stripe::setApiKey(env('STRIPE_SECRET'));
-
-        $session = Session::retrieve($id);
-
-        $paymentIntent = PaymentIntent::retrieve($session->payment_intent);
-
-        $validation = $event->confirm();
-
-        if($validation->fails())
-        {
-            $paymentIntent->cancel();
-
-            return redirect('/event/create')
-                ->withErrors($validation)
-                ->withInput();
-        }
-
-        $paymentIntent->capture();
-
-        $charge = $paymentIntent->charges->data[0];
-
-        $event->fill([
-            'start_time'=>date('H:i:s', strtotime($event->start_time)),
-            'end_time'=>date('H:i:s', strtotime($event->end_time)),
-            'stripe_charge_id'=>$charge->id,
-            'stripe_receipt_url'=>$charge->receipt_url,
-            'reservation_fee'=>$event->reservable->reservation_fee,
-            'security_deposit'=>$event->reservable->security_deposit,
-            'user_id'=>Auth::id(),
-            'reserved_from_ip_address'=>Request()->ip(),
-            'event_type_id'=>EventType::where(['type' => 'Reservation'])->first()->id
-        ]);
-
-        $event->save();
-
-        \Mail::to($event->user->email)->send(new ReservationConfirmation($event));
-
-        return redirect('event')->with('success', 'Reservation has been added successfully');
     }
 }
