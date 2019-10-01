@@ -62,9 +62,9 @@ class RegisterController extends Controller
             'gate_code' => ['required', 'integer'],
             'resident_status_id' => ['required', 'integer'],
             'profile_picture' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:10240'],
-            'mobile_phone' => ['required', 'string', 'max:255'],
-            'home_phone' => ['max:255'],
-            'work_phone' => ['max:255'],
+            'mobile_phone' => ['required', 'string', 'regex:/\(\d{3}\) \d{3}-\d{4}/'],
+            'home_phone' => ['nullable', 'string', 'regex:/\(\d{3}\) \d{3}-\d{4}/'],
+            'work_phone' => ['nullable', 'string', 'regex:/\(\d{3}\) \d{3}-\d{4}/'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);

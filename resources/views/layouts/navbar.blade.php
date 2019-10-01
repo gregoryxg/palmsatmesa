@@ -30,9 +30,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::user()->administrator == 1)
-                        <li class="nav-item @yield('active_admin')">
-                            <a class="nav-link" href="/admin"><i class="fas fa-tools"></i> Admin</a>
-                        </li>
+                        @include('layouts.admin_navlinks')
                     @endif
                     <li class="nav-item">
                         <a class="nav-link" href="/user/{{ Auth::user()->id }}"><i class="fas fa-user-cog"></i> Profile</a>

@@ -98,6 +98,34 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Event::class);
     }
 
+    public static function lookupUsers($search_by, $search_val)
+    {
+        switch ($search_by)
+        {
+            case "email":
+                return User::where(['email'=>$search_val])->get();
+                break;
+            case "phone":
+                return User::where(['mobile_phone'=>$search_val])
+                            ->orWhere(['home_phone'=>$search_val])
+                            ->orWhere(['work_phone'=>$search_val])
+                            ->get();
+                break;
+            case "unit":
+                return User::where(['unit_id'=>$search_val])->get();
+                break;
+            case "name":
+                return User::where([
+                    'first_name'=>explode(' ', $search_val)[0],
+                    'last_name'=>explode(' ', $search_val)[1]
+                    ])->get();
+                break;
+            default:
+                return null;
+                break;
+        }
+    }
+
     public static function createThumbnail(UploadedFile $profile_picture, $UserID = null)
     {
         if (is_null($UserID))

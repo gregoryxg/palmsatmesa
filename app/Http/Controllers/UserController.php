@@ -11,7 +11,7 @@ class UserController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -80,9 +80,9 @@ class UserController extends Controller
             'first_name' => ['max:255'],
             'last_name' => ['max:255'],
             'profile_picture' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:10240'],
-            'mobile_phone' => ['max:255'],
-            'home_phone' => ['max:255'],
-            'work_phone' => ['max:255']
+            'mobile_phone' => ['string', 'regex:/\(\d{3}\) \d{3}-\d{4}/'],
+            'home_phone' => ['nullable', 'string', 'regex:/\(\d{3}\) \d{3}-\d{4}/'],
+            'work_phone' => ['nullable', 'string', 'regex:/\(\d{3}\) \d{3}-\d{4}/']
         ]);
 
         $user = User::findOrFail($id);

@@ -4,6 +4,7 @@
 <script src="{{asset('js/moment.js')}}"></script>
 <script src="https://unpkg.com/vue"></script>
 <script src="https://unpkg.com/vuejs-datepicker"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.js"></script>
 
 @yield('page_js')
 
@@ -35,5 +36,14 @@
     $(".custom-file-input").on("change", function() {
         var fileName = $(this).val().split("\\").pop();
         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('#mobile_phone').inputmask({"mask": "(###) ###-####"});
+        $('#work_phone').inputmask({"mask": "(###) ###-####"});
+        $('#home_phone').inputmask({"mask": "(###) ###-####"});
+        $('#phone').inputmask({"mask": "(###) ###-####"});
     });
 </script>

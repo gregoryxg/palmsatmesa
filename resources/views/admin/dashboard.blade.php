@@ -4,6 +4,8 @@
 
 @section('active_admin', 'active')
 
+@section('active_dashboard', 'active')
+
 @section('content')
 <div class="container pt-5">
     <div class="panel panel-default">
@@ -42,12 +44,12 @@
                             <td>{{ $user->unit->id }}</td>
                             <td>{{ $user->email }}</td>
                         </tr>
-                        @endforeach                        
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
-        
+
     </div>
 </div>
 
