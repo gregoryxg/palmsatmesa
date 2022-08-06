@@ -6,7 +6,7 @@ use App\Mail\ReservationConfirmation;
 use App\Mail\ReservationCancellation;
 use Illuminate\Http\Request;
 use App\Http\Requests\ValidateEvent;
-use MaddHatter\LaravelFullcalendar\Facades\Calendar;
+use LaravelFullCalendar\Facades\Calendar;
 use App\Event;
 use App\User;
 use App\Reservable;
