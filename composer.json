@@ -14,6 +14,7 @@
         "gregoryxg/laravel-fullcalendar": "dev-master",
         "intervention/image": "^2.7",
         "laravel/framework": "9.*",
+        "laravel/tinker": "^2.7",
         "laravel/ui": "^4.0",
         "league/flysystem": "^3.2",
         "league/flysystem-aws-s3-v3": "^3.2",
