@@ -8,24 +8,25 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "8.*",
-        "doctrine/dbal": "*",
-        "fideloper/proxy": "*",
-        "gregoryxg/laravel-fullcalendar": "*",
-        "intervention/image": "*",
+        "php": "^8.1",
+        "doctrine/dbal": "^3.4",
+        "fideloper/proxy": "^4.4",
+        "gregoryxg/laravel-fullcalendar": "dev-master",
+        "intervention/image": "^2.7",
         "laravel/framework": "9.*",
-        "laravel/ui": "*",
-        "league/flysystem-aws-s3-v3": "*",
-        "phpunit/phpunit": "*",
-        "snipe/banbuilder": "*",
-        "stripe/stripe-php": "*"
+        "laravel/ui": "^4.0",
+        "league/flysystem": "^3.2",
+        "league/flysystem-aws-s3-v3": "^3.2",
+        "phpunit/phpunit": "^9.5",
+        "snipe/banbuilder": "^2.3",
+        "stripe/stripe-php": "^9.0"
     },
     "require-dev": {
-        "beyondcode/laravel-dump-server": "*",
-        "filp/whoops": "*",
-        "laravel/sail": "*",
-        "mockery/mockery": "*",
-        "nunomaduro/collision": "*"
+        "beyondcode/laravel-dump-server": "^1.8",
+        "filp/whoops": "^2.14",
+        "laravel/sail": "^1.15",
+        "mockery/mockery": "^1.5",
+        "nunomaduro/collision": "^6.2"
     },
     "config": {
         "optimize-autoloader": true,
