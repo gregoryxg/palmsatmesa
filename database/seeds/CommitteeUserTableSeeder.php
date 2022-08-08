@@ -86,7 +86,7 @@ class CommitteeUserTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-        );
+        ));
 
     }
 }
