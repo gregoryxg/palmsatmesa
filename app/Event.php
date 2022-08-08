@@ -5,7 +5,7 @@ namespace App;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Validator;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class Event extends Model
 {

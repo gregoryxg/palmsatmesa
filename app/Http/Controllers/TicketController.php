@@ -8,7 +8,7 @@ use App\Ticket;
 use App\TicketComment;
 use App\TicketType;
 use App\User;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Mail\TicketConfirmation;
 
 class TicketController extends Controller
@@ -17,7 +17,7 @@ class TicketController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -67,7 +67,7 @@ class TicketController extends Controller
     public function store(StoreTicket $request)
     {
         $ticket = new Ticket($request->validated());
-        
+
         $ticket->save();
 
         $ticket->users()->attach(Auth::id());

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\TicketComment;
 use App\Http\Requests\StoreTicketComment;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class TicketCommentController extends Controller
 {
@@ -13,7 +13,7 @@ class TicketCommentController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *

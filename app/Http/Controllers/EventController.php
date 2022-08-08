@@ -11,7 +11,7 @@ use App\Event;
 use App\User;
 use App\Reservable;
 use App\EventType;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Stripe\Stripe;
 use Stripe\Refund;
 use Stripe\Checkout\Session;

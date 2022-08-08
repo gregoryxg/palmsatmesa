@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Ticket;
 use App\User;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class CommitteeTicketController extends Controller
 {

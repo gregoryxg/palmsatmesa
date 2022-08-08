@@ -8,7 +8,7 @@ use Snipe\BanBuilder\CensorWords;
 use App\User;
 use App\Event;
 use DB;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class AppServiceProvider extends ServiceProvider
 {
