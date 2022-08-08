@@ -74,7 +74,7 @@
                                 <select id="resident_status_id" class="form-control{{ $errors->has('resident_status_id') ? ' is-invalid' : '' }}" name="resident_status_id" required autofocus>
                                     <option/>
                                     @foreach ($resident_status as $i=>$status)
-                                        <option value="{{ $status->id }}" {{ old('resident_status_id') == $status->id ? 'selected' : '' }}>{{ $status->status }}</option>                                        
+                                        <option value="{{ $status->id }}" {{ old('resident_status_id') == $status->id ? 'selected' : '' }}>{{ $status->status }}</option>
                                     @endforeach
                                 </select>
 
@@ -108,7 +108,7 @@
                             <label for="profile_preview" class="col-md-4 col-form-label text-md-right">{{ __('File must be less than 10MB, and a .GIF, .JPG, .JPEG, .PNG, or .SVG type.') }}</label>
 
                             <div class="col-md-3">
-                                <img id="profile_preview" src="http://placehold.it/150x200.png" height="200px" alt="Profile Picture" class="img-rounded img-responsive"/>
+                                <img id="profile_preview" src="https://placehold.jp/150x200.png" height="200px" alt="Profile Picture" class="img-rounded img-responsive"/>
                             </div>
                         </div>
 
