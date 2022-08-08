@@ -12,8 +12,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-
-
         \DB::table('users')->delete();
 
         \DB::table('users')->insert(array (
@@ -86,7 +84,7 @@ class UsersTableSeeder extends Seeder
                 'mobile_phone' => '530-828-3544',
                 'home_phone' => NULL,
                 'work_phone' => NULL,
-                'email' => 'kennyakacameron@aim.com',
+                'email' => 'kennyakacameron1234@aim.com',
                 'password' => '$2y$10$2Hp/9lKD5XNjFANBSjBWhelP/U9zngx3RViS1dVzPMcVQ8Wfe3oDS',
                 'remember_token' => NULL,
                 'created_at' => '2019-05-29 11:27:38',
@@ -112,7 +110,7 @@ class UsersTableSeeder extends Seeder
                 'mobile_phone' => '310-500-7256',
                 'home_phone' => NULL,
                 'work_phone' => NULL,
-                'email' => 'winniemyrealtor@gmail.com',
+                'email' => 'winniemyrealtor1234@gmail.com',
                 'password' => '$2y$10$4v5jYK3Xy0e/6PjvMMmQlOyv7G4dYEYCFGHImFGhOmaQvW9M3H2t6',
                 'remember_token' => NULL,
                 'created_at' => '2019-05-29 11:27:38',
@@ -138,7 +136,7 @@ class UsersTableSeeder extends Seeder
                 'mobile_phone' => '310-926-8108',
                 'home_phone' => NULL,
                 'work_phone' => NULL,
-                'email' => 'stevek@writechoices.com',
+                'email' => 'stevek1234@writechoices.com',
                 'password' => '$2y$10$f21vnnswySf0pJyVb./7KORx6btXPluNb3sw7jI7MnL/f88CzUieC',
                 'remember_token' => NULL,
                 'created_at' => '2019-05-29 11:27:38',
@@ -164,7 +162,7 @@ class UsersTableSeeder extends Seeder
                 'mobile_phone' => '518-888-5561',
                 'home_phone' => NULL,
                 'work_phone' => NULL,
-                'email' => 'steven.preston@conferencedirect.com',
+                'email' => 'steven.preston1234@conferencedirect.com',
                 'password' => '$2y$10$YJCjA2okqFpdrchZIGrTR.FYoror1JgfDMlubgCcujPJY9sVq.3ea',
                 'remember_token' => NULL,
                 'created_at' => '2019-05-29 11:27:38',
@@ -190,7 +188,7 @@ class UsersTableSeeder extends Seeder
                 'mobile_phone' => '480-254-0482',
                 'home_phone' => NULL,
                 'work_phone' => NULL,
-                'email' => 'ricardoflores0609@gmail.com',
+                'email' => 'ricardoflores06091234@gmail.com',
                 'password' => '$2y$10$h3Qe198I.iVgTJYCmvzfL.Jzga8Y2kBeubM9Z5wHHyulzSAOigDL2',
                 'remember_token' => NULL,
                 'created_at' => '2019-05-29 11:27:38',
@@ -200,7 +198,5 @@ class UsersTableSeeder extends Seeder
                 'email_verified_at' => '2019-05-29 11:27:38',
             ),
         ));
-
-
     }
 }

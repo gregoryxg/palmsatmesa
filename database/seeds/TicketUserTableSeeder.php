@@ -12,11 +12,6 @@ class TicketUserTableSeeder extends Seeder
      */
     public function run()
     {
-        
-
         \DB::table('ticket_user')->delete();
-        
-        
-        
     }
 }

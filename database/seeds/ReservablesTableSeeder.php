@@ -11,8 +11,6 @@ class ReservablesTableSeeder extends Seeder
      */
     public function run()
     {
-
-
         \DB::table('reservables')->delete();
 
         \DB::table('reservables')->insert(array (

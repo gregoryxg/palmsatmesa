@@ -12,12 +12,10 @@ class TicketTypesTableSeeder extends Seeder
      */
     public function run()
     {
-        
-
         \DB::table('ticket_types')->delete();
-        
+
         \DB::table('ticket_types')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'description' => 'Architectural',
@@ -25,7 +23,7 @@ class TicketTypesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
                 'description' => 'Clubhouse / Pool',
@@ -33,7 +31,7 @@ class TicketTypesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 3,
                 'description' => 'Financial',
@@ -41,7 +39,7 @@ class TicketTypesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 4,
                 'description' => 'Landscaping / Maintenance',
@@ -49,7 +47,7 @@ class TicketTypesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 5,
                 'description' => 'Neighborhood Watch',
@@ -57,7 +55,7 @@ class TicketTypesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            5 => 
+            5 =>
             array (
                 'id' => 6,
                 'description' => 'Parking',
@@ -65,7 +63,7 @@ class TicketTypesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            6 => 
+            6 =>
             array (
                 'id' => 7,
                 'description' => 'Safety and Security',
@@ -73,7 +71,7 @@ class TicketTypesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            7 => 
+            7 =>
             array (
                 'id' => 8,
                 'description' => 'Social Media / Events',
@@ -81,7 +79,7 @@ class TicketTypesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            8 => 
+            8 =>
             array (
                 'id' => 9,
                 'description' => 'Transition',
@@ -89,7 +87,7 @@ class TicketTypesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            9 => 
+            9 =>
             array (
                 'id' => 10,
                 'description' => 'Website / IT',
@@ -98,7 +96,5 @@ class TicketTypesTableSeeder extends Seeder
                 'updated_at' => NULL,
             ),
         ));
-        
-        
     }
 }

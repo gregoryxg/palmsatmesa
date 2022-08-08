@@ -12,12 +12,10 @@ class ResidentStatusesTableSeeder extends Seeder
      */
     public function run()
     {
-        
-
         \DB::table('resident_statuses')->delete();
-        
+
         \DB::table('resident_statuses')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'status' => 'Homeowner',
@@ -25,7 +23,7 @@ class ResidentStatusesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
                 'status' => 'Renter',
@@ -34,7 +32,5 @@ class ResidentStatusesTableSeeder extends Seeder
                 'updated_at' => NULL,
             ),
         ));
-        
-        
     }
 }

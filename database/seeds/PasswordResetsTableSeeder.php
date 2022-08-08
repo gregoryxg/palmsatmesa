@@ -12,11 +12,6 @@ class PasswordResetsTableSeeder extends Seeder
      */
     public function run()
     {
-        
-
         \DB::table('password_resets')->delete();
-        
-        
-        
     }
 }

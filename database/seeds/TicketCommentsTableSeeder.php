@@ -12,11 +12,6 @@ class TicketCommentsTableSeeder extends Seeder
      */
     public function run()
     {
-        
-
         \DB::table('ticket_comments')->delete();
-        
-        
-        
     }
 }
